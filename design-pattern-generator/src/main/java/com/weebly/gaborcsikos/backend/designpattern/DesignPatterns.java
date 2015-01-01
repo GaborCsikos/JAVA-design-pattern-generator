@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.designpattern;
+package com.weebly.gaborcsikos.backend.designpattern;
 
 import java.util.ArrayList;
 import java.util.List;

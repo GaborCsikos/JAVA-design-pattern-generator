@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.mainwindow;
+package com.weebly.gaborcsikos.backend.mainwindow;
 
-import com.weebly.gaborcsikos.designpattern.DesignPatterns;
+import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
 
 /**
  * Model for Main window
@@ -13,7 +13,7 @@ import com.weebly.gaborcsikos.designpattern.DesignPatterns;
  */
 public class MainWindowModel {
 
-	private final DesignPatterns patterns;
+	private DesignPatterns patterns;
 
 	/**
 	 * Default Constructor
@@ -24,6 +24,10 @@ public class MainWindowModel {
 
 	public DesignPatterns getPatterns() {
 		return patterns;
+	}
+
+	public void setPatterns(final DesignPatterns patterns) {
+		this.patterns = patterns;
 	}
 	
 }

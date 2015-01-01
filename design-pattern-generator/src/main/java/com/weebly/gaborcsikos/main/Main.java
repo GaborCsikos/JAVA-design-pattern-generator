@@ -3,9 +3,9 @@
  */
 package com.weebly.gaborcsikos.main;
 
-import com.weebly.gaborcsikos.mainwindow.MainWindowController;
-import com.weebly.gaborcsikos.mainwindow.MainWindowModel;
-import com.weebly.gaborcsikos.mainwindow.MainWindowView;
+import com.weebly.gaborcsikos.backend.mainwindow.MainWindowController;
+import com.weebly.gaborcsikos.backend.mainwindow.MainWindowModel;
+import com.weebly.gaborcsikos.frontend.mainwindow.MainWindowView;
 
 /**
  * Application entry point
