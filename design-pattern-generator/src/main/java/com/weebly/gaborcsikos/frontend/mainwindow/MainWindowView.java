@@ -5,13 +5,13 @@ package com.weebly.gaborcsikos.frontend.mainwindow;
 
 import java.awt.ComponentOrientation;
 import java.awt.FlowLayout;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 
 /**
  * View of Main window, responsible for GUI
@@ -29,7 +29,7 @@ public class MainWindowView extends JFrame {
 	private final JPanel panel;
 	private final FlowLayout flowLayout;
 	private final JButton selectButton;
-	private final JComboBox<DesignPattern> combobox;
+	private final JComboBox<String> combobox;
 
 	/**
 	 * Default Constructor
@@ -38,7 +38,7 @@ public class MainWindowView extends JFrame {
 		panel = new JPanel();
 		flowLayout = new FlowLayout();
 		selectButton = new JButton("SELECT");
-		combobox = new JComboBox<DesignPattern>();
+		combobox = new JComboBox<String>();
 	}
 
 	public void init() {
@@ -51,6 +51,13 @@ public class MainWindowView extends JFrame {
 		this.add(panel);
 		// TODO set combobox elements
 	}
+
+	public void addElementsToCombobox(final List<String> patterns) {
+		for (final String pattern : patterns) {
+			combobox.addItem(pattern);
+		}
+	}
+
 	private void setLayout() {
 		panel.setComponentOrientation(
                 ComponentOrientation.LEFT_TO_RIGHT);
@@ -58,8 +65,10 @@ public class MainWindowView extends JFrame {
 	}
 
 	private void addElemetsToLayout() {
+		panel.add(combobox);
 		panel.add(selectButton);
 		// TODO add listener to button in controller
 	}
+
 
 }
