@@ -20,11 +20,16 @@ public class Main {
 	 */
 	public static void main(final String[] args) {
 		try {
-			final MainWindowView view = new MainWindowView();
-			final MainWindowModel model = new MainWindowModel();
-			final MainWindowController conroller = new MainWindowController(
-					view, model);
-			conroller.runApplication();
+			javax.swing.SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					final MainWindowView view = new MainWindowView();
+					final MainWindowModel model = new MainWindowModel();
+					final MainWindowController conroller = new MainWindowController(
+							view, model);
+					conroller.runApplication();
+				}
+			});
+
 		} catch (final Exception e) {
 			System.err.println("Unknown error happened");
 			e.printStackTrace();

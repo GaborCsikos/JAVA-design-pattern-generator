@@ -24,8 +24,7 @@ public class DesignPatternMapper {
 		service = new DesignPatternServiceImpl();
 	}
 
-	public DesignPatternMapper(DesignPatternService service) {
-		service = new DesignPatternServiceImpl();
+	public DesignPatternMapper(final DesignPatternService service) {
 		this.service = service;
 	}
 

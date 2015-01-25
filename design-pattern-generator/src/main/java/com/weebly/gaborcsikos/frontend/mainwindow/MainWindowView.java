@@ -5,6 +5,7 @@ package com.weebly.gaborcsikos.frontend.mainwindow;
 
 import java.awt.ComponentOrientation;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -41,15 +42,18 @@ public class MainWindowView extends JFrame {
 		combobox = new JComboBox<String>();
 	}
 
+	public void addSelectPatternListener(final ActionListener listener) {
+		selectButton.addActionListener(listener);
+	}
+
 	public void init() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(400, 50);
+		this.setSize(400, 100);
 		this.setVisible(true);
 		this.setTitle(FRAME_TITLE);
 		setLayout();
 		addElemetsToLayout();
 		this.add(panel);
-		// TODO set combobox elements
 	}
 
 	public void addElementsToCombobox(final List<String> patterns) {
@@ -58,6 +62,9 @@ public class MainWindowView extends JFrame {
 		}
 	}
 
+	public String getSelectedPattern() {
+		return (String) combobox.getSelectedItem();
+	}
 	private void setLayout() {
 		panel.setComponentOrientation(
                 ComponentOrientation.LEFT_TO_RIGHT);
@@ -67,7 +74,6 @@ public class MainWindowView extends JFrame {
 	private void addElemetsToLayout() {
 		panel.add(combobox);
 		panel.add(selectButton);
-		// TODO add listener to button in controller
 	}
 
 

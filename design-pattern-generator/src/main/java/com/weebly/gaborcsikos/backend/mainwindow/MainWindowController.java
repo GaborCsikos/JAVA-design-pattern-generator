@@ -3,6 +3,9 @@
  */
 package com.weebly.gaborcsikos.backend.mainwindow;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternMapper;
 import com.weebly.gaborcsikos.backend.service.DesignPatternService;
 import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
@@ -51,6 +54,11 @@ public class MainWindowController {
 		initView();
 		initModel();
 		addComboboxElementsToView();
+
+	}
+
+	private void addActionListeners() {
+		view.addSelectPatternListener(new SelectPatternListener());
 	}
 
 	private void addComboboxElementsToView() {
@@ -63,6 +71,17 @@ public class MainWindowController {
 
 	private void initView() {
 		view.init();
+		addActionListeners();
+	}
+
+	class SelectPatternListener implements ActionListener {
+
+		public void actionPerformed(final ActionEvent e) {
+			System.out.println("action happened:" + e.getActionCommand()
+					+ " from:" + e.getSource());
+			view.getSelectedPattern(); // TODO move further, first with mapping
+		}
 
 	}
+
 }
