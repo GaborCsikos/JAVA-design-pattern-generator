@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
+import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.FACTORY;
+import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
@@ -23,8 +25,8 @@ import org.junit.Test;
  */
 public class DesignPatternMapperTest {
 
-	private static final String TEST_PATTERN_NAME = "Singleton";
-	private static final String TEST_PATTERN_NAME_2 = "Factory";
+	private static final String TEST_PATTERN_NAME = SINGLETON.getName();
+	private static final String TEST_PATTERN_NAME_2 = FACTORY.getName();
 	private DesignPatternMapper mapper;
 
 	/**

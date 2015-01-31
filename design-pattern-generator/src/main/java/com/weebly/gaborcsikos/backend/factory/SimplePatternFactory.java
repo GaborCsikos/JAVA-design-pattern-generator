@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.factory;
 
+import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class SimplePatternFactory {
 		final DesignPatterns patterns = new DesignPatterns();
 		final List<DesignPattern> patternList = new ArrayList<DesignPattern>();
 		final DesignPattern singleton = new DesignPattern();
-		singleton.setName("Singleton");
+		singleton.setName(SINGLETON.getName());
 		patternList.add(singleton);
 		patterns.setPatterns(patternList);
 		return patterns;

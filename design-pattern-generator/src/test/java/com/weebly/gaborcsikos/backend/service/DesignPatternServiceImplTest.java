@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.service;
 
+import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.FACTORY;
+import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -45,8 +47,8 @@ public class DesignPatternServiceImplTest {
 		DesignPattern firstPattern = mock(DesignPattern.class);
 		DesignPattern secondPattern = mock(DesignPattern.class);
 		DesignPatterns patternsMocked = mock(DesignPatterns.class);
-		String firstPatternName = "Singleton";
-		String secondPatternName = "Factory";
+		String firstPatternName = SINGLETON.getName();
+		String secondPatternName = FACTORY.getName();
 		when(firstPattern.getName()).thenReturn(firstPatternName);
 		when(secondPattern.getName()).thenReturn(secondPatternName);
 

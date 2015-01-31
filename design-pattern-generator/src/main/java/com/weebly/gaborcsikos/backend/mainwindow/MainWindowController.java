@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.mainwindow;
 
+import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.NoSuchElementException;
@@ -92,7 +94,7 @@ public class MainWindowController {
 
 		private void openPattern(final String patternStr,
 				final DesignPattern pattern) {
-			if (patternStr.equals("Singleton")) { // TODO add Enum
+			if (SINGLETON.getName().equals(patternStr)) {
 				view.openSingletonDialog();
 			}
 

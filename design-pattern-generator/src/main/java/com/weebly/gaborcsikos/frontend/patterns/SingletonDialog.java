@@ -13,6 +13,7 @@ import javax.swing.JFrame;
  */
 public class SingletonDialog extends ClassGenerateDialog {
 
+	// private JPanel singletonPanel;
 	/**
 	 * 
 	 */
@@ -20,7 +21,12 @@ public class SingletonDialog extends ClassGenerateDialog {
 
 	public SingletonDialog(final JFrame frame) {
 		super(frame);
+		initSingletonView();
+	}
 
+	private void initSingletonView() {
+		// super.panel.add(singletonPanel, BorderLayout.CENTER);
+		// TODO Add singeton info
 	}
 
 	public void getInformation() {
