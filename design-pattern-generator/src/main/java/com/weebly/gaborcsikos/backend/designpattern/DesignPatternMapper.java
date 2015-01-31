@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.weebly.gaborcsikos.backend.service.DesignPatternService;
-import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
 
 /**
  * @author Gabor Csikos
@@ -15,17 +14,13 @@ import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
  */
 public class DesignPatternMapper {
 
-	private final DesignPatternService service;
-
 	/**
 	 * Default Constructor
 	 */
 	public DesignPatternMapper() {
-		service = new DesignPatternServiceImpl();
 	}
 
 	public DesignPatternMapper(final DesignPatternService service) {
-		this.service = service;
 	}
 
 	public List<String> mapToStrings(final DesignPatterns patterns) {
@@ -36,7 +31,4 @@ public class DesignPatternMapper {
 		return stringPatterns;
 	}
 	
-	public DesignPattern getDesignPatternFromName(final String name) {
-		return service.getDesignPatternByName(name);
-	}
 }

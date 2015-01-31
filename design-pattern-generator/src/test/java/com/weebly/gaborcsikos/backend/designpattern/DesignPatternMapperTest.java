@@ -14,9 +14,6 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-
-import com.weebly.gaborcsikos.backend.service.DesignPatternService;
 
 /**
  * Unit tests for {@link DesignPatternMapper }
@@ -30,32 +27,13 @@ public class DesignPatternMapperTest {
 	private static final String TEST_PATTERN_NAME_2 = "Factory";
 	private DesignPatternMapper mapper;
 
-	@Mock
-	private DesignPatternService service;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
 		initMocks(this);
-		mapper = new DesignPatternMapper(service);
-	}
-
-	@Test
-	public void testGetPatternByName() {
-		//given
-		DesignPattern pattern = mock(DesignPattern.class);
-		when(pattern.getName()).thenReturn(TEST_PATTERN_NAME);
-		when(service.getDesignPatternByName(TEST_PATTERN_NAME)).thenReturn(
-				pattern);
-
-		//when
-		DesignPattern result = mapper
-				.getDesignPatternFromName(TEST_PATTERN_NAME);
-
-		//then
-		assertEquals("method gives back bad pattern ", result.getName(),
-				TEST_PATTERN_NAME);
+		mapper = new DesignPatternMapper();
 	}
 
 	@Test

@@ -17,7 +17,6 @@ import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
  */
 public class SimplePatternFactory {
 
-	// TODO re-factor method violates SRP
 	public DesignPatterns generetPatterns() {
 		final DesignPatterns patterns = new DesignPatterns();
 		final List<DesignPattern> patternList = new ArrayList<DesignPattern>();

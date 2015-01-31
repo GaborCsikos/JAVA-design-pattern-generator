@@ -5,7 +5,9 @@ package com.weebly.gaborcsikos.backend.mainwindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.NoSuchElementException;
 
+import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternMapper;
 import com.weebly.gaborcsikos.backend.service.DesignPatternService;
 import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
@@ -79,7 +81,30 @@ public class MainWindowController {
 		public void actionPerformed(final ActionEvent e) {
 			System.out.println("action happened:" + e.getActionCommand()
 					+ " from:" + e.getSource());
-			view.getSelectedPattern(); // TODO move further, first with mapping
+			String patternStr = view.getSelectedPattern();
+			DesignPattern pattern = getSelectedPatternFormstr(patternStr);
+			if (pattern != null) {
+				openPattern(patternStr, pattern);
+			} else {
+				throw new NoSuchElementException("Design pattern doesn't exist");
+			}
+		}
+
+		private void openPattern(final String patternStr,
+				final DesignPattern pattern) {
+			if (patternStr.equals("Singleton")) { // TODO add Enum
+				view.openSingletonDialog();
+			}
+
+		}
+
+		private DesignPattern getSelectedPatternFormstr(final String patternStr) {
+			for (DesignPattern pattern : model.getPatterns().getPatterns()) {
+				if (patternStr.equals(pattern.getName())) {
+					return pattern;
+				}
+			}
+			return null;
 		}
 
 	}

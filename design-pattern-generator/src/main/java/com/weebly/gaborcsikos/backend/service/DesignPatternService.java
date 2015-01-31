@@ -3,7 +3,6 @@
  */
 package com.weebly.gaborcsikos.backend.service;
 
-import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
 
 /**
@@ -21,11 +20,4 @@ public interface DesignPatternService {
 	 */
 	DesignPatterns loadAllDesignPattern();
 	
-	/**
-	 * 
-	 * @param name
-	 *            to search for
-	 * @return {@link DesignPattern} from name
-	 */
-	DesignPattern getDesignPatternByName(String name);
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class is responsible for holding {@link DesignPattern}s
+ * Class is responsible for holding {@link DesignPattern}s.
  * 
  * @author Gabor Csikos
  * 
