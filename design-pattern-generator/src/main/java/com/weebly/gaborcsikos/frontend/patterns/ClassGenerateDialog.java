@@ -29,7 +29,6 @@ public abstract class ClassGenerateDialog extends JDialog {
 	private JPanel buttonPanel;
 	private JTextField textField;
 	private JButton generate;
-	// TODO add combobox
 
 	/**
 	 * 
@@ -59,7 +58,7 @@ public abstract class ClassGenerateDialog extends JDialog {
 		classPanel.add(textField);
 		
 		classPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		panel.add(classPanel, BorderLayout.CENTER);
+		panel.add(classPanel, BorderLayout.NORTH);
 		this.add(panel);
 	}
 
@@ -76,7 +75,7 @@ public abstract class ClassGenerateDialog extends JDialog {
 		panel.add(buttonPanel, BorderLayout.SOUTH);
 		this.add(panel);
 	}
-	private void initDefaultGeneratableOptions() {
 
-	}
+	protected abstract void initDefaultGeneratableOptions();
+	
 }

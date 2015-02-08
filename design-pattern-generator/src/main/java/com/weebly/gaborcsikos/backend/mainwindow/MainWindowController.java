@@ -3,14 +3,13 @@
  */
 package com.weebly.gaborcsikos.backend.mainwindow;
 
-import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.NoSuchElementException;
 
 import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternMapper;
+import com.weebly.gaborcsikos.backend.designpattern.DesignPatternOpener;
 import com.weebly.gaborcsikos.backend.service.DesignPatternService;
 import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
 import com.weebly.gaborcsikos.frontend.mainwindow.MainWindowView;
@@ -28,6 +27,7 @@ public class MainWindowController {
 	private final MainWindowModel model;
 	private final DesignPatternService service;
 	private final DesignPatternMapper mapper;
+	private final DesignPatternOpener opener;
 
 	/**
 	 * Default Constructor
@@ -37,6 +37,7 @@ public class MainWindowController {
 		model = new MainWindowModel();
 		service = new DesignPatternServiceImpl();
 		mapper = new DesignPatternMapper();
+		opener = new DesignPatternOpener();
 	}
 
 	/**
@@ -52,6 +53,7 @@ public class MainWindowController {
 		this.model = model;
 		service = new DesignPatternServiceImpl();
 		mapper = new DesignPatternMapper();
+		opener = new DesignPatternOpener();
 	}
 
 	public void runApplication() {
@@ -94,9 +96,7 @@ public class MainWindowController {
 
 		private void openPattern(final String patternStr,
 				final DesignPattern pattern) {
-			if (SINGLETON.getName().equals(patternStr)) {
-				view.openSingletonDialog();
-			}
+			opener.open(patternStr, view);
 
 		}
 

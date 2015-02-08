@@ -9,9 +9,10 @@ package com.weebly.gaborcsikos.backend.designpattern;
  * @author Gabor Csikos
  * 
  */
-public class DesignPattern {
+public abstract class DesignPattern {
 
 	private String name;
+	private String className;
 
 	/**
 	 * Default Constructor
@@ -26,6 +27,14 @@ public class DesignPattern {
 
 	public void setName(final String name) {
 		this.name = name;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
 	}
 
 }

@@ -79,7 +79,9 @@ public class MainWindowView extends JFrame {
 
 	public void openSingletonDialog() {
 		SingletonDialog dialog = new SingletonDialog(this);
+		dialog.initSingletonView();
 		dialog.getInformation();
+		// TODO move this to opener
 	}
 
 }
