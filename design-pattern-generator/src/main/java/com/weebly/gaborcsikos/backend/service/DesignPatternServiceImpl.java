@@ -3,6 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.service;
 
+import com.weebly.gaborcsikos.backend.api.DesignPatternService;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
 import com.weebly.gaborcsikos.backend.factory.SimplePatternFactory;
 

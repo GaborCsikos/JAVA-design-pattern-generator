@@ -6,7 +6,7 @@ package com.weebly.gaborcsikos.backend.designpattern;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.weebly.gaborcsikos.backend.service.DesignPatternService;
+import com.weebly.gaborcsikos.backend.api.DesignPatternService;
 
 /**
  * @author Gabor Csikos

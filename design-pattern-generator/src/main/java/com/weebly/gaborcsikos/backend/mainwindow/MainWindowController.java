@@ -7,10 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.NoSuchElementException;
 
+import com.weebly.gaborcsikos.backend.api.DesignPatternService;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternMapper;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternOpener;
-import com.weebly.gaborcsikos.backend.service.DesignPatternService;
 import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
 import com.weebly.gaborcsikos.frontend.mainwindow.MainWindowView;
 

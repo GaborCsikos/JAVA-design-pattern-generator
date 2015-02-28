@@ -3,7 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
-import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 
 import javax.swing.JFrame;
 

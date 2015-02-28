@@ -3,7 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.factory;
 
-import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,8 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
-import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.FACTORY;
-import static com.weebly.gaborcsikos.backend.designpattern.PatternEnum.SINGLETON;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;

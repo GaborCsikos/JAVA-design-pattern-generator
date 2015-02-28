@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.service;
+package com.weebly.gaborcsikos.backend.api;
 
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
 

@@ -12,7 +12,6 @@ package com.weebly.gaborcsikos.backend.designpattern;
 public abstract class DesignPattern {
 
 	private String name;
-	private String className;
 
 	/**
 	 * Default Constructor
@@ -29,12 +28,5 @@ public abstract class DesignPattern {
 		this.name = name;
 	}
 
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
-	}
 
 }

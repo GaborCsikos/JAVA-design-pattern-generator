@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.designpattern;
+package com.weebly.gaborcsikos.backend.api;
 
 /**
  * @author Gabor Csikos
