@@ -12,12 +12,17 @@ package com.weebly.gaborcsikos.backend.designpattern;
 public abstract class DesignPattern {
 
 	private String name;
+	private BasicTemplate basicTemplate;
 
 	/**
 	 * Default Constructor
 	 */
 	public DesignPattern() {
+		basicTemplate = new BasicTemplate();
+	}
 
+	public DesignPattern(final String packageName, final String className) {
+		basicTemplate = new BasicTemplate(packageName, className);
 	}
 
 	public String getName() {
@@ -28,5 +33,12 @@ public abstract class DesignPattern {
 		this.name = name;
 	}
 
+	public BasicTemplate getBasicTemplate() {
+		return basicTemplate;
+	}
+
+	public void setBasicTemplate(final BasicTemplate basicTemplate) {
+		this.basicTemplate = basicTemplate;
+	}
 
 }
