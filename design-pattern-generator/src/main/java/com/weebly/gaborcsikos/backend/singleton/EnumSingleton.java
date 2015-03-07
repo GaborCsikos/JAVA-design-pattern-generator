@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.singleton;
 
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
+
 import com.weebly.gaborcsikos.backend.api.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.ClassType;
 import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
@@ -28,11 +30,11 @@ public class EnumSingleton extends SingletonTemplate {
 		super.setType(ClassType.ENUM);
 		sb.append(super.getBasicStucture());
 		sb.append(IndentHelper.INDENT).append(instanceName.toUpperCase())
-				.append(";\n\n");
+				.append(";").append(DOUBLE_NEW_LINE);
 		sb.append(IndentHelper.INDENT).append(super.getClassName())
-				.append("() {\n\n");
+				.append("() {").append(DOUBLE_NEW_LINE);
 		sb.append(IndentHelper.INDENT).append("}");
-		sb.append("\n\n}");
+		sb.append(DOUBLE_NEW_LINE).append("}");
 		return sb.toString();
 	}
 }

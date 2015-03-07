@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
-import com.weebly.gaborcsikos.backend.singleton.Singleton;
+import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 
 /**
  * Factory to generate Dummy data
@@ -23,7 +23,7 @@ public class SimplePatternFactory {
 	public DesignPatterns generetPatterns() {
 		final DesignPatterns patterns = new DesignPatterns();
 		final List<DesignPattern> patternList = new ArrayList<DesignPattern>();
-		final DesignPattern singleton = new Singleton();
+		final DesignPattern singleton = new SingletonModel();
 		singleton.setName(SINGLETON.getName());
 		patternList.add(singleton);
 		patterns.setPatterns(patternList);

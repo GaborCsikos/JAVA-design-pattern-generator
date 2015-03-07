@@ -14,10 +14,10 @@ import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
  * @author Gabor Csikos
  * 
  */
-public class Singleton extends DesignPattern {
+public class SingletonModel extends DesignPattern {
 
-	private boolean staticallyLoaded;
-	private boolean dynamicallyLoaded;
+	private boolean eagerLoaded;
+	private boolean lazyLoaded;
 	private boolean constructorPrivate;
 	private boolean enumType;
 	private String instanceName;
@@ -26,11 +26,11 @@ public class Singleton extends DesignPattern {
 	/**
 	 * Default class
 	 */
-	public Singleton() {
+	public SingletonModel() {
 
 	}
 
-	public Singleton(final String packaName, final String className) {
+	public SingletonModel(final String packaName, final String className) {
 		super(packaName, className);
 	}
 
@@ -38,8 +38,8 @@ public class Singleton extends DesignPattern {
 			final boolean dynamicallyLoaded,
 			final boolean constructorProtected) {
 		super.setName(PatternEnum.SINGLETON.getName());
-		this.staticallyLoaded = staticallyLoaded;
-		this.dynamicallyLoaded = dynamicallyLoaded;
+		this.eagerLoaded = staticallyLoaded;
+		this.lazyLoaded = dynamicallyLoaded;
 		this.constructorPrivate = constructorProtected;
 	}
 
@@ -48,29 +48,29 @@ public class Singleton extends DesignPattern {
 		StringBuilder result = new StringBuilder();
 		if (enumType) {
 			createEnumSingleton();
-		} else if (staticallyLoaded) {
+		} else if (eagerLoaded) {
 			createStaticallyLoaded();
-		} else if (dynamicallyLoaded) {
+		} else if (lazyLoaded) {
 			createDynamicallyLoaded();
 		}
 		result.append(template.buildClass());
 		return result.toString();
 	}
 
-	public boolean isStaticallyLoaded() {
-		return staticallyLoaded;
+	public boolean isEagerLoaded() {
+		return eagerLoaded;
 	}
 
-	public void setStaticallyLoaded(final boolean staticallyLoaded) {
-		this.staticallyLoaded = staticallyLoaded;
+	public void setEagerLoaded(final boolean eagerLoaded) {
+		this.eagerLoaded = eagerLoaded;
 	}
 
-	public boolean isDynamicallyLoaded() {
-		return dynamicallyLoaded;
+	public boolean isLazyLoaded() {
+		return lazyLoaded;
 	}
 
-	public void setDynamicallyLoaded(final boolean dynamicallyLoaded) {
-		this.dynamicallyLoaded = dynamicallyLoaded;
+	public void setLazyLoaded(final boolean lazyLoaded) {
+		this.lazyLoaded = lazyLoaded;
 	}
 
 	public boolean isConstructorPrivate() {

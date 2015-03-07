@@ -4,7 +4,9 @@
 package com.weebly.gaborcsikos.backend.singleton;
 
 import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_INDENT;
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.api.IndentHelper.INDENT;
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
 
 import com.weebly.gaborcsikos.backend.api.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
@@ -31,15 +33,16 @@ public class SingletonStatic extends SingletonTemplate {
 		sb.append(super.getBasicStucture());
 		sb.append(INDENT).append("private static final").append(getClassName())
 				.append(" ").append(instanceName.toUpperCase())
-				.append(" = new ").append(getClassName()).append("();\n\n");
+				.append(" = new ").append(getClassName()).append("();")
+				.append(DOUBLE_NEW_LINE);
 		sb.append(createConstructor(isPrivate));
 		sb.append(INDENT).append("public static ").append(getClassName())
 				.append(" get").append(instanceName.toUpperCase())
-				.append("() {\n");
+				.append("() {").append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("return ")
-				.append(instanceName.toUpperCase())
-				.append(";\n");
-		sb.append(INDENT).append("}\n");
+				.append(instanceName.toUpperCase()).append(";")
+				.append(NEW_LINE);
+		sb.append(INDENT).append("}").append(NEW_LINE);
 		sb.append(super.getEndStructure());
 		return sb.toString();
 	}

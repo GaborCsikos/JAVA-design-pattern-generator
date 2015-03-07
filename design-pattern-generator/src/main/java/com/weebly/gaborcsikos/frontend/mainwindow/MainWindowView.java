@@ -13,8 +13,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
-
 /**
  * View of Main window, responsible for GUI
  * 
@@ -75,13 +73,6 @@ public class MainWindowView extends JFrame {
 	private void addElemetsToLayout() {
 		panel.add(combobox);
 		panel.add(selectButton);
-	}
-
-	public void openSingletonDialog() {
-		SingletonDialog dialog = new SingletonDialog(this);
-		dialog.initSingletonView();
-		dialog.getInformation();
-		// TODO move this to opener
 	}
 
 }

@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.singleton;
 
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
+
 import org.apache.commons.lang3.StringUtils;
 
 import com.sun.istack.internal.NotNull;
@@ -38,8 +40,9 @@ public abstract class SingletonTemplate extends BasicTemplate {
 		} else {
 			sb.append(IndentHelper.INDENT).append("protected ");
 		}
-		sb.append(getClassName()).append("() {\n\n")
-				.append(IndentHelper.INDENT).append("}\n\n");
+		sb.append(getClassName()).append("() {").append(DOUBLE_NEW_LINE)
+				.append(IndentHelper.INDENT).append("}")
+				.append(DOUBLE_NEW_LINE);
 		return sb.toString();
 	}
 }

@@ -3,6 +3,9 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
+
 import org.apache.commons.lang3.StringUtils;
 
 import com.sun.istack.internal.NotNull;
@@ -50,7 +53,7 @@ public class BasicTemplate {
 
 	public String buildClass() throws CanNotCreateClassException,
 			FieldVariableIsEmptyException {
-		return getBasicStucture().append("\n}").toString();
+		return getBasicStucture().append(NEW_LINE).append("}").toString();
 	}
 
 	public ClassType getType() {
@@ -64,14 +67,16 @@ public class BasicTemplate {
 	public StringBuilder getBasicStucture() throws CanNotCreateClassException {
 		checkIfFieldsAreEmpty();
 		StringBuilder sb = new StringBuilder("package ");
-		sb.append(packageName + ";\n\n").append(
-				"public " + type.getName() + " "
-				+ className + " {\n\n");
+		sb.append(packageName)
+				.append(";")
+				.append(DOUBLE_NEW_LINE)
+				.append("public ").append(type.getName()).append(" ")
+				.append(className).append(" {").append(DOUBLE_NEW_LINE);
 		return sb;
 	}
 
 	public String getEndStructure() {
-		return "\n}";
+		return NEW_LINE + "}";
 	}
 
 	public String getPackageName() {

@@ -3,8 +3,11 @@
  */
 package com.weebly.gaborcsikos.backend.api;
 
+import java.io.File;
+import java.io.IOException;
+
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
-import com.weebly.gaborcsikos.backend.singleton.Singleton;
+import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 
 /**
  * Class for generating patterns
@@ -34,6 +37,20 @@ public interface PatternGeneratorService {
 	 * @throws CanNotCreateClassException
 	 * @throws FieldVariableIsEmptyException
 	 */
-	String generateSingleton(Singleton singleton)
+	String generateSingleton(SingletonModel singleton)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException;
+
+	/**
+	 * @param File
+	 *            the file
+	 * @param singleton
+	 *            the Singleton to generate
+	 * @return generated Singleton
+	 * @throws CanNotCreateClassException
+	 * @throws FieldVariableIsEmptyException
+	 * @throws IOException
+	 */
+	void generateSingletonToFile(File file, SingletonModel singleton)
+			throws CanNotCreateClassException, FieldVariableIsEmptyException,
+			IOException;
 }

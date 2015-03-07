@@ -28,6 +28,7 @@ public class DesignPatternServiceImpl implements DesignPatternService {
 		this.patternFactory = patternFactory;
 	}
 
+	@Override
 	public DesignPatterns loadAllDesignPattern() {
 		return patternFactory.generetPatterns();
 	}

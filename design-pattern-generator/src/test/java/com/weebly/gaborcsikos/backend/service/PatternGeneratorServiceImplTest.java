@@ -4,7 +4,9 @@
 package com.weebly.gaborcsikos.backend.service;
 
 import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_INDENT;
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.api.IndentHelper.INDENT;
+import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
 import static com.weebly.gaborcsikos.backend.api.IndentHelper.TRIPLE_INDENT;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelper.CLASS_NAME;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelper.INSTANCE;
@@ -23,7 +25,7 @@ import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.api.IndentHelper;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
-import com.weebly.gaborcsikos.backend.singleton.Singleton;
+import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 import com.weebly.gaborcsikos.backend.testutil.TestHelper;
 
 /**
@@ -77,7 +79,7 @@ public class PatternGeneratorServiceImplTest {
 	@Test
 	public void testEnumSingleton() throws CanNotCreateClassException,
 			FieldVariableIsEmptyException {
-		Singleton singleton = new Singleton(PACKAGE_NAME, CLASS_NAME);
+		SingletonModel singleton = new SingletonModel(PACKAGE_NAME, CLASS_NAME);
 		singleton.setEnumType(true);
 		singleton.setInstanceName(INSTANCE);
 		String expected = createSingleton();
@@ -89,7 +91,7 @@ public class PatternGeneratorServiceImplTest {
 	@Test(expected = FieldVariableIsEmptyException.class)
 	public void testFieldsAreEmpty() throws CanNotCreateClassException,
 			FieldVariableIsEmptyException {
-		Singleton singleton = new Singleton(PACKAGE_NAME, CLASS_NAME);
+		SingletonModel singleton = new SingletonModel(PACKAGE_NAME, CLASS_NAME);
 		singleton.setEnumType(true);
 		service.generateSingleton(singleton);
 	}
@@ -97,8 +99,8 @@ public class PatternGeneratorServiceImplTest {
 	@Test
 	public void testDynamicallyLoadedSingleton()
 			throws CanNotCreateClassException, FieldVariableIsEmptyException {
-		Singleton singleton = new Singleton(PACKAGE_NAME, CLASS_NAME);
-		singleton.setDynamicallyLoaded(true);
+		SingletonModel singleton = new SingletonModel(PACKAGE_NAME, CLASS_NAME);
+		singleton.setLazyLoaded(true);
 		singleton.setConstructorPrivate(true);
 		singleton.setInstanceName(INSTANCE);
 		String expected = createDynamicSingleton();
@@ -111,8 +113,8 @@ public class PatternGeneratorServiceImplTest {
 	@Test
 	public void testStaticallyLoadedSingleton()
 			throws CanNotCreateClassException, FieldVariableIsEmptyException {
-		Singleton singleton = new Singleton(PACKAGE_NAME, CLASS_NAME);
-		singleton.setStaticallyLoaded(true);
+		SingletonModel singleton = new SingletonModel(PACKAGE_NAME, CLASS_NAME);
+		singleton.setEagerLoaded(true);
 		singleton.setConstructorPrivate(true);
 		singleton.setInstanceName(INSTANCE);
 		String expected = createStaticSingleton();
@@ -127,14 +129,14 @@ public class PatternGeneratorServiceImplTest {
 		sb.append(getBasicStucture());
 		sb.append(INDENT).append("private static final").append(CLASS_NAME)
 				.append(" ").append(INSTANCE.toUpperCase()).append(" = new ")
-				.append(CLASS_NAME).append("();\n\n");
+				.append(CLASS_NAME).append("();").append(DOUBLE_NEW_LINE);
 		sb.append(createConstructor(true));
 		sb.append(INDENT).append("public static ").append(CLASS_NAME)
-				.append(" get").append(INSTANCE.toUpperCase())
-				.append("() {\n");
+				.append(" get").append(INSTANCE.toUpperCase()).append("() {")
+				.append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("return ")
-				.append(INSTANCE.toUpperCase()).append(";\n");
-		sb.append(INDENT).append("}\n");
+				.append(INSTANCE.toUpperCase()).append(";").append(NEW_LINE);
+		sb.append(INDENT).append("}").append(NEW_LINE);
 		sb.append(getEndStructure());
 		return sb.toString();
 	}
@@ -143,51 +145,54 @@ public class PatternGeneratorServiceImplTest {
 		StringBuilder sb = new StringBuilder();
 		sb.append(getBasicStucture());
 		sb.append(INDENT).append("private static ").append(CLASS_NAME)
-				.append(" ").append(INSTANCE).append(";\n\n");
+				.append(" ").append(INSTANCE).append(";").append(DOUBLE_NEW_LINE);
 		sb.append(createConstructor(true));
 		sb.append(INDENT).append("public static ").append(CLASS_NAME)
-				.append(" get").append(INTANCE_FIRTS_UPPER).append("() {\n");
+				.append(" get").append(INTANCE_FIRTS_UPPER).append("() {").append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("if (").append(INSTANCE)
-				.append(" == null) {\n");
+				.append(" == null) {").append(NEW_LINE);
 		sb.append(TRIPLE_INDENT).append("create")
 .append("Instance")
-				.append("();\n");
-		sb.append(DOUBLE_INDENT).append("}\n");
+				.append("();").append(NEW_LINE);
+		sb.append(DOUBLE_INDENT).append("}").append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("return ").append(INSTANCE)
-				.append(";\n");
-		sb.append(INDENT).append("}\n\n");
+.append(";")
+				.append(NEW_LINE);
+		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
 		sb.append(INDENT).append("private synchronized static void ")
 				.append("create").append(INTANCE_FIRTS_UPPER)
-				.append("() {\n");
+.append("() {")
+				.append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("if (").append(INSTANCE)
-				.append(" == null) {\n");
+				.append(" == null) {").append(NEW_LINE);
 		sb.append(TRIPLE_INDENT).append(INSTANCE).append(" = new ")
-				.append(CLASS_NAME).append("();\n");
-		sb.append(DOUBLE_INDENT).append("}\n");
-		sb.append(INDENT).append("}\n");
+				.append(CLASS_NAME).append("();").append(NEW_LINE);
+		sb.append(DOUBLE_INDENT).append("}").append(NEW_LINE);
+		sb.append(INDENT).append("}").append(NEW_LINE);
 		sb.append(getEndStructure());
 		return sb.toString();
 	}
 
 	private String createSingleton() {
 		StringBuilder sb = new StringBuilder("package ");
-		sb.append(TestHelper.PACKAGE_NAME + ";\n\n").append(
+		sb.append(TestHelper.PACKAGE_NAME + ";").append(DOUBLE_NEW_LINE).append(
 				"public " + ClassType.ENUM.getName() + " "
-						+ TestHelper.CLASS_NAME + " {\n\n");
+						+ TestHelper.CLASS_NAME + " {").append(DOUBLE_NEW_LINE);
 		sb.append(IndentHelper.INDENT).append(TestHelper.INSTANCE.toUpperCase())
-				.append(";\n\n");
+.append(";")
+				.append(DOUBLE_NEW_LINE);
 		sb.append(IndentHelper.INDENT).append(TestHelper.CLASS_NAME)
-				.append("() {\n\n");
+				.append("() {").append(DOUBLE_NEW_LINE);
 		sb.append(IndentHelper.INDENT).append("}");
-		sb.append("\n\n}");
+		sb.append(DOUBLE_NEW_LINE).append("}");
 		return sb.toString();
 	}
 
 	private String generateExceptedClass() {
 		StringBuilder sb = new StringBuilder("package ");
-		sb.append(TestHelper.PACKAGE_NAME + ";\n\n")
-				.append("public class " + TestHelper.CLASS_NAME + " {\n\n")
-				.append("\n}");
+		sb.append(TestHelper.PACKAGE_NAME + ";").append(DOUBLE_NEW_LINE)
+				.append("public class " + TestHelper.CLASS_NAME + " {")
+				.append(DOUBLE_NEW_LINE).append(NEW_LINE).append("}");
 		return sb.toString();
 	}
 
@@ -198,8 +203,9 @@ public class PatternGeneratorServiceImplTest {
 		} else {
 			sb.append(IndentHelper.INDENT).append("protected ");
 		}
-		sb.append(CLASS_NAME).append("() {\n\n")
-				.append(IndentHelper.INDENT).append("}\n\n");
+		sb.append(CLASS_NAME).append("() {").append(DOUBLE_NEW_LINE)
+				.append(IndentHelper.INDENT).append("}")
+				.append(DOUBLE_NEW_LINE);
 		return sb.toString();
 	}
 }
