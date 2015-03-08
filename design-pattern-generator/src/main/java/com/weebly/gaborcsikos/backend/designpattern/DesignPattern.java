@@ -3,6 +3,9 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
+import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
+import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
+
 /**
  * Representation of a Design pattern
  * 
@@ -41,4 +44,6 @@ public abstract class DesignPattern {
 		this.basicTemplate = basicTemplate;
 	}
 
+	public abstract String getGeneratedPattern()
+			throws CanNotCreateClassException, FieldVariableIsEmptyException;
 }

@@ -8,11 +8,11 @@ import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 
-import com.weebly.gaborcsikos.backend.api.CanNotCreateClassException;
-import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
+import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
+import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
-import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
+import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 
 /**
  * @author Gabor Csikos
@@ -27,24 +27,25 @@ public class PatternGeneratorServiceImpl implements PatternGeneratorService {
 	public String generateClass(final BasicTemplate template)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException {
 		if (template != null) {
-			return template.buildClass();
+				return template.buildClass();
 		} else {
 			throw new CanNotCreateClassException();
 		}
 	}
 
 	@Override
-	public String generateSingleton(final SingletonModel singleton)
+	public String generatePattern(final DesignPattern pattern)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException {
-		return singleton.getSingleton();
+		return pattern.getGeneratedPattern();
 	}
 
 	@Override
-	public void generateSingletonToFile(final File file,
-			final SingletonModel singleton)
+	public void generatePatternToFile(final File file,
+			final DesignPattern pattern)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException, IOException {
-		String stringToWrite = singleton.getSingleton();
+		String stringToWrite = pattern.getGeneratedPattern();
 		FileUtils.writeStringToFile(file, stringToWrite);
 	}
+
 
 }

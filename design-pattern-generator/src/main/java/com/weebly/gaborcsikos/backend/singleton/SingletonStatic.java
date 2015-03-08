@@ -8,8 +8,8 @@ import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.api.IndentHelper.INDENT;
 import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
 
-import com.weebly.gaborcsikos.backend.api.CanNotCreateClassException;
-import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
+import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
+import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
 /**
  * @author Gabor Csikos

@@ -16,7 +16,10 @@ public final class TestHelper {
 	public static final String CLASS_NAME = "ClassName";
 	public static final String PACKAGE_NAME = "com.weebly.gaborcsikos";
 	public static final String INSTANCE = "instance";
+	public static final String CLONE_METHOD_NAME = "makeClone";
 	public static final String INTANCE_FIRTS_UPPER = "Instance";
+
+	public static String IMPELENTSPART = "";
 
 	private TestHelper() {
 
@@ -28,8 +31,8 @@ public final class TestHelper {
 	public static String getBasicStucture() {
 		StringBuilder sb = new StringBuilder("package ");
 		sb.append(PACKAGE_NAME + ";\n\n").append(
-				"public " + CLASS.getName() + " " + CLASS_NAME
-						+ " {\n\n");
+"public " + CLASS.getName() + " " + CLASS_NAME)
+				.append(IMPELENTSPART).append(" {\n\n");
 		return sb.toString();
 	}
 	public static void printInfo(final String info) {
@@ -39,4 +42,5 @@ public final class TestHelper {
 	public static void printInfo(final StringBuilder info) {
 		System.out.println(info.toString());
 	}
+
 }

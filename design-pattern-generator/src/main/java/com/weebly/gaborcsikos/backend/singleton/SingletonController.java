@@ -10,9 +10,9 @@ import java.io.IOException;
 
 import javax.swing.JFileChooser;
 
-import com.weebly.gaborcsikos.backend.api.CanNotCreateClassException;
-import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
+import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
+import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
 import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
 
@@ -89,7 +89,7 @@ public class SingletonController {
 					System.out.println("FilePath:" + path);
 					try {
 						file = new File(path);
-						service.generateSingletonToFile(file, singleton);
+						service.generatePatternToFile(file, singleton);
 					} catch (CanNotCreateClassException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

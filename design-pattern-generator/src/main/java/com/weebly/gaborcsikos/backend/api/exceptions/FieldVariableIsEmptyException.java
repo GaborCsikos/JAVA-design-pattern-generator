@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.api;
+package com.weebly.gaborcsikos.backend.api.exceptions;
 
 /**
  * @author Gabor Csikos

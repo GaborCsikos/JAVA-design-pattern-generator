@@ -9,7 +9,7 @@ package com.weebly.gaborcsikos.backend.api;
  */
 public enum PatternEnum {
 	
-	SINGLETON("Singleton"), FACTORY("FACTORY");
+	SINGLETON("Singleton"), PROTOTYPE("Prototype");
 	
 	private String name;
 

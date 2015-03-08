@@ -3,7 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
-import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -26,7 +26,7 @@ import org.junit.Test;
 public class DesignPatternMapperTest {
 
 	private static final String TEST_PATTERN_NAME = SINGLETON.getName();
-	private static final String TEST_PATTERN_NAME_2 = FACTORY.getName();
+	private static final String TEST_PATTERN_NAME_2 = PROTOTYPE.getName();
 	private DesignPatternMapper mapper;
 
 	/**

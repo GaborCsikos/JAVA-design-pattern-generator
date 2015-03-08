@@ -8,8 +8,8 @@ import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
 import org.apache.commons.lang3.StringUtils;
 
 import com.sun.istack.internal.NotNull;
-import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.api.IndentHelper;
+import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 
 /**

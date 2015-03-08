@@ -9,9 +9,9 @@ import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
 import org.apache.commons.lang3.StringUtils;
 
 import com.sun.istack.internal.NotNull;
-import com.weebly.gaborcsikos.backend.api.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.ClassType;
-import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
+import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
+import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
 /**
  * Basic template for a class
@@ -25,6 +25,8 @@ public class BasicTemplate {
 	private String packageName;
 	@NotNull
 	private String className;
+
+	private String implementsPart = "";
 
 	private ClassType type;
 
@@ -71,7 +73,8 @@ public class BasicTemplate {
 				.append(";")
 				.append(DOUBLE_NEW_LINE)
 				.append("public ").append(type.getName()).append(" ")
-				.append(className).append(" {").append(DOUBLE_NEW_LINE);
+				.append(className).append(implementsPart).append(" {")
+				.append(DOUBLE_NEW_LINE);
 		return sb;
 	}
 
@@ -98,5 +101,13 @@ public class BasicTemplate {
 		if (StringUtils.isEmpty(packageName) || StringUtils.isEmpty(className)) {
 			throw new CanNotCreateClassException();
 		}
+	}
+
+	public String getImplementsPart() {
+		return implementsPart;
+	}
+
+	public void setImplementsPart(final String implementsPart) {
+		this.implementsPart = implementsPart;
 	}
 }

@@ -3,9 +3,9 @@
  */
 package com.weebly.gaborcsikos.backend.singleton;
 
-import com.weebly.gaborcsikos.backend.api.CanNotCreateClassException;
-import com.weebly.gaborcsikos.backend.api.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
+import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
+import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
 
 /**
@@ -41,20 +41,6 @@ public class SingletonModel extends DesignPattern {
 		this.eagerLoaded = staticallyLoaded;
 		this.lazyLoaded = dynamicallyLoaded;
 		this.constructorPrivate = constructorProtected;
-	}
-
-	public String getSingleton() throws CanNotCreateClassException,
-			FieldVariableIsEmptyException {
-		StringBuilder result = new StringBuilder();
-		if (enumType) {
-			createEnumSingleton();
-		} else if (eagerLoaded) {
-			createStaticallyLoaded();
-		} else if (lazyLoaded) {
-			createDynamicallyLoaded();
-		}
-		result.append(template.buildClass());
-		return result.toString();
 	}
 
 	public boolean isEagerLoaded() {
@@ -120,6 +106,21 @@ public class SingletonModel extends DesignPattern {
 		template = new SingletonStatic(super.getBasicTemplate()
 				.getPackageName(), super.getBasicTemplate().getClassName(),
 				instanceName, constructorPrivate);
+	}
+
+	@Override
+	public String getGeneratedPattern() throws CanNotCreateClassException,
+			FieldVariableIsEmptyException {
+		StringBuilder result = new StringBuilder();
+		if (enumType) {
+			createEnumSingleton();
+		} else if (eagerLoaded) {
+			createStaticallyLoaded();
+		} else if (lazyLoaded) {
+			createDynamicallyLoaded();
+		}
+		result.append(template.buildClass());
+		return result.toString();
 	}
 
 }
