@@ -10,6 +10,8 @@ import java.io.IOException;
 
 import javax.swing.JFileChooser;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
@@ -74,39 +76,51 @@ public class SingletonController {
 		@Override
 		public void actionPerformed(final ActionEvent e) {
 			printEvent(e);
-			int returnVal = dialog.getFileChooser().showOpenDialog(dialog);
-			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				System.out.println("OPENED:"
-						+ dialog.getFileChooser().getSelectedFile()
-								.getAbsolutePath());
-				String className = dialog.getClassName();
-				String packageName = dialog.getPackageName();
-				singleton.getBasicTemplate().setClassName(className);
-				singleton.getBasicTemplate().setPackageName(packageName);
-				if (className != null) {
-					String path = getPath(dialog.getFileChooser()
-							.getSelectedFile().getAbsolutePath());
-					System.out.println("FilePath:" + path);
-					try {
-						file = new File(path);
-						service.generatePatternToFile(file, singleton);
-					} catch (CanNotCreateClassException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (FieldVariableIsEmptyException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				} else {
-					// TODO add dialog
-				}
+			if (!mandatoryFieldsAreEmpty()) {
+				int returnVal = dialog.getFileChooser().showOpenDialog(dialog);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					System.out.println("OPENED:"
+							+ dialog.getFileChooser().getSelectedFile()
+									.getAbsolutePath());
+					String className = dialog.getClassName();
+					String packageName = dialog.getPackageName();
+					singleton.getBasicTemplate().setClassName(className);
+					singleton.getBasicTemplate().setPackageName(packageName);
 
+					if (className != null) {
+						String path = getPath(dialog.getFileChooser()
+								.getSelectedFile().getAbsolutePath());
+						System.out.println("FilePath:" + path);
+						try {
+							file = new File(path);
+							service.generatePatternToFile(file, singleton);
+						} catch (CanNotCreateClassException e1) {
+							dialog.openMessageDialog("Class and package name can't be empty");
+							e1.printStackTrace();
+						} catch (FieldVariableIsEmptyException e1) {
+							dialog.openMessageDialog("instance name can't be empty");
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+					}
+				}
 			}
 		}
 
+		private boolean mandatoryFieldsAreEmpty() {
+			if (StringUtils.isEmpty(dialog.getClassName())) {
+				dialog.openMessageDialog("Class name can't be empty");
+				return true;
+			} else if (StringUtils.isEmpty(dialog.getPackageName())) {
+				dialog.openMessageDialog("package name can't be empty");
+				return true;
+			} else if (StringUtils.isEmpty(dialog.getInstanceName())) {
+				dialog.openMessageDialog("instance name can't be empty");
+				return true;
+			}
+			return false;
+		}
 		private String getPath(final String simplePath) {
 			StringBuilder sb = new StringBuilder(simplePath);
 			sb.append(File.separator);

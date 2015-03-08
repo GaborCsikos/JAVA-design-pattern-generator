@@ -123,6 +123,7 @@ public abstract class ClassGenerateDialog extends JDialog {
 		buttonPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener() {
 
+			@Override
 			public void actionPerformed(final ActionEvent e) {
 				dispose();
 			}

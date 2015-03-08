@@ -12,6 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -163,5 +164,9 @@ public class SingletonDialog extends ClassGenerateDialog {
 		privateConstructor.setToolTipText(CONSTRUCTOR_INFO);
 		privateConstructor.setSelected(true);
 		singletonPanel.add(privateConstructor);
+	}
+
+	public void openMessageDialog(final String string) {
+		JOptionPane.showMessageDialog(this, string);
 	}
 }
