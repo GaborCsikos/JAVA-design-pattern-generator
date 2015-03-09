@@ -12,7 +12,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -57,9 +56,6 @@ public class SingletonDialog extends ClassGenerateDialog {
 		initSingletonView();
 	}
 
-	public void addGeneratePatternListener(final ActionListener listener) {
-		super.generateButton.addActionListener(listener);
-	}
 
 	public void addEnumListener(final ActionListener listener) {
 		enumSelect.addActionListener(listener);
@@ -104,14 +100,6 @@ public class SingletonDialog extends ClassGenerateDialog {
 		privateConstructor.setEnabled(!isEnumType);
 		eagerLoading.setEnabled(!isEnumType);
 		lazyLoading.setEnabled(!isEnumType);
-	}
-
-	public String getClassName() {
-		return className.getText();
-	}
-
-	public String getPackageName() {
-		return packageName.getText();
 	}
 
 	private void initSingletonView() {
@@ -166,7 +154,4 @@ public class SingletonDialog extends ClassGenerateDialog {
 		singletonPanel.add(privateConstructor);
 	}
 
-	public void openMessageDialog(final String string) {
-		JOptionPane.showMessageDialog(this, string);
-	}
 }

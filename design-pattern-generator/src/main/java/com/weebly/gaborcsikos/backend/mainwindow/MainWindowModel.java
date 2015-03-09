@@ -3,7 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.mainwindow;
 
-import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Model for Main window
@@ -13,20 +14,20 @@ import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
  */
 public class MainWindowModel {
 
-	private DesignPatterns patterns;
+	private List<String> patterns;
 
 	/**
 	 * Default Constructor
 	 */
 	public MainWindowModel() {
-		patterns = new DesignPatterns();
+		patterns = new ArrayList<String>();
 	}
 
-	public DesignPatterns getPatterns() {
+	public List<String> getPatterns() {
 		return patterns;
 	}
 
-	public void setPatterns(final DesignPatterns patterns) {
+	public void setPatterns(final List<String> patterns) {
 		this.patterns = patterns;
 	}
 	

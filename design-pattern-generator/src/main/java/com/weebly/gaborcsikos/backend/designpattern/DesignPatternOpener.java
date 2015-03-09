@@ -5,10 +5,16 @@ package com.weebly.gaborcsikos.backend.designpattern;
 
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 
+import java.util.NoSuchElementException;
+
 import javax.swing.JFrame;
 
+import com.weebly.gaborcsikos.backend.api.PatternEnum;
+import com.weebly.gaborcsikos.backend.prototype.PrototypeController;
+import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.singleton.SingletonController;
 import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
+import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
 
 /**
@@ -26,6 +32,14 @@ public class DesignPatternOpener {
 			SingletonController controller = new SingletonController(model,
 					dialog);
 			controller.init();
+		} else if (PatternEnum.PROTOTYPE.getName().equals(patternStr)) {
+			PrototypeDialog dialog = new PrototypeDialog(frame);
+			PrototypeModel model = new PrototypeModel();
+			PrototypeController controller = new PrototypeController(model,
+					dialog);
+			controller.init();
+		} else {
+			throw new NoSuchElementException();
 		}
 	}
 

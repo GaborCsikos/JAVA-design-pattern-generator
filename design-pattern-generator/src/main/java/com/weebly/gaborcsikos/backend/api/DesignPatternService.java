@@ -3,7 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.api;
 
-import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
+import java.util.List;
 
 /**
  * Class is responsible for loading Design Patterns
@@ -16,8 +16,8 @@ public interface DesignPatternService {
 	/**
 	 * Load all design patterns
 	 * 
-	 * @return loaded {@link DesignPatterns}
+	 * @return Design patterns for View
 	 */
-	DesignPatterns loadAllDesignPattern();
+	List<String> loadAllDesignPattern();
 	
 }

@@ -8,8 +8,6 @@ import java.awt.event.ActionListener;
 import java.util.NoSuchElementException;
 
 import com.weebly.gaborcsikos.backend.api.DesignPatternService;
-import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
-import com.weebly.gaborcsikos.backend.designpattern.DesignPatternMapper;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternOpener;
 import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
 import com.weebly.gaborcsikos.frontend.mainwindow.MainWindowView;
@@ -26,7 +24,6 @@ public class MainWindowController {
 	private final MainWindowView view;
 	private final MainWindowModel model;
 	private final DesignPatternService service;
-	private final DesignPatternMapper mapper;
 	private final DesignPatternOpener opener;
 
 	/**
@@ -36,7 +33,6 @@ public class MainWindowController {
 		view = new MainWindowView();
 		model = new MainWindowModel();
 		service = new DesignPatternServiceImpl();
-		mapper = new DesignPatternMapper();
 		opener = new DesignPatternOpener();
 	}
 
@@ -52,7 +48,6 @@ public class MainWindowController {
 		this.view = view;
 		this.model = model;
 		service = new DesignPatternServiceImpl();
-		mapper = new DesignPatternMapper();
 		opener = new DesignPatternOpener();
 	}
 
@@ -68,7 +63,7 @@ public class MainWindowController {
 	}
 
 	private void addComboboxElementsToView() {
-		view.addElementsToCombobox(mapper.mapToStrings(model.getPatterns()));
+		view.addElementsToCombobox(model.getPatterns());
 	}
 
 	private void initModel() {
@@ -82,31 +77,16 @@ public class MainWindowController {
 
 	class SelectPatternListener implements ActionListener {
 
+		@Override
 		public void actionPerformed(final ActionEvent e) {
 			System.out.println("action happened:" + e.getActionCommand()
 					+ " from:" + e.getSource());
 			String patternStr = view.getSelectedPattern();
-			DesignPattern pattern = getSelectedPatternFormstr(patternStr);
-			if (pattern != null) {
-				openPattern(patternStr, pattern);
+			if (patternStr != null) {
+				opener.open(patternStr, view);
 			} else {
 				throw new NoSuchElementException("Design pattern doesn't exist");
 			}
-		}
-
-		private void openPattern(final String patternStr,
-				final DesignPattern pattern) {
-			opener.open(patternStr, view);
-
-		}
-
-		private DesignPattern getSelectedPatternFormstr(final String patternStr) {
-			for (DesignPattern pattern : model.getPatterns().getPatterns()) {
-				if (patternStr.equals(pattern.getName())) {
-					return pattern;
-				}
-			}
-			return null;
 		}
 
 	}

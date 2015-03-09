@@ -15,6 +15,7 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -63,6 +64,29 @@ public abstract class ClassGenerateDialog extends JDialog {
 		createJFileChooser();
 		this.setVisible(true);
 	}
+
+	public void addGeneratePatternListener(final ActionListener listener) {
+		generateButton.addActionListener(listener);
+	}
+
+	public String getClassName() {
+		return className.getText();
+	}
+
+	public String getPackageName() {
+		return packageName.getText();
+	}
+
+
+	public JFileChooser getFileChooser() {
+		return fileChooser;
+	}
+
+	public void openMessageDialog(final String string) {
+		JOptionPane.showMessageDialog(this, string);
+	}
+
+	protected abstract void initDefaultGeneratableOptions();
 
 	private void createJFileChooser() {
 		fileChooser = new JFileChooser();
@@ -130,10 +154,4 @@ public abstract class ClassGenerateDialog extends JDialog {
 		});
 	}
 
-	protected abstract void initDefaultGeneratableOptions();
-
-	public JFileChooser getFileChooser() {
-		return fileChooser;
-	}
-	
 }

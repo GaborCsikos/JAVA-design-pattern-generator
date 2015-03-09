@@ -3,9 +3,10 @@
  */
 package com.weebly.gaborcsikos.backend.service;
 
+import java.util.List;
+
 import com.weebly.gaborcsikos.backend.api.DesignPatternService;
-import com.weebly.gaborcsikos.backend.designpattern.DesignPatterns;
-import com.weebly.gaborcsikos.backend.factory.SimplePatternFactory;
+import com.weebly.gaborcsikos.backend.patterncreator.SimplePatternFactory;
 
 /**
  * Service Implementation for design patterns.
@@ -29,7 +30,7 @@ public class DesignPatternServiceImpl implements DesignPatternService {
 	}
 
 	@Override
-	public DesignPatterns loadAllDesignPattern() {
+	public List<String> loadAllDesignPattern() {
 		return patternFactory.generetPatterns();
 	}
 
