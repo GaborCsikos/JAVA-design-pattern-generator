@@ -51,8 +51,10 @@ public class PrototypeOwnClone extends PrototypeTemplate {
 				.append(NEW_LINE);
 		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
 		sb.append(INDENT).append("public ").append(super.getClassName())
-				.append("  ").append(cloneMethodName).append(" {")
-				.append(DOUBLE_NEW_LINE);
+				.append("  ").append(cloneMethodName).append("() {")
+				.append(NEW_LINE);
+		sb.append(DOUBLE_INDENT).append("return new ")
+				.append(super.getClassName()).append("();").append(NEW_LINE);
 		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
 		sb.append(super.getEndStructure());
 		return sb.toString();

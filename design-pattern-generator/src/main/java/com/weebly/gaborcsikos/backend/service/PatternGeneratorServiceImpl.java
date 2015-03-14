@@ -12,7 +12,7 @@ import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
-import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
+import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
  * @author Gabor Csikos
@@ -34,14 +34,14 @@ public class PatternGeneratorServiceImpl implements PatternGeneratorService {
 	}
 
 	@Override
-	public String generatePattern(final DesignPattern pattern)
+	public String generatePattern(final DesignPatternModel pattern)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException {
 		return pattern.getGeneratedPattern();
 	}
 
 	@Override
 	public void generatePatternToFile(final File file,
-			final DesignPattern pattern)
+			final DesignPatternModel pattern)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException, IOException {
 		String stringToWrite = pattern.getGeneratedPattern();
 		FileUtils.writeStringToFile(file, stringToWrite);

@@ -12,7 +12,7 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
  * @author Gabor Csikos
  * 
  */
-public abstract class DesignPattern {
+public abstract class DesignPatternModel {
 
 	private String name;
 	private BasicTemplate basicTemplate;
@@ -20,11 +20,11 @@ public abstract class DesignPattern {
 	/**
 	 * Default Constructor
 	 */
-	public DesignPattern() {
+	public DesignPatternModel() {
 		basicTemplate = new BasicTemplate();
 	}
 
-	public DesignPattern(final String packageName, final String className) {
+	public DesignPatternModel(final String packageName, final String className) {
 		basicTemplate = new BasicTemplate(packageName, className);
 	}
 

@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  */
 public class PrototypeDialog extends ClassGenerateDialog {
 
-	private static final String CLONE = "make ";
+	private static final String CLONE = "make";
 	private static final String CLONE_INFO_TOOL_TIP = "Can't use \"clone\" as method name";
 	private JPanel prototypePanel;
 	private JLabel cloneNameLabel;

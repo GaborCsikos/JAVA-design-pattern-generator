@@ -97,8 +97,11 @@ public class PrototypeServiceTest {
 				.append(NEW_LINE);
 		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
 		sb.append(INDENT).append("public ").append(CLASS_NAME).append("  ")
-				.append(CLONE_METHOD_NAME).append(" {")
-				.append(DOUBLE_NEW_LINE);
+				.append(CLONE_METHOD_NAME).append("() {")
+.append(NEW_LINE);
+		sb.append(DOUBLE_INDENT).append("return new ")
+.append(CLASS_NAME)
+				.append("();").append(NEW_LINE);
 		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
 		sb.append(TestHelper.getEndStructure());
 		return sb.toString();

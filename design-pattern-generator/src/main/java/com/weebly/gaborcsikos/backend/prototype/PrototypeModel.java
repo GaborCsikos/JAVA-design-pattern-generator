@@ -7,7 +7,7 @@ import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
-import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
+import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
  * model for Prototype
@@ -15,10 +15,10 @@ import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
  * @author Gabor Csikos
  * 
  */
-public class PrototypeModel extends DesignPattern {
+public class PrototypeModel extends DesignPatternModel {
 
 	private boolean implementsClonable = true;
-
+	public static final String CLONE_OWERRIDE = "clone";
 	public void setImplementsClonable(final boolean implementsClonable) {
 		this.implementsClonable = implementsClonable;
 	}

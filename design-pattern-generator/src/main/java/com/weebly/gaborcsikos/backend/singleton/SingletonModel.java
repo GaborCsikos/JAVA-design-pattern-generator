@@ -6,7 +6,7 @@ package com.weebly.gaborcsikos.backend.singleton;
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
-import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
+import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
  * Singleton DesignPattern
@@ -14,7 +14,7 @@ import com.weebly.gaborcsikos.backend.designpattern.DesignPattern;
  * @author Gabor Csikos
  * 
  */
-public class SingletonModel extends DesignPattern {
+public class SingletonModel extends DesignPatternModel {
 
 	private boolean eagerLoaded;
 	private boolean lazyLoaded;
