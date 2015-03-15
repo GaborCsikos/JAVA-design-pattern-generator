@@ -64,4 +64,8 @@ public class FieldWithType {
 	public void setName(final String name) {
 		this.name = name;
 	}
+
+	public String getStringForDialog() {
+		return type + " " + name;
+	}
 }

@@ -24,7 +24,7 @@ public class SingletonController extends GeneralController {
 	
 	public SingletonController(final SingletonModel model,
 			final SingletonDialog dialog) {
-		super(dialog, model);
+		super(model, dialog);
 		this.singleton = model;
 		this.dialog = dialog;
 	}
@@ -70,7 +70,6 @@ public class SingletonController extends GeneralController {
 	}
 
 	class InstanceSetterListener implements ActionListener {
-
 		@Override
 		public void actionPerformed(final ActionEvent e) {
 			printEvent(e);

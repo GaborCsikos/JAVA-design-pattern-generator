@@ -28,8 +28,8 @@ public abstract class GeneralController {
 	private final DesignPatternModel model;
 	private final PatternGeneratorService service = new PatternGeneratorServiceImpl();
 
-	public GeneralController(final ClassGenerateDialog dialog,
-			final DesignPatternModel model) {
+	public GeneralController(final DesignPatternModel model,
+			final ClassGenerateDialog dialog) {
 		this.dialog = dialog;
 		this.model = model;
 	}
@@ -68,10 +68,15 @@ public abstract class GeneralController {
 	public boolean classNameIsNullOrEmpty() {
 		return StringUtils.isEmpty(model.getBasicTemplate().getClassName());
 	}
+
+	public void generateFile() {
+		generateFile("");
+	}
 	
-	public void generateFile(){
+	public void generateFile(final String extension) {
 		String path = getPath(dialog.getFileChooser()
-				.getSelectedFile().getAbsolutePath());
+.getSelectedFile()
+				.getAbsolutePath(), extension);
 		System.out.println("FilePath:" + path);
 		File file = new File(path);
 		try {
@@ -86,11 +91,13 @@ public abstract class GeneralController {
 			e1.printStackTrace();
 		}
 	}
-	private String getPath(final String simplePath) {
+
+	private String getPath(final String simplePath, final String extension) {
 		StringBuilder sb = new StringBuilder(simplePath);
 		sb.append(File.separator);
-		sb.append(dialog.getClassName());
+		sb.append(dialog.getClassName()).append(extension);
 		sb.append(".java");
 		return sb.toString();
 	}
+
 }

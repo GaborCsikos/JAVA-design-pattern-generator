@@ -56,7 +56,7 @@ public abstract class ClassGenerateDialog extends JDialog {
 	public ClassGenerateDialog(final JFrame frame) {
 		super(frame);
 		this.dialogInit();
-		this.setSize(600, 200);
+		this.setSize(800, 200);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		initLayout();
 		initDefaultGeneratableOptions();
@@ -113,13 +113,13 @@ public abstract class ClassGenerateDialog extends JDialog {
 
 	private void addPackageName() {
 		classPanel.add(new JLabel(PACKAGE_NAME_LABEL));
-		packageName = new JTextField(EXAMPLE_PACKAGE);
+		packageName = new JTextField(EXAMPLE_PACKAGE, 15);
 		classPanel.add(packageName);
 	}
 
 	private void addClassName() {
 		classPanel.add(new JLabel(CLASS_NAME_LABEL));
-		className = new JTextField(EXAMPLE_CLASS);
+		className = new JTextField(EXAMPLE_CLASS, 10);
 		classPanel.add(className);
 	}
 

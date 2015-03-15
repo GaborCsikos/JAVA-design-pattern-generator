@@ -10,6 +10,9 @@ import java.util.NoSuchElementException;
 import javax.swing.JFrame;
 
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
+import com.weebly.gaborcsikos.backend.facade.FacadeController;
+import com.weebly.gaborcsikos.backend.facade.FacadeDialog;
+import com.weebly.gaborcsikos.backend.facade.FacadeModel;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeController;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.singleton.SingletonController;
@@ -36,6 +39,12 @@ public class DesignPatternOpener {
 			PrototypeDialog dialog = new PrototypeDialog(frame);
 			PrototypeModel model = new PrototypeModel();
 			PrototypeController controller = new PrototypeController(model,
+					dialog);
+			controller.init();
+		} else if (PatternEnum.FACADE.getName().equals(patternStr)) {
+			FacadeDialog dialog = new FacadeDialog(frame);
+			FacadeModel model = new FacadeModel();
+			FacadeController controller = new FacadeController(model,
 					dialog);
 			controller.init();
 		} else {

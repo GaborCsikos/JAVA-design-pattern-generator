@@ -121,7 +121,7 @@ public class SingletonDialog extends ClassGenerateDialog {
 		flowLayout.setAlignOnBaseline(true);
 		JPanel instancePanel = new JPanel(flowLayout);
 		instancePanel.add(new JLabel(INTANCE_LABEL));
-		instanceField = new JTextField(INTANCE);
+		instanceField = new JTextField(INTANCE, 10);
 		instancePanel.add(instanceField);
 		singletonPanel.add(instancePanel);
 	}

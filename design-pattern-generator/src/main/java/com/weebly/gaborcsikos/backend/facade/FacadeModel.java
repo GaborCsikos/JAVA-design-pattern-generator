@@ -23,7 +23,8 @@ public class FacadeModel extends DesignPatternModel {
 
 	private boolean withInterface = false;
 	private boolean needToCreateInterface = false;
-
+	private FacadeTemplate template;
+	private final List<FieldWithType> fields = new ArrayList<FieldWithType>();
 	public boolean isWithInterface() {
 		return withInterface;
 	}
@@ -36,8 +37,7 @@ public class FacadeModel extends DesignPatternModel {
 		return fields;
 	}
 
-	private FacadeTemplate template;
-	private final List<FieldWithType> fields = new ArrayList<FieldWithType>();
+
 	/**
 	 * Default constructor
 	 */
@@ -99,7 +99,16 @@ public class FacadeModel extends DesignPatternModel {
 	}
 
 	public void addAllFields(final List<FieldWithType> fieldsToAdd) {
+		fields.clear();
 		fields.addAll(fieldsToAdd);
+	}
+
+	public void deleteItem(final int index) {
+		fields.remove(index);
+	}
+
+	public void addField(final FieldWithType field) {
+		fields.add(field);
 	}
 
 }

@@ -85,7 +85,7 @@ public class PrototypeDialog extends ClassGenerateDialog {
 		JPanel instancePanel = new JPanel(flowLayout);
 		cloneNameLabel = new JLabel("Method name:");
 		instancePanel.add(cloneNameLabel);
-		cloneMethodName = new JTextField(CLONE);
+		cloneMethodName = new JTextField(CLONE, 10);
 		cloneMethodName.setToolTipText(CLONE_INFO_TOOL_TIP);
 		cloneMethodName.setEnabled(false);
 		instancePanel.add(cloneMethodName);

@@ -24,7 +24,7 @@ public class PrototypeController extends GeneralController {
 
 	public PrototypeController(final PrototypeModel model,
 			final PrototypeDialog dialog) {
-		super(dialog, model);
+		super(model, dialog);
 		this.prototypeModel = model;
 		this.dialog = dialog;
 	}
