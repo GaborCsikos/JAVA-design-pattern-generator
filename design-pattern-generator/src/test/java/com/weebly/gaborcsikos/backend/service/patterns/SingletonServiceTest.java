@@ -3,30 +3,30 @@
  */
 package com.weebly.gaborcsikos.backend.service.patterns;
 
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_INDENT;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.INDENT;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.TRIPLE_INDENT;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.CLASS_NAME;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.INSTANCE;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.INTANCE_FIRTS_UPPER;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.PACKAGE_NAME;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.getBasicStucture;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.getEndStructure;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.CLASS_NAME;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.INSTANCE;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.INTANCE_FIRTS_UPPER;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.PACKAGE_NAME;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.getBasicStucture;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.getEndStructure;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.TRIPLE_INDENT;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.weebly.gaborcsikos.backend.api.ClassType;
-import com.weebly.gaborcsikos.backend.api.IndentHelper;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
 import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
-import com.weebly.gaborcsikos.backend.testutil.TestHelper;
+import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
+import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 
 /**
  * @author Gabor Csikos
@@ -41,6 +41,7 @@ public class SingletonServiceTest {
 	@Before
 	public void setUp() throws Exception {
 		service = new PatternGeneratorServiceImpl();
+		TestHelperUtility.IMPELENTSPART = "";
 	}
 
 	@Test
@@ -51,7 +52,7 @@ public class SingletonServiceTest {
 		singleton.setInstanceName(INSTANCE);
 		String expected = createSingleton();
 		String result = service.generatePattern(singleton);
-		TestHelper.printInfo(result);
+		TestHelperUtility.printInfo(result);
 		assertEquals("Enum Singleton is different", expected, result);
 	}
 
@@ -72,7 +73,7 @@ public class SingletonServiceTest {
 		singleton.setInstanceName(INSTANCE);
 		String expected = createDynamicSingleton();
 		String result = service.generatePattern(singleton);
-		TestHelper.printInfo(result);
+		TestHelperUtility.printInfo(result);
 		assertEquals("Dynamically loaded Singleton is different", expected,
 				result);
 	}
@@ -86,7 +87,7 @@ public class SingletonServiceTest {
 		singleton.setInstanceName(INSTANCE);
 		String expected = createStaticSingleton();
 		String result = service.generatePattern(singleton);
-		TestHelper.printInfo(result);
+		TestHelperUtility.printInfo(result);
 		assertEquals("Dynamically loaded Singleton is different", expected,
 				result);
 	}
@@ -141,16 +142,16 @@ public class SingletonServiceTest {
 
 	private String createSingleton() {
 		StringBuilder sb = new StringBuilder("package ");
-		sb.append(TestHelper.PACKAGE_NAME + ";")
+		sb.append(TestHelperUtility.PACKAGE_NAME + ";")
 				.append(DOUBLE_NEW_LINE)
 				.append("public " + ClassType.ENUM.getName() + " "
-						+ TestHelper.CLASS_NAME + " {").append(DOUBLE_NEW_LINE);
-		sb.append(IndentHelper.INDENT)
-				.append(TestHelper.INSTANCE.toUpperCase()).append(";")
+						+ TestHelperUtility.CLASS_NAME + " {").append(DOUBLE_NEW_LINE);
+		sb.append(IndentHelperUtility.INDENT)
+				.append(TestHelperUtility.INSTANCE.toUpperCase()).append(";")
 				.append(DOUBLE_NEW_LINE);
-		sb.append(IndentHelper.INDENT).append(TestHelper.CLASS_NAME)
+		sb.append(IndentHelperUtility.INDENT).append(TestHelperUtility.CLASS_NAME)
 				.append("() {").append(DOUBLE_NEW_LINE);
-		sb.append(IndentHelper.INDENT).append("}");
+		sb.append(IndentHelperUtility.INDENT).append("}");
 		sb.append(DOUBLE_NEW_LINE).append("}");
 		return sb.toString();
 	}
@@ -158,12 +159,12 @@ public class SingletonServiceTest {
 	private String createConstructor(final boolean isPrivate) {
 		StringBuilder sb = new StringBuilder();
 		if (isPrivate) {
-			sb.append(IndentHelper.INDENT).append("private ");
+			sb.append(IndentHelperUtility.INDENT).append("private ");
 		} else {
-			sb.append(IndentHelper.INDENT).append("protected ");
+			sb.append(IndentHelperUtility.INDENT).append("protected ");
 		}
 		sb.append(CLASS_NAME).append("() {").append(DOUBLE_NEW_LINE)
-				.append(IndentHelper.INDENT).append("}")
+				.append(IndentHelperUtility.INDENT).append("}")
 				.append(DOUBLE_NEW_LINE);
 		return sb.toString();
 	}

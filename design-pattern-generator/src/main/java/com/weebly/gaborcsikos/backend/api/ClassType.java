@@ -8,7 +8,7 @@ package com.weebly.gaborcsikos.backend.api;
  *
  */
 public enum ClassType {
-	CLASS("class"), ENUM("enum");
+	CLASS("class"), ENUM("enum"), INTERFACE("interface");
 
 	private String name;
 

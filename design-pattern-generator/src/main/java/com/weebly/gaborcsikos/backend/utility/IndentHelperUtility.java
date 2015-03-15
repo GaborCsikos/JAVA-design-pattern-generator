@@ -1,13 +1,19 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.api;
+package com.weebly.gaborcsikos.backend.utility;
 
 /**
+ * Indent Helper for making indents and new lines
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
-public final class IndentHelper {
+public final class IndentHelperUtility {
+
+	private IndentHelperUtility() {
+
+	}
 
 	public static final String INDENT = "   ";
 	public static final String DOUBLE_INDENT = INDENT + INDENT;

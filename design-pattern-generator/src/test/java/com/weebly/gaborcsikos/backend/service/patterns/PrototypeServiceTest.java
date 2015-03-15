@@ -3,13 +3,13 @@
  */
 package com.weebly.gaborcsikos.backend.service.patterns;
 
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_INDENT;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.INDENT;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.CLASS_NAME;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.CLONE_METHOD_NAME;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelper.PACKAGE_NAME;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.CLASS_NAME;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.CLONE_METHOD_NAME;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.PACKAGE_NAME;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -20,7 +20,7 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
-import com.weebly.gaborcsikos.backend.testutil.TestHelper;
+import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
 
 /**
  * @author Gabor Csikos
@@ -53,7 +53,7 @@ public class PrototypeServiceTest {
 		prototype.setImplementsClonable(true);
 		String expected = makeImplementsClonable();
 		String result = service.generatePattern(prototype);
-		TestHelper.printInfo(result);
+		TestHelperUtility.printInfo(result);
 		assertEquals("Implements Clonable prototype is different", expected,
 				result);
 	}
@@ -65,14 +65,14 @@ public class PrototypeServiceTest {
 		prototype.setCloneMethodName(CLONE_METHOD_NAME);
 		String expected = makeOwnClone();
 		String result = service.generatePattern(prototype);
-		TestHelper.printInfo(result);
+		TestHelperUtility.printInfo(result);
 		assertEquals("Own clone prototype is different", expected, result);
 	}
 
 	private String makeImplementsClonable() {
 		StringBuilder sb = new StringBuilder();
-		TestHelper.IMPELENTSPART = " implements Cloneable";
-		sb.append(TestHelper.getBasicStucture());
+		TestHelperUtility.IMPELENTSPART = " implements Cloneable";
+		sb.append(TestHelperUtility.getBasicStucture());
 		sb.append(INDENT).append("@Override").append(NEW_LINE);
 		sb.append(INDENT)
 				.append("protected Object clone() throws CloneNotSupportedException {")
@@ -80,13 +80,13 @@ public class PrototypeServiceTest {
 		sb.append(DOUBLE_INDENT).append("return super.clone();")
 				.append(NEW_LINE);
 		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
-		sb.append(TestHelper.getEndStructure());
+		sb.append(TestHelperUtility.getEndStructure());
 		return sb.toString();
 	}
 
 	private String makeOwnClone() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(TestHelper.getBasicStucture());
+		sb.append(TestHelperUtility.getBasicStucture());
 		sb.append(INDENT).append("@Override").append(NEW_LINE);
 		sb.append(INDENT).append("protected ")
 .append(CLASS_NAME)
@@ -103,7 +103,7 @@ public class PrototypeServiceTest {
 .append(CLASS_NAME)
 				.append("();").append(NEW_LINE);
 		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
-		sb.append(TestHelper.getEndStructure());
+		sb.append(TestHelperUtility.getEndStructure());
 		return sb.toString();
 	}
 }

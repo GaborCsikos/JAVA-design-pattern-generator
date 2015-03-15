@@ -3,12 +3,12 @@
  */
 package com.weebly.gaborcsikos.backend.singleton;
 
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
 
 import com.weebly.gaborcsikos.backend.api.ClassType;
-import com.weebly.gaborcsikos.backend.api.IndentHelper;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
+import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 
 /**
  * @author Gabor Csikos
@@ -29,11 +29,11 @@ public class EnumSingleton extends SingletonTemplate {
 		StringBuilder sb = new StringBuilder();
 		super.setType(ClassType.ENUM);
 		sb.append(super.getBasicStucture());
-		sb.append(IndentHelper.INDENT).append(instanceName.toUpperCase())
+		sb.append(IndentHelperUtility.INDENT).append(instanceName.toUpperCase())
 				.append(";").append(DOUBLE_NEW_LINE);
-		sb.append(IndentHelper.INDENT).append(super.getClassName())
+		sb.append(IndentHelperUtility.INDENT).append(super.getClassName())
 				.append("() {").append(DOUBLE_NEW_LINE);
-		sb.append(IndentHelper.INDENT).append("}");
+		sb.append(IndentHelperUtility.INDENT).append("}");
 		sb.append(DOUBLE_NEW_LINE).append("}");
 		return sb.toString();
 	}

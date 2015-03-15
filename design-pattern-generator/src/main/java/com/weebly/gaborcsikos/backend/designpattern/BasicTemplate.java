@@ -3,8 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
 
 import org.apache.commons.lang3.StringUtils;
 

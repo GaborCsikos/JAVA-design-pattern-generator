@@ -3,14 +3,14 @@
  */
 package com.weebly.gaborcsikos.backend.singleton;
 
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.sun.istack.internal.NotNull;
-import com.weebly.gaborcsikos.backend.api.IndentHelper;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
+import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 
 /**
  * @author Gabor Csikos
@@ -36,12 +36,12 @@ public abstract class SingletonTemplate extends BasicTemplate {
 	protected String createConstructor(final boolean isPrivate) {
 		StringBuilder sb = new StringBuilder();
 		if (isPrivate) {
-			sb.append(IndentHelper.INDENT).append("private ");
+			sb.append(IndentHelperUtility.INDENT).append("private ");
 		} else {
-			sb.append(IndentHelper.INDENT).append("protected ");
+			sb.append(IndentHelperUtility.INDENT).append("protected ");
 		}
 		sb.append(getClassName()).append("() {").append(DOUBLE_NEW_LINE)
-				.append(IndentHelper.INDENT).append("}")
+				.append(IndentHelperUtility.INDENT).append("}")
 				.append(DOUBLE_NEW_LINE);
 		return sb.toString();
 	}

@@ -1,10 +1,10 @@
 package com.weebly.gaborcsikos.backend.singleton;
 
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_INDENT;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.DOUBLE_NEW_LINE;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.INDENT;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.NEW_LINE;
-import static com.weebly.gaborcsikos.backend.api.IndentHelper.TRIPLE_INDENT;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.TRIPLE_INDENT;
 
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
