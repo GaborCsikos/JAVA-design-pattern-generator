@@ -30,8 +30,23 @@ public class DesignPatternServiceImpl implements DesignPatternService {
 	}
 
 	@Override
-	public List<String> loadAllDesignPattern() {
-		return patternFactory.generetPatterns();
+	public List<String> loadCreationalPatterns() {
+		return patternFactory.generateCreationalPatterns();
+	}
+
+	@Override
+	public List<String> loadPatternTypes() {
+		return patternFactory.generatePatternTypes();
+	}
+
+	@Override
+	public List<String> loadBehavioralPatterns() {
+		return patternFactory.generateBehavioralPatterns();
+	}
+
+	@Override
+	public List<String> loadStructuralPatterns() {
+		return patternFactory.generateStructuralPatterns();
 	}
 
 }

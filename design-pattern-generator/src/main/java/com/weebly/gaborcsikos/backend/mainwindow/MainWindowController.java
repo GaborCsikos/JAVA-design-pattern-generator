@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.NoSuchElementException;
 
 import com.weebly.gaborcsikos.backend.api.DesignPatternService;
+import com.weebly.gaborcsikos.backend.api.PatternTypeEnum;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternOpener;
 import com.weebly.gaborcsikos.backend.service.DesignPatternServiceImpl;
 import com.weebly.gaborcsikos.frontend.mainwindow.MainWindowView;
@@ -60,19 +61,42 @@ public class MainWindowController {
 
 	private void addActionListeners() {
 		view.addSelectPatternListener(new SelectPatternListener());
+		view.addSelectPatternTypeListener(new SelectPatternTypeListener());
 	}
 
 	private void addComboboxElementsToView() {
-		view.addElementsToCombobox(model.getPatterns());
+		view.addElementsToCombobox(model.getCreationalPatterns());
+		view.addPatternTypes(model.getPatterntypes());
 	}
 
 	private void initModel() {
-		model.setPatterns(service.loadAllDesignPattern());
+		model.setPatterntypes(service.loadPatternTypes());
+		model.setCreationalPatterns(service.loadCreationalPatterns());
+		model.setBehavioralPatterns(service.loadBehavioralPatterns());
+		model.setStructuralPatterns(service.loadStructuralPatterns());
 	}
 
 	private void initView() {
 		view.init();
 		addActionListeners();
+	}
+
+	class SelectPatternTypeListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(final ActionEvent e) {
+			System.out.println("action happened:" + e.getActionCommand()
+					+ " from:" + e.getSource());
+			String patternStr = view.getSelectedPatternType();
+			if (PatternTypeEnum.CREATIONAL.getName().equals(patternStr)) {
+				view.setPatterns(model.getCreationalPatterns());
+			} else if (PatternTypeEnum.BEHAVIORAL.getName().equals(patternStr)) {
+				view.setPatterns(model.getBehavioralPatterns());
+			} else if (PatternTypeEnum.STRUCTURAL.getName().equals(patternStr)) {
+				view.setPatterns(model.getStructuralPatterns());
+			}
+		}
+
 	}
 
 	class SelectPatternListener implements ActionListener {

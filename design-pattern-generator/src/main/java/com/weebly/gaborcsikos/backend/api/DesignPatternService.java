@@ -13,11 +13,12 @@ import java.util.List;
  */
 public interface DesignPatternService {
 
-	/**
-	 * Load all design patterns
-	 * 
-	 * @return Design patterns for View
-	 */
-	List<String> loadAllDesignPattern();
+	List<String> loadCreationalPatterns();
+
+	List<String> loadPatternTypes();
+
+	List<String> loadBehavioralPatterns();
+
+	List<String> loadStructuralPatterns();
 	
 }

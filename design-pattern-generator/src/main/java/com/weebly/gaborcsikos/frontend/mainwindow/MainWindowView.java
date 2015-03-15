@@ -29,7 +29,8 @@ public class MainWindowView extends JFrame {
 	private final JPanel panel;
 	private final FlowLayout flowLayout;
 	private final JButton selectButton;
-	private final JComboBox<String> combobox;
+	private final JComboBox<String> patternBox;
+	private final JComboBox<String> patternTypeBox;
 
 	/**
 	 * Default Constructor
@@ -38,13 +39,17 @@ public class MainWindowView extends JFrame {
 		panel = new JPanel();
 		flowLayout = new FlowLayout();
 		selectButton = new JButton("SELECT");
-		combobox = new JComboBox<String>();
+		patternBox = new JComboBox<String>();
+		patternTypeBox = new JComboBox<String>();
 	}
 
 	public void addSelectPatternListener(final ActionListener listener) {
 		selectButton.addActionListener(listener);
 	}
 
+	public void addSelectPatternTypeListener(final ActionListener listener) {
+		patternTypeBox.addActionListener(listener);
+	}
 	public void init() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(400, 100);
@@ -57,13 +62,29 @@ public class MainWindowView extends JFrame {
 
 	public void addElementsToCombobox(final List<String> patterns) {
 		for (final String pattern : patterns) {
-			combobox.addItem(pattern);
+			patternBox.addItem(pattern);
 		}
 	}
 
-	public String getSelectedPattern() {
-		return (String) combobox.getSelectedItem();
+	public void addPatternTypes(final List<String> types) {
+		for (final String type : types) {
+			patternTypeBox.addItem(type);
+		}
 	}
+
+	public void setPatterns(final List<String> patterns){
+		patternBox.removeAllItems();
+		addElementsToCombobox(patterns);
+	}
+
+	public String getSelectedPattern() {
+		return (String) patternBox.getSelectedItem();
+	}
+
+	public String getSelectedPatternType() {
+		return (String) patternTypeBox.getSelectedItem();
+	}
+
 	private void setLayout() {
 		panel.setComponentOrientation(
                 ComponentOrientation.LEFT_TO_RIGHT);
@@ -71,7 +92,8 @@ public class MainWindowView extends JFrame {
 	}
 
 	private void addElemetsToLayout() {
-		panel.add(combobox);
+		panel.add(patternTypeBox);
+		panel.add(patternBox);
 		panel.add(selectButton);
 	}
 
