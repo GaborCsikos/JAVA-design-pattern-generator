@@ -37,12 +37,12 @@ public class SimplePatternFactory {
 
 	public List<String> generateBehavioralPatterns() {
 		final List<String> patternList = new ArrayList<String>();
-		patternList.add(FACADE.getName());
 		return patternList;
 	}
 
 	public List<String> generateStructuralPatterns() {
 		final List<String> patternList = new ArrayList<String>();
+		patternList.add(FACADE.getName());
 		return patternList;
 	}
 
