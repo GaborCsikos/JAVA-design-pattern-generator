@@ -11,12 +11,12 @@ import javax.swing.JFrame;
 
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.facade.FacadeController;
-import com.weebly.gaborcsikos.backend.facade.FacadeDialog;
 import com.weebly.gaborcsikos.backend.facade.FacadeModel;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeController;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.singleton.SingletonController;
 import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
+import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
 

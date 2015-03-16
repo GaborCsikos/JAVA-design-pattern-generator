@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
+import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
 
 /**
  * @author Gabor Csikos

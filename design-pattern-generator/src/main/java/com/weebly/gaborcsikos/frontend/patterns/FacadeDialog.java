@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.facade;
+package com.weebly.gaborcsikos.frontend.patterns;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -19,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
-import com.weebly.gaborcsikos.frontend.patterns.ClassGenerateDialog;
 
 /**
  * Dialog for Facade
