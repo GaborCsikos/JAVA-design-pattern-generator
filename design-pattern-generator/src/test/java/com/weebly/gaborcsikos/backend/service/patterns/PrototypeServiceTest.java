@@ -23,8 +23,10 @@ import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
 import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
 
 /**
+ * Unit tests of prototype creation
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class PrototypeServiceTest {
 	private PatternGeneratorService service;

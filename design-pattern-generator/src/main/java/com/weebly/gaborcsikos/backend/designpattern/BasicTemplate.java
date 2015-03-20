@@ -107,7 +107,7 @@ public class BasicTemplate {
 		return implementsPart;
 	}
 
-	public void setImplementsPart(final String implementsPart) {
+	public void setImplementsOrExtendsPart(final String implementsPart) {
 		this.implementsPart = implementsPart;
 	}
 }

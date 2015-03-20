@@ -22,4 +22,6 @@ public final class IndentHelperUtility {
 	public static final String NEW_LINE = System.lineSeparator();
 	public static final String DOUBLE_NEW_LINE = NEW_LINE
 			+ System.lineSeparator();
+
+	public static final String OVERRIDE = "@Override";
 }

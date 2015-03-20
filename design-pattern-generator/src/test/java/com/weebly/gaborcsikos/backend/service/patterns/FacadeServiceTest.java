@@ -108,7 +108,7 @@ public class FacadeServiceTest {
 		sb.append(TestHelperUtility.getBasicStucture());
 		sb.append(TestHelperUtility.getFields());
 		sb.append(IndentHelperUtility.NEW_LINE);
-		sb.append(TestHelperUtility.getConstructor());
+		sb.append(TestHelperUtility.getConstructorWithParameters());
 		sb.append(TestHelperUtility.getEndStructure());
 		return sb.toString();
 	}

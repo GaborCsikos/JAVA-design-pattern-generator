@@ -18,9 +18,12 @@ import com.weebly.gaborcsikos.backend.utility.FieldMakerUtility;
 public final class TestHelperUtility {
 
 	public static final String CLASS_NAME = "ClassName";
+	public static final String EXTENDS_CLASS_NAME = "AnotherClassName";
 	public static final String PACKAGE_NAME = "com.weebly.gaborcsikos";
 	public static final String INSTANCE = "instance";
 	public static final String CLONE_METHOD_NAME = "makeClone";
+	public static final String METHOD_NAME = "method";
+	public static final String METHOD_NAME_TWO = "targetMethod";
 	public static final String INTANCE_FIRTS_UPPER = "Instance";
 
 	public static final String STRING_TYPE = "String";
@@ -41,11 +44,20 @@ public final class TestHelperUtility {
 		return FieldMakerUtility.getFormattedFields(TestFields.testFields());
 	}
 
-	public static String getConstructor() {
+	public static String getField() {
+		return FieldMakerUtility.getFormattedField(TestFields.testFields()
+				.get(0));
+	}
+
+	public static String getConstructorWithParameters() {
 		return ContructorMakerUtility.getFormttedConsructorFromFields(
 				CLASS_NAME, TestFields.testFields());
 	}
 
+	public static String getConstructorWithParameter() {
+		return ContructorMakerUtility.getFormttedConsructorFromField(
+				CLASS_NAME, TestFields.testFields().get(0));
+	}
 	public static String getConstructor(final String className) {
 		return ContructorMakerUtility.getFormttedConsructorFromFields(
 				className, TestFields.testFields());

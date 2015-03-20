@@ -24,4 +24,10 @@ public final class FieldMakerUtility {
 		}
 		return sb.toString();
 	}
+
+	public static String getFormattedField(final FieldWithType field) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(field.getFormattedField());
+		return sb.toString();
+	}
 }

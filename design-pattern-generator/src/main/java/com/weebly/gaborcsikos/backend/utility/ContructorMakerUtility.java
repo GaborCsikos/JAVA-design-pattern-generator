@@ -34,6 +34,16 @@ public final class ContructorMakerUtility {
 		return sb.toString();
 	}
 
+	public static String getFormttedConsructorFromField(final String className,
+			final FieldWithType fields) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(INDENT).append("public ").append(className).append("(")
+				.append(parameterFormatted(fields)).append(") {")
+				.append(NEW_LINE);
+		sb.append(fieldAssigned(fields));
+		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
+		return sb.toString();
+	}
 	private static String fieldsAssigned(final List<FieldWithType> fields) {
 		StringBuilder sb = new StringBuilder();
 		for (FieldWithType field : fields) {
@@ -42,6 +52,11 @@ public final class ContructorMakerUtility {
 		return sb.toString();
 	}
 
+	private static String fieldAssigned(final FieldWithType field) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(field.getAssigmentForConstructor());
+		return sb.toString();
+	}
 	private static String parametersFormatted(
 			final List<FieldWithType> fields) {
 		StringBuilder sb = new StringBuilder();
@@ -54,4 +69,12 @@ public final class ContructorMakerUtility {
 		return sb.toString();
 	}
 
+	private static String parameterFormatted(final FieldWithType field) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(field.getFieldForParameter());
+		if (sb.length() > 2) {
+			sb.setLength(sb.length() - 2);
+		}
+		return sb.toString();
+	}
 }

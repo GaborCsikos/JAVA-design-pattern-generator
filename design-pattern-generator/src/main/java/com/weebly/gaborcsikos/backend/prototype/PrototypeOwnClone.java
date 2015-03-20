@@ -7,6 +7,7 @@ import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
+import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.OVERRIDE;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -42,7 +43,7 @@ public class PrototypeOwnClone extends PrototypeTemplate {
 		checkInstanceName();
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getBasicStucture());
-		sb.append(INDENT).append("@Override").append(NEW_LINE);
+		sb.append(INDENT).append(OVERRIDE).append(NEW_LINE);
 		sb.append(INDENT).append("protected ").append(super.getClassName())
 				.append("clone() throws CloneNotSupportedException {")
 				.append(NEW_LINE);

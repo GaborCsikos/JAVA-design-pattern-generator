@@ -29,7 +29,7 @@ public class FacadeWithInterface extends FacadeTemplate {
 			FieldVariableIsEmptyException {
 		StringBuilder sb = new StringBuilder();
 		String implement = " implements " + super.getClassName();
-		super.setImplementsPart(implement);
+		super.setImplementsOrExtendsPart(implement);
 		super.setClassName(newClassName);
 		sb.append(super.getBasicStucture());
 		sb.append(getFields());

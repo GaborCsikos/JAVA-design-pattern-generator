@@ -19,7 +19,7 @@ public class AdapterModel extends DesignPatternModel {
 	private AdapterTemplate template;
 
 	private FieldWithType target;
-	private String methodType;
+	private String extendedClass;
 	private String methodName;
 	private String targetMethodName;
 	
@@ -27,6 +27,14 @@ public class AdapterModel extends DesignPatternModel {
 		super(packaName, className);
 	}
 
+	public AdapterModel(final String packaName, final String className,
+			final String extendedClass, final String methodName,
+			final String targetMethodName) {
+		super(packaName, className);
+		this.extendedClass = extendedClass;
+		this.methodName = methodName;
+		this.targetMethodName = targetMethodName;
+	}
 	/* (non-Javadoc)
 	 * @see com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel#getGeneratedPattern()
 	 */
@@ -36,7 +44,7 @@ public class AdapterModel extends DesignPatternModel {
 		StringBuilder result = new StringBuilder();
 		template = new AdapterTemplate(super.getBasicTemplate()
 				.getPackageName(), super.getBasicTemplate().getClassName(),
-				target);
+				target, extendedClass, methodName, targetMethodName);
 		result.append(template.buildClass());
 		return result.toString();
 	}
@@ -47,14 +55,6 @@ public class AdapterModel extends DesignPatternModel {
 
 	public void setTarget(final FieldWithType target) {
 		this.target = target;
-	}
-
-	public String getMethodType() {
-		return methodType;
-	}
-
-	public void setMethodType(final String methodType) {
-		this.methodType = methodType;
 	}
 
 	public String getMethodName() {
@@ -71,6 +71,14 @@ public class AdapterModel extends DesignPatternModel {
 
 	public void setTargetMethodName(final String targetMethodName) {
 		this.targetMethodName = targetMethodName;
+	}
+
+	public String getExtendedClass() {
+		return extendedClass;
+	}
+
+	public void setExtendedClass(final String extendedClass) {
+		this.extendedClass = extendedClass;
 	}
 
 }
