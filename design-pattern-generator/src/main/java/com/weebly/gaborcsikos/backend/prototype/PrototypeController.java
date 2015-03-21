@@ -34,6 +34,8 @@ public class PrototypeController extends GeneralController {
 	public void init() {
 		addActionListeners();
 		initFields();
+		prototypeModel.setCloneMethodName(dialog.getCloneMethodName());
+		prototypeModel.setName(PatternEnum.PROTOTYPE.getName());
 	}
 
 	@Override
@@ -41,7 +43,6 @@ public class PrototypeController extends GeneralController {
 		prototypeModel.setImplementsClonable(dialog
 				.IsImplementsClonableSelected());
 		prototypeModel.setCloneMethodName(dialog.getCloneMethodName());
-		prototypeModel.setName(PatternEnum.PROTOTYPE.getName());
 	}
 
 	class ImplementsClonableListener implements ActionListener {
@@ -98,14 +99,6 @@ public class PrototypeController extends GeneralController {
 			return true;
 		}
 		return false;
-	}
-
-	private void initFields() {
-		prototypeModel.getBasicTemplate().setClassName(dialog.getClassName());
-		prototypeModel.getBasicTemplate().setPackageName(
-				dialog.getPackageName());
-		prototypeModel.setCloneMethodName(dialog.getCloneMethodName());
-
 	}
 
 	private void addActionListeners() {

@@ -33,13 +33,14 @@ public class FacadeController extends GeneralController {
 	public void setData() {
 		model.setWithInterface(dialog.isWithInterface());
 		model.addAllFields(dialog.getAllElements());
-		model.setName(PatternEnum.FACADE.getName());
 	}
 
 	@Override
 	public void init() {
 		addActionListeners();
 		initFields();
+		model.setWithInterface(false);
+		model.setName(PatternEnum.FACADE.getName());
 	}
 
 	private void addActionListeners() {
@@ -111,10 +112,5 @@ public class FacadeController extends GeneralController {
 			model.addField(field);
 			dialog.addFieldToList(field.getStringForDialog());
 		}
-	}
-	private void initFields() {
-		model.getBasicTemplate().setClassName(dialog.getClassName());
-		model.getBasicTemplate().setPackageName(dialog.getPackageName());
-		model.setWithInterface(false);
 	}
 }

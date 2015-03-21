@@ -32,7 +32,7 @@ public final class TestHelperUtility {
 	public static final String FINAL_PARAMETER = "final ";
 	public static final String THIS = "this.";
 	public static String IMPELENTSPART = "";
-
+	public static final String ITERATOR_CLASS = "Character";
 	private TestHelperUtility() {
 
 	}

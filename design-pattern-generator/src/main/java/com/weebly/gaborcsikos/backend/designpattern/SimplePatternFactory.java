@@ -3,6 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
@@ -39,13 +40,14 @@ public class SimplePatternFactory {
 
 	public List<String> generateBehavioralPatterns() {
 		final List<String> patternList = new ArrayList<String>();
+		patternList.add(PatternEnum.ITERATOR.getName());
 		return patternList;
 	}
 
 	public List<String> generateStructuralPatterns() {
 		final List<String> patternList = new ArrayList<String>();
 		patternList.add(FACADE.getName());
-		patternList.add(PatternEnum.ADAPTER.getName());
+		patternList.add(ADAPTER.getName());
 		return patternList;
 	}
 

@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.singleton;
 
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -80,16 +82,12 @@ public class SingletonController extends GeneralController {
 	public void init() {
 		addActionListeners();
 		initFields();
-	}
-
-	private void initFields() {
-		singleton.getBasicTemplate().setClassName(dialog.getClassName());
-		singleton.getBasicTemplate().setPackageName(dialog.getPackageName());
 		singleton.setConstructorPrivate(true);
 		singleton.setEnumType(false);
 		singleton.setEagerLoaded(true);
 		singleton.setLazyLoaded(false);
 		singleton.setInstanceName(dialog.getInstanceName());
+		singleton.setName(SINGLETON.getName());
 	}
 
 	private void addActionListeners() {

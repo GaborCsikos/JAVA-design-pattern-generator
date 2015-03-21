@@ -33,7 +33,6 @@ public class AdapterController extends GeneralController {
 	@Override
 	public void setData() {
 		model.setExtendedClass(dialog.getExtendedClassName());
-		model.setName(PatternEnum.ADAPTER.getName());
 		model.setTarget(new FieldWithType(dialog.getTargetClassType(), dialog
 				.getTargetClassName()));
 		model.setTargetMethodName(dialog.getTargetMethod());
@@ -45,18 +44,12 @@ public class AdapterController extends GeneralController {
 	public void init() {
 		addActionListeners();
 		initFields();
-
-	}
-
-	private void initFields() {
-		model.getBasicTemplate().setClassName(dialog.getClassName());
-		model.getBasicTemplate().setPackageName(dialog.getPackageName());
 		setData();
+		model.setName(PatternEnum.ADAPTER.getName());
 	}
 
 	private void addActionListeners() {
 		dialog.addGeneratePatternListener(new GeneratePatternListener());
-
 	}
 
 	class GeneratePatternListener implements ActionListener {

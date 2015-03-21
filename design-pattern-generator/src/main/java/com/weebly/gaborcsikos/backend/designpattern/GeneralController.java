@@ -39,6 +39,11 @@ public abstract class GeneralController {
 
 	public abstract void init();
 
+	public void initFields() {
+		model.getBasicTemplate().setClassName(dialog.getClassName());
+		model.getBasicTemplate().setPackageName(dialog.getPackageName());
+		setData();
+	}
 	protected void printEvent(final ActionEvent e) {
 		System.out.println("action happened:" + e.getActionCommand() + " from:"
 				+ e.getSource());

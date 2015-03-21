@@ -96,7 +96,6 @@ public class AdapterDialog extends ClassGenerateDialog {
 		adapterPanel.setVisible(true);
 		super.panel.add(adapterPanel, BorderLayout.CENTER);
 		super.add(panel);
-
 	}
 
 	private void initReturnMethodName() {

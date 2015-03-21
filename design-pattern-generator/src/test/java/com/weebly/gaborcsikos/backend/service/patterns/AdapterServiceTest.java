@@ -33,6 +33,7 @@ import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
  * 
  */
 public class AdapterServiceTest {
+
 	private PatternGeneratorService service;
 
 	/**

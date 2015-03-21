@@ -3,6 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
@@ -16,12 +17,15 @@ import com.weebly.gaborcsikos.backend.adapter.AdapterModel;
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.facade.FacadeController;
 import com.weebly.gaborcsikos.backend.facade.FacadeModel;
+import com.weebly.gaborcsikos.backend.iterator.IteratorController;
+import com.weebly.gaborcsikos.backend.iterator.IteratorModel;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeController;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.singleton.SingletonController;
 import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
+import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
 
@@ -51,10 +55,16 @@ public class DesignPatternOpener {
 			FacadeModel model = new FacadeModel();
 			FacadeController controller = new FacadeController(model, dialog);
 			controller.init();
-		} else if (PatternEnum.ADAPTER.getName().equals(patternStr)) {
+		} else if (ADAPTER.getName().equals(patternStr)) {
 			AdapterDialog dialog = new AdapterDialog(frame);
 			AdapterModel model = new AdapterModel();
 			AdapterController controller = new AdapterController(model,
+					dialog);
+			controller.init();
+		} else if (PatternEnum.ITERATOR.getName().equals(patternStr)) {
+			IteratorDialog dialog = new IteratorDialog(frame);
+			IteratorModel model = new IteratorModel();
+			IteratorController controller = new IteratorController(model,
 					dialog);
 			controller.init();
 		} else {
