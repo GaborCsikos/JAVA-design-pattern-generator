@@ -3,6 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.designpattern;
 
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -36,6 +37,12 @@ public abstract class GeneralController {
 
 	public abstract void setData();
 
+	public abstract void init();
+
+	protected void printEvent(final ActionEvent e) {
+		System.out.println("action happened:" + e.getActionCommand() + " from:"
+				+ e.getSource());
+	}
 	public boolean mandatoryFieldsAreEmpty() {
 		if (StringUtils.isEmpty(dialog.getClassName())) {
 			dialog.openMessageDialog("Class name can't be empty");

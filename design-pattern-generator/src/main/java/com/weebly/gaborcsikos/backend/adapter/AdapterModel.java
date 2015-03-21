@@ -20,20 +20,34 @@ public class AdapterModel extends DesignPatternModel {
 
 	private FieldWithType target;
 	private String extendedClass;
-	private String methodName;
+	private String extendedClassMethodName;
 	private String targetMethodName;
-	
+	private String targetReturnType;
+
+	public String getTargetReturnType() {
+		return targetReturnType;
+	}
+
+	public void setTargetReturnType(final String targetReturnType) {
+		this.targetReturnType = targetReturnType;
+	}
+
+	public AdapterModel() {
+
+	}
+
 	public AdapterModel(final String packaName, final String className) {
 		super(packaName, className);
 	}
 
 	public AdapterModel(final String packaName, final String className,
-			final String extendedClass, final String methodName,
-			final String targetMethodName) {
+			final String extendedClass, final String extendedClassMethodName,
+			final String targetMethodName, final String targetReturnType) {
 		super(packaName, className);
 		this.extendedClass = extendedClass;
-		this.methodName = methodName;
+		this.extendedClassMethodName = extendedClassMethodName;
 		this.targetMethodName = targetMethodName;
+		this.targetReturnType = targetReturnType;
 	}
 	/* (non-Javadoc)
 	 * @see com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel#getGeneratedPattern()
@@ -44,7 +58,8 @@ public class AdapterModel extends DesignPatternModel {
 		StringBuilder result = new StringBuilder();
 		template = new AdapterTemplate(super.getBasicTemplate()
 				.getPackageName(), super.getBasicTemplate().getClassName(),
-				target, extendedClass, methodName, targetMethodName);
+				target, extendedClass, extendedClassMethodName, targetMethodName,
+				targetReturnType);
 		result.append(template.buildClass());
 		return result.toString();
 	}
@@ -57,12 +72,12 @@ public class AdapterModel extends DesignPatternModel {
 		this.target = target;
 	}
 
-	public String getMethodName() {
-		return methodName;
+	public String getExtendedClassMethodName() {
+		return extendedClassMethodName;
 	}
 
-	public void setMethodName(final String methodName) {
-		this.methodName = methodName;
+	public void setExtendedClassMethodName(final String extendedClassMethodName) {
+		this.extendedClassMethodName = extendedClassMethodName;
 	}
 
 	public String getTargetMethodName() {

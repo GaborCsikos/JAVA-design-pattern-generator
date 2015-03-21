@@ -6,7 +6,7 @@ package com.weebly.gaborcsikos.backend.service;
 import java.util.List;
 
 import com.weebly.gaborcsikos.backend.api.DesignPatternService;
-import com.weebly.gaborcsikos.backend.patterncreator.SimplePatternFactory;
+import com.weebly.gaborcsikos.backend.designpattern.SimplePatternFactory;
 
 /**
  * Service Implementation for design patterns.

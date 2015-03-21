@@ -35,8 +35,8 @@ public class AdapterDialog extends ClassGenerateDialog {
 	private JTextField extendedClassName;
 	private JLabel methodReturnTypeLabel;
 	private JTextField methodReturnType;
-	private JLabel methodNameLabel;
-	private JTextField methodName;
+	private JLabel extendedClassMethodLabel;
+	private JTextField extendedClassMethodName;
 	private JLabel targetMethodLabel;
 	private JTextField targetMethod;
 
@@ -64,8 +64,8 @@ public class AdapterDialog extends ClassGenerateDialog {
 		return methodReturnType.getText();
 	}
 
-	public String getMethodName() {
-		return methodName.getText();
+	public String getExtendedClassMethodName() {
+		return extendedClassMethodName.getText();
 	}
 
 	public String getTargetMethod() {
@@ -88,31 +88,99 @@ public class AdapterDialog extends ClassGenerateDialog {
 		adapterPanel = new JPanel();
 		adapterPanel.setLayout(new BoxLayout(adapterPanel, BoxLayout.Y_AXIS));
 		initExtendedClassName();
-		initTargetClassNameAndType();
-		initReturnTypeAndName();
+		initTargetClassType();
+		initTargetClassName();
+		initReturnType();
+		initReturnName();
+		initReturnMethodName();
 		adapterPanel.setVisible(true);
 		super.panel.add(adapterPanel, BorderLayout.CENTER);
 		super.add(panel);
 
 	}
 
-	private void initReturnTypeAndName() {
-		// TODO Auto-generated method stub
+	private void initReturnMethodName() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
+		targetMethodLabel = new JLabel(TARGET_METHOD);
+		targetMethod = new JTextField("adapteeMethod", 15);
+		fieldPanel.add(targetMethodLabel);
+		fieldPanel.add(targetMethod);
+		adapterPanel.add(fieldPanel);
+	}
+
+	private void initReturnType() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
+		methodReturnTypeLabel = new JLabel(METHOD_RETURN_TYPE);
+
+		methodReturnType = new JTextField("String", 15);
+
+		fieldPanel.add(methodReturnTypeLabel);
+		fieldPanel.add(methodReturnType);
+
+		adapterPanel.add(fieldPanel);
 
 	}
 
-	private void initTargetClassNameAndType() {
-		// TODO Auto-generated method stub
+	private void initReturnName() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
 
+		extendedClassMethodLabel = new JLabel(METHOD_NAME);
+		extendedClassMethodName = new JTextField("extendedClassMethod", 15);
+
+		fieldPanel.add(extendedClassMethodLabel);
+		fieldPanel.add(extendedClassMethodName);
+
+		adapterPanel.add(fieldPanel);
 	}
 
+	private void initTargetClassType() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
+
+		targetClassTypeLabel = new JLabel(TARGET_CLASS_TYPE);
+		targetClassType = new JTextField("Target", 15);
+
+		fieldPanel.add(targetClassTypeLabel);
+		fieldPanel.add(targetClassType);
+
+		adapterPanel.add(fieldPanel);
+	}
+
+	private void initTargetClassName() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
+
+		targetClassNameLabel = new JLabel(TARGET_CLASS_NAME);
+		targetClassName = new JTextField("targetClass", 15);
+
+		fieldPanel.add(targetClassNameLabel);
+		fieldPanel.add(targetClassName);
+		adapterPanel.add(fieldPanel);
+	}
 	private void initExtendedClassName() {
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setAlignment(FlowLayout.LEADING);
 		flowLayout.setAlignOnBaseline(true);
 		JPanel fieldPanel = new JPanel(flowLayout);
-		// TODO Add labels
 
+		extendedClassNameLabel = new JLabel(EXTENDED_CLASS_NAME);
+		extendedClassName = new JTextField("ExtendedClass", 15);
+
+		fieldPanel.add(extendedClassNameLabel);
+		fieldPanel.add(extendedClassName);
 		adapterPanel.add(fieldPanel);
 
 	}

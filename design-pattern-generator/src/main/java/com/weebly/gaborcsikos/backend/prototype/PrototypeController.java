@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 
@@ -29,6 +30,7 @@ public class PrototypeController extends GeneralController {
 		this.dialog = dialog;
 	}
 
+	@Override
 	public void init() {
 		addActionListeners();
 		initFields();
@@ -39,6 +41,7 @@ public class PrototypeController extends GeneralController {
 		prototypeModel.setImplementsClonable(dialog
 				.IsImplementsClonableSelected());
 		prototypeModel.setCloneMethodName(dialog.getCloneMethodName());
+		prototypeModel.setName(PatternEnum.PROTOTYPE.getName());
 	}
 
 	class ImplementsClonableListener implements ActionListener {
@@ -95,11 +98,6 @@ public class PrototypeController extends GeneralController {
 			return true;
 		}
 		return false;
-	}
-
-	private void printEvent(final ActionEvent e) {
-		System.out.println("action happened:" + e.getActionCommand() + " from:"
-				+ e.getSource());
 	}
 
 	private void initFields() {

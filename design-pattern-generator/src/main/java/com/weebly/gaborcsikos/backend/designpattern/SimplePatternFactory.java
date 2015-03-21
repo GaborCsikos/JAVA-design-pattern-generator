@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.patterncreator;
+package com.weebly.gaborcsikos.backend.designpattern;
 
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
@@ -12,6 +12,8 @@ import static com.weebly.gaborcsikos.backend.api.PatternTypeEnum.STRUCTURAL;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.weebly.gaborcsikos.backend.api.PatternEnum;
 
 /**
  * Factory to generate Dummy data
@@ -43,6 +45,7 @@ public class SimplePatternFactory {
 	public List<String> generateStructuralPatterns() {
 		final List<String> patternList = new ArrayList<String>();
 		patternList.add(FACADE.getName());
+		patternList.add(PatternEnum.ADAPTER.getName());
 		return patternList;
 	}
 

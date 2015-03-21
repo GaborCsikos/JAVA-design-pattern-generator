@@ -6,6 +6,7 @@ package com.weebly.gaborcsikos.backend.facade;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
@@ -32,8 +33,10 @@ public class FacadeController extends GeneralController {
 	public void setData() {
 		model.setWithInterface(dialog.isWithInterface());
 		model.addAllFields(dialog.getAllElements());
+		model.setName(PatternEnum.FACADE.getName());
 	}
 
+	@Override
 	public void init() {
 		addActionListeners();
 		initFields();
@@ -113,10 +116,5 @@ public class FacadeController extends GeneralController {
 		model.getBasicTemplate().setClassName(dialog.getClassName());
 		model.getBasicTemplate().setPackageName(dialog.getPackageName());
 		model.setWithInterface(false);
-	}
-
-	private void printEvent(final ActionEvent e) {
-		System.out.println("action happened:" + e.getActionCommand() + " from:"
-				+ e.getSource());
 	}
 }

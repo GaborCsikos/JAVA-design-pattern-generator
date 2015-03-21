@@ -8,6 +8,7 @@ import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.EXTENDS_
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.METHOD_NAME;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.METHOD_NAME_TWO;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.PACKAGE_NAME;
+import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.STRING_TYPE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.OVERRIDE;
@@ -47,7 +48,8 @@ public class AdapterServiceTest {
 	public void testAdaper() throws CanNotCreateClassException,
 			FieldVariableIsEmptyException {
 		AdapterModel adapter = new AdapterModel(PACKAGE_NAME, CLASS_NAME,
-				EXTENDS_CLASS_NAME, METHOD_NAME, METHOD_NAME_TWO);
+				EXTENDS_CLASS_NAME, METHOD_NAME, METHOD_NAME_TWO,
+ STRING_TYPE);
 		adapter.setTarget(TestFields.testFields().get(0));
 		adapter.setExtendedClass(EXTENDS_CLASS_NAME);
 		String expected = makeAdapter();
@@ -73,12 +75,13 @@ public class AdapterServiceTest {
 		StringBuilder sb = new StringBuilder();
 		sb.append(INDENT).append(OVERRIDE).append(NEW_LINE);
 		sb.append(INDENT).append("public ")
-				.append(TestFields.testFields().get(0).getType()).append(" ")
+.append(STRING_TYPE).append(" ")
 				.append(METHOD_NAME).append("() {").append(NEW_LINE);
 		sb.append(IndentHelperUtility.DOUBLE_INDENT).append("return ")
 				.append(TestFields.testFields().get(0).getName()).append(".")
 				.append(METHOD_NAME_TWO)
-				.append("();");
+.append("();").append(NEW_LINE);
+		sb.append(INDENT).append("}").append(NEW_LINE);
 		return sb.toString();
 	}
 }

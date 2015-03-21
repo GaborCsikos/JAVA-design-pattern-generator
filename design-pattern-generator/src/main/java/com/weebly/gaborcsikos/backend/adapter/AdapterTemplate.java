@@ -27,19 +27,22 @@ import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 public class AdapterTemplate extends BasicTemplate {
 
 	private final FieldWithType target;
-	private final String methodName;
+	private final String extendedClassMethodName;
 	private final String targetMethodName;
 	private final String extendedClass;
+	private final String targetReturnType;
 
 	public AdapterTemplate(final String packageName, final String className,
 			final FieldWithType target, final String extendedClass,
-			final String methodName,
-			final String targetMethodName) {
+			final String extendedClassMethodName,
+ final String targetMethodName,
+			final String targetReturnType) {
 		super(packageName, className);
 		this.target = target;
 		this.extendedClass = extendedClass;
-		this.methodName = methodName;
+		this.extendedClassMethodName = extendedClassMethodName;
 		this.targetMethodName = targetMethodName;
+		this.targetReturnType = targetReturnType;
 	}
 
 	@Override
@@ -61,11 +64,12 @@ public class AdapterTemplate extends BasicTemplate {
 	private String getAdaptedMethod() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(INDENT).append(OVERRIDE).append(NEW_LINE);
-		sb.append(INDENT).append("public ").append(target.getType())
-				.append(" ").append(methodName).append("() {").append(NEW_LINE);
+		sb.append(INDENT).append("public ").append(targetReturnType)
+				.append(" ").append(extendedClassMethodName).append("() {").append(NEW_LINE);
 		sb.append(IndentHelperUtility.DOUBLE_INDENT).append("return ")
 				.append(target.getName()).append(".").append(targetMethodName)
-				.append("();");
+				.append("();").append(NEW_LINE);
+		sb.append(INDENT).append("}").append(NEW_LINE);
 		return sb.toString();
 	}
 

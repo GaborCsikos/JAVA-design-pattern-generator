@@ -28,7 +28,7 @@ public class FieldWithType {
 
 	public String getFormattedField() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(INDENT).append(MODIFIER).append(type)
+		sb.append(INDENT).append(MODIFIER).append(type).append(" ")
 				.append(name).append(";")
 					.append(NEW_LINE);
 		return sb.toString();

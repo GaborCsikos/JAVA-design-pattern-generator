@@ -79,7 +79,7 @@ public class FieldWithTypeTest {
 
 	private String getExpectedFormattedField() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(INDENT).append(MODIFIER).append(STRING_TYPE)
+		sb.append(INDENT).append(MODIFIER).append(STRING_TYPE).append(" ")
 				.append(VARIABLE).append(";").append(NEW_LINE);
 		return sb.toString();
 	}

@@ -76,6 +76,7 @@ public class SingletonController extends GeneralController {
 			singleton.setInstanceName(dialog.getInstanceName());
 		}
 	}
+	@Override
 	public void init() {
 		addActionListeners();
 		initFields();
@@ -98,11 +99,6 @@ public class SingletonController extends GeneralController {
 		dialog.addEagerLoadingListener(new EagerLoadingListener());
 		dialog.addlazyLoadingListener(new LazyLoadingListener());
 		dialog.addInstanceListener(new InstanceSetterListener());
-	}
-
-	private void printEvent(final ActionEvent e) {
-		System.out.println("action happened:" + e.getActionCommand() + " from:"
-				+ e.getSource());
 	}
 
 	private void setLoadingType() {
