@@ -4,8 +4,10 @@
 package com.weebly.gaborcsikos.backend.designpattern;
 
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.BUILDER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.OBSERVER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 
@@ -15,7 +17,8 @@ import javax.swing.JFrame;
 
 import com.weebly.gaborcsikos.backend.adapter.AdapterController;
 import com.weebly.gaborcsikos.backend.adapter.AdapterModel;
-import com.weebly.gaborcsikos.backend.api.PatternEnum;
+import com.weebly.gaborcsikos.backend.builder.BuilderController;
+import com.weebly.gaborcsikos.backend.builder.BuilderModel;
 import com.weebly.gaborcsikos.backend.facade.FacadeController;
 import com.weebly.gaborcsikos.backend.facade.FacadeModel;
 import com.weebly.gaborcsikos.backend.iterator.IteratorController;
@@ -27,6 +30,7 @@ import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.singleton.SingletonController;
 import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
+import com.weebly.gaborcsikos.frontend.patterns.BuilderDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
 import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
@@ -40,7 +44,7 @@ import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
  * 
  */
 public class DesignPatternOpener {
-
+	// TODO Add selection by type
 	public void open(final String patternStr, final JFrame frame) {
 		if (SINGLETON.getName().equals(patternStr)) {
 			SingletonDialog dialog = new SingletonDialog(frame);
@@ -71,10 +75,16 @@ public class DesignPatternOpener {
 			IteratorController controller = new IteratorController(model,
 					dialog);
 			controller.init();
-		} else if (PatternEnum.OBSERVER.getName().equals(patternStr)) {
+		} else if (OBSERVER.getName().equals(patternStr)) {
 			ObserverDialog dialog = new ObserverDialog(frame);
 			ObserverModel model = new ObserverModel();
 			ObserverController controller = new ObserverController(model,
+					dialog);
+			controller.init();
+		} else if (BUILDER.getName().equals(patternStr)) {
+			BuilderDialog dialog = new BuilderDialog(frame);
+			BuilderModel model = new BuilderModel();
+			BuilderController controller = new BuilderController(model,
 					dialog);
 			controller.init();
 		} else {

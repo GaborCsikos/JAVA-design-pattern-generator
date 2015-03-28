@@ -114,6 +114,8 @@ public class FacadeDialog extends ClassGenerateDialog {
 	public void addFieldToList(final String item) {
 		fields.addItem(item);
 	}
+
+	// end
 	private void initFacadeView() {
 		facadePanel = new JPanel();
 		facadePanel.setLayout(new BoxLayout(facadePanel, BoxLayout.Y_AXIS));

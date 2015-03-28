@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.facade;
+package com.weebly.gaborcsikos.backend.builder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,44 +9,48 @@ import java.awt.event.ActionListener;
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
-import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
+import com.weebly.gaborcsikos.frontend.patterns.BuilderDialog;
 
 /**
  * @author Gabor Csikos
  *
  */
-public class FacadeController extends GeneralController {
+public class BuilderController extends GeneralController {
 
-	private final FacadeModel model;
-	private final FacadeDialog dialog;
+	private final BuilderModel model;
+	private final BuilderDialog dialog;
 
-	public FacadeController(final FacadeModel model, final FacadeDialog dialog) {
+	public BuilderController(final BuilderModel model,
+			final BuilderDialog dialog) {
 		super(model, dialog);
 		this.model = model;
 		this.dialog = dialog;
 	}
-
 	/* (non-Javadoc)
 	 * @see com.weebly.gaborcsikos.backend.designpattern.GeneralController#setData()
 	 */
 	@Override
 	public void setData() {
-		model.setWithInterface(dialog.isWithInterface());
+		model.setContainsBuildMethod(dialog.isAddBuildMethod());
 		model.addAllFields(dialog.getAllElements());
+
 	}
 
+	/* (non-Javadoc)
+	 * @see com.weebly.gaborcsikos.backend.designpattern.GeneralController#init()
+	 */
 	@Override
 	public void init() {
 		addActionListeners();
 		initFields();
-		model.setWithInterface(false);
-		model.setName(PatternEnum.FACADE.getName());
+		model.setContainsBuildMethod(false);
+		model.setName(PatternEnum.BUILDER.getName());
+
 	}
 
 	private void addActionListeners() {
 		dialog.addDeleteButtonListener(new DeleteFieldListener());
 		dialog.addAddFieldListener(new AddNewFieldListener());
-		dialog.addIsWithInterfaceListener(new IsWithInterFaceListener());
 		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 
@@ -57,23 +61,18 @@ public class FacadeController extends GeneralController {
 			printEvent(e);
 			setCommonData();
 			if (!mandatoryFieldsAreEmpty()
-					&& !mandatoryFieldsAreEmptyForFacade()) {
+					&& !mandatoryFieldsAreEmptyForBuilder()) {
 				if (fileOpenApproved()) {
 					showPath();
 					setData();
 					if (!classNameIsNullOrEmpty()) {
-						if (model.isWithInterface()) {
-							generateFile("Impl");
-							generateFile();
-						} else {
-							generateFile();
-						}
+						generateFile();
 					}
 				}
 			}
 		}
 
-		private boolean mandatoryFieldsAreEmptyForFacade() {
+		private boolean mandatoryFieldsAreEmptyForBuilder() {
 			if (dialog.getAllElements().isEmpty()) {
 				dialog.openMessageDialog("Fields can't be empty");
 				return true;
@@ -94,6 +93,7 @@ public class FacadeController extends GeneralController {
 			dialog.addFieldToList(field.getStringForDialog());
 		}
 	}
+
 	class DeleteFieldListener implements ActionListener {
 		@Override
 		public void actionPerformed(final ActionEvent e) {
@@ -106,14 +106,4 @@ public class FacadeController extends GeneralController {
 			}
 		}
 	}
-
-	class IsWithInterFaceListener implements ActionListener {
-		@Override
-		public void actionPerformed(final ActionEvent e) {
-			printEvent(e);
-			model.setWithInterface(dialog.isWithInterface());
-		}
-	}
-
-
 }
