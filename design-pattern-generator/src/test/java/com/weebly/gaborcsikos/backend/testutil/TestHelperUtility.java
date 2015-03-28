@@ -31,6 +31,7 @@ public final class TestHelperUtility {
 	public static final String MODIFIER = "private ";
 	public static final String FINAL_PARAMETER = "final ";
 	public static final String THIS = "this.";
+	public static final String OBSERVER = "Observer";
 	public static String IMPELENTSPART = "";
 	public static final String ITERATOR_CLASS = "Character";
 	private TestHelperUtility() {
@@ -75,6 +76,15 @@ public final class TestHelperUtility {
 		StringBuilder sb = new StringBuilder("package ");
 		sb.append(PACKAGE_NAME + ";\n\n")
 				.append("public " + tpye.getName() + " " + CLASS_NAME)
+				.append(IMPELENTSPART).append(" {\n\n");
+		return sb.toString();
+	}
+
+	public static String getBasicStucture(final ClassType tpye,
+			final String className) {
+		StringBuilder sb = new StringBuilder("package ");
+		sb.append(PACKAGE_NAME + ";\n\n")
+				.append("public " + tpye.getName() + " " + className)
 				.append(IMPELENTSPART).append(" {\n\n");
 		return sb.toString();
 	}

@@ -39,6 +39,11 @@ public abstract class GeneralController {
 
 	public abstract void init();
 
+	public void setCommonData() {
+		model.getBasicTemplate().setClassName(dialog.getClassName());
+		model.getBasicTemplate().setPackageName(dialog.getPackageName());
+		setData();
+	}
 	public void initFields() {
 		model.getBasicTemplate().setClassName(dialog.getClassName());
 		model.getBasicTemplate().setPackageName(dialog.getPackageName());

@@ -32,6 +32,7 @@ public class AdapterController extends GeneralController {
 	 */
 	@Override
 	public void setData() {
+		setCommonData();
 		model.setExtendedClass(dialog.getExtendedClassName());
 		model.setTarget(new FieldWithType(dialog.getTargetClassType(), dialog
 				.getTargetClassName()));

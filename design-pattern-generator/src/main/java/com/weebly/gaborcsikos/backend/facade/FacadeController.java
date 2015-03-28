@@ -31,6 +31,7 @@ public class FacadeController extends GeneralController {
 	 */
 	@Override
 	public void setData() {
+		setCommonData();
 		model.setWithInterface(dialog.isWithInterface());
 		model.addAllFields(dialog.getAllElements());
 	}

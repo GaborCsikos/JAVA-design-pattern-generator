@@ -33,6 +33,7 @@ public class SingletonController extends GeneralController {
 
 	@Override
 	public void setData() {
+		setCommonData();
 		singleton.setEnumType(dialog.isEnumType());
 		singleton.setConstructorPrivate(dialog.isPrivateConstructor());
 		singleton.setInstanceName(dialog.getInstanceName());

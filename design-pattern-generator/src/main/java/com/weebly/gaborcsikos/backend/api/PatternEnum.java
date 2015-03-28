@@ -10,7 +10,7 @@ package com.weebly.gaborcsikos.backend.api;
 public enum PatternEnum {
 	
 	SINGLETON("Singleton"), PROTOTYPE("Prototype"), FACADE("Facade"), ADAPTER(
-			"Adapter"), ITERATOR("Iterator");
+			"Adapter"), ITERATOR("Iterator"), OBSERVER("Observer");
 	
 	private String name;
 

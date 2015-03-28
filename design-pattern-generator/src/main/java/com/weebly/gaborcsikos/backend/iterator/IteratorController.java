@@ -30,6 +30,7 @@ public class IteratorController extends GeneralController {
 	 */
 	@Override
 	public void setData() {
+		setCommonData();
 		model.setClassToIterate(dialog.getClassToIterate());
 		model.setRemoveSupported(dialog.isRemoveSupported());
 	}
