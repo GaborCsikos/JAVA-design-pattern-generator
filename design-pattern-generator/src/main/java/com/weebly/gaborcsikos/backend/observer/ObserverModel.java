@@ -19,6 +19,10 @@ public class ObserverModel extends DesignPatternModel {
 	private ObserverTemplate template;
 	private boolean needToCreateInterface = false;
 
+	public ObserverModel() {
+
+	}
+
 	public ObserverModel(final String packaName, final String className,
 			final String observerName, final boolean arrayList) {
 		super(packaName, className);

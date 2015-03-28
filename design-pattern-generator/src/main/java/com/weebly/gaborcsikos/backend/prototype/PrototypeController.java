@@ -40,7 +40,6 @@ public class PrototypeController extends GeneralController {
 
 	@Override
 	public void setData() {
-		setCommonData();
 		prototypeModel.setImplementsClonable(dialog
 				.IsImplementsClonableSelected());
 		prototypeModel.setCloneMethodName(dialog.getCloneMethodName());
@@ -67,6 +66,7 @@ public class PrototypeController extends GeneralController {
 		@Override
 		public void actionPerformed(final ActionEvent e) {
 			printEvent(e);
+			setCommonData();
 			if (!mandatoryFieldsAreEmpty()
 					&& !mandatoryFieldsAreEmptyForPrototype()
 					&& !checkIfMethodNameIsClone()) {

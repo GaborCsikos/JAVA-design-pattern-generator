@@ -31,7 +31,6 @@ public class FacadeController extends GeneralController {
 	 */
 	@Override
 	public void setData() {
-		setCommonData();
 		model.setWithInterface(dialog.isWithInterface());
 		model.addAllFields(dialog.getAllElements());
 	}
@@ -56,6 +55,7 @@ public class FacadeController extends GeneralController {
 		@Override
 		public void actionPerformed(final ActionEvent e) {
 			printEvent(e);
+			setCommonData();
 			if (!mandatoryFieldsAreEmpty()
 					&& !mandatoryFieldsAreEmptyForFacade()) {
 				if (fileOpenApproved()) {

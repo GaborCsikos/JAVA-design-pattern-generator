@@ -32,7 +32,6 @@ public class AdapterController extends GeneralController {
 	 */
 	@Override
 	public void setData() {
-		setCommonData();
 		model.setExtendedClass(dialog.getExtendedClassName());
 		model.setTarget(new FieldWithType(dialog.getTargetClassType(), dialog
 				.getTargetClassName()));
@@ -58,6 +57,7 @@ public class AdapterController extends GeneralController {
 		@Override
 		public void actionPerformed(final ActionEvent e) {
 			printEvent(e);
+			setCommonData();
 			if (!mandatoryFieldsAreEmpty()
 					&& !mandatoryFieldsAreEmptyForAdapter()) {
 				if (fileOpenApproved()) {

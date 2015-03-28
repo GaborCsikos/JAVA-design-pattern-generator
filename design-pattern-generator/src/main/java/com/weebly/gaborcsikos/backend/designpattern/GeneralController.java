@@ -112,7 +112,7 @@ public abstract class GeneralController {
 	private String getPath(final String simplePath, final String extension) {
 		StringBuilder sb = new StringBuilder(simplePath);
 		sb.append(File.separator);
-		sb.append(dialog.getClassName()).append(extension);
+		sb.append(model.getBasicTemplate().getClassName()).append(extension);
 		sb.append(".java");
 		return sb.toString();
 	}

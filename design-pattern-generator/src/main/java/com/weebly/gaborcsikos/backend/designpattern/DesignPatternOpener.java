@@ -5,6 +5,7 @@ package com.weebly.gaborcsikos.backend.designpattern;
 
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 
@@ -19,6 +20,8 @@ import com.weebly.gaborcsikos.backend.facade.FacadeController;
 import com.weebly.gaborcsikos.backend.facade.FacadeModel;
 import com.weebly.gaborcsikos.backend.iterator.IteratorController;
 import com.weebly.gaborcsikos.backend.iterator.IteratorModel;
+import com.weebly.gaborcsikos.backend.observer.ObserverController;
+import com.weebly.gaborcsikos.backend.observer.ObserverModel;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeController;
 import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.singleton.SingletonController;
@@ -26,6 +29,7 @@ import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
+import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
 
@@ -61,10 +65,16 @@ public class DesignPatternOpener {
 			AdapterController controller = new AdapterController(model,
 					dialog);
 			controller.init();
-		} else if (PatternEnum.ITERATOR.getName().equals(patternStr)) {
+		} else if (ITERATOR.getName().equals(patternStr)) {
 			IteratorDialog dialog = new IteratorDialog(frame);
 			IteratorModel model = new IteratorModel();
 			IteratorController controller = new IteratorController(model,
+					dialog);
+			controller.init();
+		} else if (PatternEnum.OBSERVER.getName().equals(patternStr)) {
+			ObserverDialog dialog = new ObserverDialog(frame);
+			ObserverModel model = new ObserverModel();
+			ObserverController controller = new ObserverController(model,
 					dialog);
 			controller.init();
 		} else {

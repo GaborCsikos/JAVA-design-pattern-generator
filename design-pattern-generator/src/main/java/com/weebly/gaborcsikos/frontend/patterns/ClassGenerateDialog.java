@@ -73,6 +73,10 @@ public abstract class ClassGenerateDialog extends JDialog {
 		return className.getText();
 	}
 
+	public void setClassName(final String className) {
+		this.className.setText(className);
+	}
+
 	public String getPackageName() {
 		return packageName.getText();
 	}

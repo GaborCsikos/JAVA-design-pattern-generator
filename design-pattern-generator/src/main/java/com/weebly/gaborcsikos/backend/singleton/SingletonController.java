@@ -33,7 +33,6 @@ public class SingletonController extends GeneralController {
 
 	@Override
 	public void setData() {
-		setCommonData();
 		singleton.setEnumType(dialog.isEnumType());
 		singleton.setConstructorPrivate(dialog.isPrivateConstructor());
 		singleton.setInstanceName(dialog.getInstanceName());
@@ -109,6 +108,7 @@ public class SingletonController extends GeneralController {
 
 		@Override
 		public void actionPerformed(final ActionEvent e) {
+			setCommonData();
 			printEvent(e);
 			if (!mandatoryFieldsAreEmpty()
 					&& !mandatoryFieldsAreEmptyForSingleton()) {

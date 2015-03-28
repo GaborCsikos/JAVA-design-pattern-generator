@@ -1,37 +1,38 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.iterator;
-
-import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
+package com.weebly.gaborcsikos.backend.observer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
-import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
+import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
 
 /**
  * @author Gabor Csikos
  *
  */
-public class IteratorController extends GeneralController {
-	private final IteratorModel model;
-	private final IteratorDialog dialog;
+public class ObserverController extends GeneralController {
 
-	public IteratorController(final IteratorModel model,
-			final IteratorDialog dialog) {
+	private final ObserverModel model;
+	private final ObserverDialog dialog;
+
+	public ObserverController(final ObserverModel model,
+			final ObserverDialog dialog) {
 		super(model, dialog);
 		this.model = model;
 		this.dialog = dialog;
 	}
+
 	/* (non-Javadoc)
 	 * @see com.weebly.gaborcsikos.backend.designpattern.GeneralController#setData()
 	 */
 	@Override
 	public void setData() {
-		model.setClassToIterate(dialog.getClassToIterate());
-		model.setRemoveSupported(dialog.isRemoveSupported());
+		model.setArrayList(dialog.isArrayList());
+		model.setObserverName(dialog.getObserverName());
 	}
 
 	/* (non-Javadoc)
@@ -41,12 +42,14 @@ public class IteratorController extends GeneralController {
 	public void init() {
 		addActionListeners();
 		initFields();
-		model.setName(ITERATOR.getName());
-		setData();
+		model.setArrayList(dialog.isArrayList());
+		model.setObserverName(dialog.getObserverName());
+		model.setName(PatternEnum.OBSERVER.getName());
 	}
 
 	private void addActionListeners() {
 		dialog.addGeneratePatternListener(new GeneratePatternListener());
+
 	}
 
 	class GeneratePatternListener implements ActionListener {
@@ -56,24 +59,26 @@ public class IteratorController extends GeneralController {
 			printEvent(e);
 			setCommonData();
 			if (!mandatoryFieldsAreEmpty()
-					&& !mandatoryFieldsAreEmptyForIterator()) {
+					&& !mandatoryFieldsAreEmptyForObserver()) {
 				if (fileOpenApproved()) {
 					showPath();
 					setData();
 					if (!classNameIsNullOrEmpty()) {
-						generateFile();
+							generateFile();
+						model.getBasicTemplate().setClassName(
+								dialog.getObserverName());
+							generateFile();
 					}
 				}
 			}
 		}
 
-		private boolean mandatoryFieldsAreEmptyForIterator() {
-			if (dialog.getClassToIterate().isEmpty()) {
-				dialog.openMessageDialog("Class to iterate field is required");
+		private boolean mandatoryFieldsAreEmptyForObserver() {
+			if (dialog.getObserverName().isEmpty()) {
+				dialog.openMessageDialog("Fields can't be empty");
 				return true;
 			}
 			return false;
 		}
 	}
-
 }
