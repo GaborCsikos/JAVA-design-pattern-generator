@@ -11,7 +11,7 @@ public enum PatternEnum {
 	
 	SINGLETON("Singleton"), PROTOTYPE("Prototype"), FACADE("Facade"), ADAPTER(
 			"Adapter"), ITERATOR("Iterator"), OBSERVER("Observer"), BUILDER(
-			"Builder");
+			"Builder"), FACTORY("Factory");
 	
 	private String name;
 

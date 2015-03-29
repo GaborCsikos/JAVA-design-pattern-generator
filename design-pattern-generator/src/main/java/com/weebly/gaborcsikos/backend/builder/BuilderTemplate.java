@@ -85,6 +85,7 @@ public class BuilderTemplate extends BasicTemplate {
 		return sb.toString();
 	}
 
+	// TODO add to utility
 	private String getUppercaseMethodName(final String name) {
 		return Character.toString(name.charAt(0)).toUpperCase()
 				+ name.substring(1);

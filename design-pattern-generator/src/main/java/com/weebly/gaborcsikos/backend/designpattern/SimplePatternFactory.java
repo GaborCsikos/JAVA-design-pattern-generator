@@ -6,6 +6,7 @@ package com.weebly.gaborcsikos.backend.designpattern;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.BUILDER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.OBSERVER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
@@ -29,6 +30,7 @@ public class SimplePatternFactory {
 		patternList.add(SINGLETON.getName());
 		patternList.add(PROTOTYPE.getName());
 		patternList.add(BUILDER.getName());
+		patternList.add(FACTORY.getName());
 		return patternList;
 	}
 

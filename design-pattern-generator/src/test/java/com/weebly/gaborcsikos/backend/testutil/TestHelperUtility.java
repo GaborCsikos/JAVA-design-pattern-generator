@@ -18,6 +18,7 @@ import com.weebly.gaborcsikos.backend.utility.FieldMakerUtility;
 public final class TestHelperUtility {
 
 	public static final String CLASS_NAME = "ClassName";
+	public static final String FACTORY_NAME = "ClassNameFactory";
 	public static final String EXTENDS_CLASS_NAME = "AnotherClassName";
 	public static final String PACKAGE_NAME = "com.weebly.gaborcsikos";
 	public static final String INSTANCE = "instance";
