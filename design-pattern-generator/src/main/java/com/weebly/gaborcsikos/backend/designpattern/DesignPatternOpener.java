@@ -17,10 +17,13 @@ import javax.swing.JFrame;
 
 import com.weebly.gaborcsikos.backend.adapter.AdapterController;
 import com.weebly.gaborcsikos.backend.adapter.AdapterModel;
+import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.builder.BuilderController;
 import com.weebly.gaborcsikos.backend.builder.BuilderModel;
 import com.weebly.gaborcsikos.backend.facade.FacadeController;
 import com.weebly.gaborcsikos.backend.facade.FacadeModel;
+import com.weebly.gaborcsikos.backend.factory.FactoryController;
+import com.weebly.gaborcsikos.backend.factory.FactoryModel;
 import com.weebly.gaborcsikos.backend.iterator.IteratorController;
 import com.weebly.gaborcsikos.backend.iterator.IteratorModel;
 import com.weebly.gaborcsikos.backend.observer.ObserverController;
@@ -32,6 +35,7 @@ import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
 import com.weebly.gaborcsikos.frontend.patterns.BuilderDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
+import com.weebly.gaborcsikos.frontend.patterns.FactoryDialog;
 import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
 import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
@@ -86,6 +90,11 @@ public class DesignPatternOpener {
 			BuilderModel model = new BuilderModel();
 			BuilderController controller = new BuilderController(model,
 					dialog);
+			controller.init();
+		} else if (PatternEnum.FACTORY.getName().equals(patternStr)) {
+			FactoryDialog dialog = new FactoryDialog(frame);
+			FactoryModel model = new FactoryModel();
+			FactoryController controller = new FactoryController(model, dialog);
 			controller.init();
 		} else {
 			throw new NoSuchElementException();

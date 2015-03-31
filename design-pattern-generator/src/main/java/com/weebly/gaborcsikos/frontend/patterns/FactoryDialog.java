@@ -5,6 +5,7 @@ package com.weebly.gaborcsikos.frontend.patterns;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,11 +28,11 @@ public class FactoryDialog extends ClassGenerateDialog {
 
 	private JCheckBox simplaFactory;
 	private JLabel objectTypeReturnLabel;
-	private JLabel objectTypeName;
+	private JTextField objectTypeName;
 
-	// TODO add View
 	// Simpple Factory
 	private JLabel classToReturnLabel;
+	private JTextField classToReturnName;
 
 	private JPanel factorypanel;
 	// Field stuff
@@ -47,6 +48,8 @@ public class FactoryDialog extends ClassGenerateDialog {
 		super(frame);
 	}
 
+	// TODO More testing is needed
+	// TODO fields should't be editable at simple method
 	/**
 	 * 
 	 */
@@ -60,10 +63,38 @@ public class FactoryDialog extends ClassGenerateDialog {
 		initFactory();
 	}
 
+	public boolean isSimplaFactory() {
+		return simplaFactory.isSelected();
+	}
+
+	public String getClassToReturn() {
+		return classToReturnName.getText();
+	}
+
+	public String getObjectTypeName() {
+		return objectTypeName.getText();
+	}
+
+	public void addSimpleFactoryActionListerner(final ActionListener l) {
+		simplaFactory.addActionListener(l);
+	}
+
+	public void setEditable(final boolean b) {
+		classToReturnName.setEnabled(b);
+	}
+
+	public void addDeleteButtonListener(final ActionListener l) {
+		deleteButton.addActionListener(l);
+	}
+
+	public void addAddFieldListener(final ActionListener l) {
+		addNewButton.addActionListener(l);
+	}
 	private void initFactory() {
 		factorypanel = new JPanel();
 		factorypanel.setLayout(new BoxLayout(factorypanel, BoxLayout.Y_AXIS));
 		initSimpleFactory();
+		initFactoryData();
 		initFields();
 		factorypanel.setVisible(true);
 		super.panel.add(factorypanel, BorderLayout.CENTER);
@@ -71,9 +102,33 @@ public class FactoryDialog extends ClassGenerateDialog {
 
 	}
 
-	private void initSimpleFactory() {
-		// TODO Auto-generated method stub
+	private void initFactoryData() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
+		objectTypeReturnLabel = new JLabel("Object type to return:");
+		objectTypeName = new JTextField("Object", 10);
+		fieldPanel.add(objectTypeReturnLabel);
+		fieldPanel.add(objectTypeName);
+		factorypanel.add(fieldPanel);
 
+	}
+
+	private void initSimpleFactory() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
+		simplaFactory = new JCheckBox("Use Factory method");
+		simplaFactory.setSelected(false);
+		classToReturnLabel = new JLabel("Object to return:");
+		classToReturnName = new JTextField("Object", 10);
+		classToReturnName.setEnabled(false);
+		fieldPanel.add(simplaFactory);
+		fieldPanel.add(classToReturnLabel);
+		fieldPanel.add(classToReturnName);
+		factorypanel.add(fieldPanel);
 	}
 
 	private void initFields() {
@@ -90,13 +145,13 @@ public class FactoryDialog extends ClassGenerateDialog {
 		fieldPanel.add(deleteButton);
 
 		// ADD
-		typeLabel = new JLabel("String criteria:");
+		typeLabel = new JLabel("Object tor retturn:");
 		fieldPanel.add(typeLabel);
-		typeField = new JTextField("String", 10);
+		typeField = new JTextField("ObjectImpl", 10);
 		fieldPanel.add(typeField);
-		nameLabel = new JLabel("Returned Class:");
+		nameLabel = new JLabel("String criteria:");
 		fieldPanel.add(nameLabel);
-		nameField = new JTextField("exampleField", 10);
+		nameField = new JTextField("object", 10);
 		fieldPanel.add(nameField);
 		addNewButton = new JButton("Add");
 		fieldPanel.add(addNewButton);

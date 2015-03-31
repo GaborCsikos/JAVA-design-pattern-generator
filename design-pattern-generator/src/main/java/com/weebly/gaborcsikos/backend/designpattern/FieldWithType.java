@@ -68,4 +68,8 @@ public class FieldWithType {
 	public String getStringForDialog() {
 		return type + " " + name;
 	}
+
+	public String getStringForFactoryDialog() {
+		return type + "-->" + name;
+	}
 }
