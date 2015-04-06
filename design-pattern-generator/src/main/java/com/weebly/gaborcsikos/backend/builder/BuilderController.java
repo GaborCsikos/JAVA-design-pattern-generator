@@ -3,10 +3,11 @@
  */
 package com.weebly.gaborcsikos.backend.builder;
 
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.BUILDER;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.BuilderDialog;
@@ -33,7 +34,6 @@ public class BuilderController extends GeneralController {
 	public void setData() {
 		model.setContainsBuildMethod(dialog.isAddBuildMethod());
 		model.addAllFields(dialog.getAllElements());
-
 	}
 
 	/* (non-Javadoc)
@@ -44,7 +44,7 @@ public class BuilderController extends GeneralController {
 		addActionListeners();
 		initFields();
 		model.setContainsBuildMethod(false);
-		model.setName(PatternEnum.BUILDER.getName());
+		model.setName(BUILDER.getName());
 
 	}
 

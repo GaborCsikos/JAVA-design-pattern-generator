@@ -70,6 +70,6 @@ public class FieldWithType {
 	}
 
 	public String getStringForFactoryDialog() {
-		return type + "-->" + name;
+		return name + "-->" + type;
 	}
 }

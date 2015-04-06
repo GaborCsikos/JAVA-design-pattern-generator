@@ -6,6 +6,7 @@ package com.weebly.gaborcsikos.backend.designpattern;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.BUILDER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.OBSERVER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
@@ -20,6 +21,8 @@ import com.weebly.gaborcsikos.backend.adapter.AdapterModel;
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.builder.BuilderController;
 import com.weebly.gaborcsikos.backend.builder.BuilderModel;
+import com.weebly.gaborcsikos.backend.chainofresponsibility.ChainOfResponsibilityController;
+import com.weebly.gaborcsikos.backend.chainofresponsibility.ChainOfResponsibilityModel;
 import com.weebly.gaborcsikos.backend.facade.FacadeController;
 import com.weebly.gaborcsikos.backend.facade.FacadeModel;
 import com.weebly.gaborcsikos.backend.factory.FactoryController;
@@ -34,6 +37,7 @@ import com.weebly.gaborcsikos.backend.singleton.SingletonController;
 import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
 import com.weebly.gaborcsikos.frontend.patterns.BuilderDialog;
+import com.weebly.gaborcsikos.frontend.patterns.ChainOfResponsibilityDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FactoryDialog;
 import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
@@ -91,10 +95,18 @@ public class DesignPatternOpener {
 			BuilderController controller = new BuilderController(model,
 					dialog);
 			controller.init();
-		} else if (PatternEnum.FACTORY.getName().equals(patternStr)) {
+		} else if (FACTORY.getName().equals(patternStr)) {
 			FactoryDialog dialog = new FactoryDialog(frame);
 			FactoryModel model = new FactoryModel();
 			FactoryController controller = new FactoryController(model, dialog);
+			controller.init();
+		} else if (PatternEnum.CHAIN_OF_RESPONSIBILITY.getName().equals(
+				patternStr)) {
+			ChainOfResponsibilityDialog dialog = new ChainOfResponsibilityDialog(
+					frame);
+			ChainOfResponsibilityModel model = new ChainOfResponsibilityModel();
+			ChainOfResponsibilityController controller = new ChainOfResponsibilityController(
+					model, dialog);
 			controller.init();
 		} else {
 			throw new NoSuchElementException();

@@ -5,6 +5,7 @@ package com.weebly.gaborcsikos.backend.designpattern;
 
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.BUILDER;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.CHAIN_OF_RESPONSIBILITY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
@@ -46,6 +47,7 @@ public class SimplePatternFactory {
 		final List<String> patternList = new ArrayList<String>();
 		patternList.add(ITERATOR.getName());
 		patternList.add(OBSERVER.getName());
+		patternList.add(CHAIN_OF_RESPONSIBILITY.getName());
 		return patternList;
 	}
 

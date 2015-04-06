@@ -48,10 +48,10 @@ public class FactoryTemplateImpl extends FactoryTemplate {
 		boolean first = true;
 		if (fields.size() == 1) {
 			sb.append(DOUBLE_INDENT).append("if (\"")
-					.append(fields.get(0).getName())
+					.append(fields.get(0).getType())
 					.append("\".equals(criteria)) {").append(NEW_LINE);
 			sb.append(TRIPLE_INDENT).append("return new ")
-					.append(fields.get(0).getType()).append("();")
+					.append(fields.get(0).getName()).append("();")
 					.append(NEW_LINE);
 			sb.append(DOUBLE_INDENT).append("}").append(NEW_LINE);
 			sb.append(INDENT).append("}").append(NEW_LINE);
@@ -59,18 +59,18 @@ public class FactoryTemplateImpl extends FactoryTemplate {
 			for (FieldWithType field : fields) {
 				if (first) {
 					sb.append(DOUBLE_INDENT).append("if (\"")
-							.append(field.getName())
+							.append(field.getType())
 							.append("\".equals(criteria)) {").append(NEW_LINE);
 					sb.append(TRIPLE_INDENT).append("return new ")
-							.append(field.getType()).append("();")
+							.append(field.getName()).append("();")
 							.append(NEW_LINE);
 					first = false;
 				} else {
 					sb.append(DOUBLE_INDENT).append("} else if (\"")
-							.append(field.getName())
+							.append(field.getType())
 							.append("\".equals(criteria)) {").append(NEW_LINE);
 					sb.append(TRIPLE_INDENT).append("return new ")
-							.append(field.getType()).append("();")
+							.append(field.getName()).append("();")
 							.append(NEW_LINE);
 				}
 

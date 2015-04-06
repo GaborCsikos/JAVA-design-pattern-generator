@@ -76,7 +76,6 @@ public class ObserverDialog extends ClassGenerateDialog {
 		facadeInfoPanel.add(observerLabel);
 		facadeInfoPanel.add(observerName);
 		observerPanel.add(facadeInfoPanel);
-
 	}
 
 }

@@ -47,7 +47,6 @@ public class BuilderDialog extends ClassGenerateDialog {
 	@Override
 	protected void initDefaultGeneratableOptions() {
 		initBuilder();
-
 	}
 
 	private void initBuilder() {
