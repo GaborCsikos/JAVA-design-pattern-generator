@@ -1,39 +1,39 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.structural.proxy;
+package com.weebly.gaborcsikos.backend.behavioral.visitor;
 
-import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROXY;
-import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.VISITOR;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
-import com.weebly.gaborcsikos.frontend.patterns.ProxyDialog;
+import com.weebly.gaborcsikos.frontend.patterns.VisitorDialog;
 
 /**
  * @author Gabor Csikos
  *
  */
-public class ProxyController extends GeneralController {
-	private final ProxyModel model;
-	private final ProxyDialog dialog;
+public class VisitorController extends GeneralController {
+	private final VisitorModel model;
+	private final VisitorDialog dialog;
 
-	public ProxyController(final ProxyModel model, final ProxyDialog dialog) {
+	public VisitorController(final VisitorModel model,
+			final VisitorDialog dialog) {
 		super(model, dialog);
 		this.model = model;
 		this.dialog = dialog;
 	}
-
 	/* (non-Javadoc)
 	 * @see com.weebly.gaborcsikos.backend.designpattern.GeneralController#setData()
 	 */
 	@Override
 	public void setData() {
-		model.setExtendendClass(dialog.getExtendendClass());
-		model.setExtendendInstance(dialog.getExtendendInstance());
-		model.setOverridenMethod(dialog.getOverridenMethod());
+		model.setClassNameToVisit(dialog.getClassNameToVisit());
+		model.setClassTypeToVisit(dialog.getClassTypeToVisit());
 	}
 
 	/* (non-Javadoc)
@@ -43,7 +43,7 @@ public class ProxyController extends GeneralController {
 	public void init() {
 		addActionListeners();
 		initFields();
-		model.setName(PROXY.getName());
+		model.setName(VISITOR.getName());
 	}
 
 	private void addActionListeners() {
@@ -57,7 +57,7 @@ public class ProxyController extends GeneralController {
 			printEvent(e);
 			setCommonData();
 			if (!mandatoryFieldsAreEmpty()
-					&& !mandatoryFieldsAreEmptyForProxy()) {
+					&& !mandatoryFieldsAreEmptyForVisitor()) {
 				if (fileOpenApproved()) {
 					showPath();
 					setData();
@@ -67,10 +67,10 @@ public class ProxyController extends GeneralController {
 				}
 			}
 		}
-		private boolean mandatoryFieldsAreEmptyForProxy() {
-			if (isEmpty(dialog.getExtendendClass())
-					|| isEmpty(dialog.getExtendendInstance())
-					|| isEmpty(dialog.getOverridenMethod())) {
+
+		private boolean mandatoryFieldsAreEmptyForVisitor() {
+			if (StringUtils.isEmpty(dialog.getClassNameToVisit())
+					|| StringUtils.isEmpty(dialog.getClassTypeToVisit())) {
 				openFieldsAreEmptyDialog();
 				return true;
 			}

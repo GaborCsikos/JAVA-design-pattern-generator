@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.structural.adapter;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,7 +12,6 @@ import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
-
 /**
  * @author Gabor Csikos
  *
@@ -71,12 +72,12 @@ public class AdapterController extends GeneralController {
 		}
 
 		private boolean mandatoryFieldsAreEmptyForAdapter() {
-			if (dialog.getTargetClassType().isEmpty()
-					|| dialog.getTargetClassName().isEmpty()
-					|| dialog.getTargetMethod().isEmpty()
-					|| dialog.getMethodReturnType().isEmpty()
-					|| dialog.getExtendedClassMethodName().isEmpty()) {
-				dialog.openMessageDialog("All fields are required");
+			if (isEmpty(dialog.getTargetClassType())
+					|| isEmpty(dialog.getTargetClassName())
+					|| isEmpty(dialog.getTargetMethod())
+					|| isEmpty(dialog.getMethodReturnType())
+					|| isEmpty(dialog.getExtendedClassMethodName())) {
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;

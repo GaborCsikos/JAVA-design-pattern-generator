@@ -12,19 +12,22 @@ import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.OBSERVER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROXY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.VISITOR;
 
 import java.util.NoSuchElementException;
 
 import javax.swing.JFrame;
 
-import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.behavioral.chainofresponsibility.ChainOfResponsibilityController;
 import com.weebly.gaborcsikos.backend.behavioral.chainofresponsibility.ChainOfResponsibilityModel;
 import com.weebly.gaborcsikos.backend.behavioral.iterator.IteratorController;
 import com.weebly.gaborcsikos.backend.behavioral.iterator.IteratorModel;
 import com.weebly.gaborcsikos.backend.behavioral.observer.ObserverController;
 import com.weebly.gaborcsikos.backend.behavioral.observer.ObserverModel;
+import com.weebly.gaborcsikos.backend.behavioral.visitor.VisitorController;
+import com.weebly.gaborcsikos.backend.behavioral.visitor.VisitorModel;
 import com.weebly.gaborcsikos.backend.creational.builder.BuilderController;
 import com.weebly.gaborcsikos.backend.creational.builder.BuilderModel;
 import com.weebly.gaborcsikos.backend.creational.factory.FactoryController;
@@ -52,6 +55,7 @@ import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.ProxyDialog;
 import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
+import com.weebly.gaborcsikos.frontend.patterns.VisitorDialog;
 
 /**
  * Opener for Design Patterns
@@ -122,10 +126,15 @@ public class DesignPatternOpener {
 			CompositeController controller = new CompositeController(model,
 					dialog);
 			controller.init();
-		} else if (PatternEnum.PROXY.getName().equals(patternStr)) {
+		} else if (PROXY.getName().equals(patternStr)) {
 			ProxyDialog dialog = new ProxyDialog(frame);
 			ProxyModel model = new ProxyModel();
 			ProxyController controller = new ProxyController(model, dialog);
+			controller.init();
+		} else if (VISITOR.getName().equals(patternStr)) {
+			VisitorDialog dialog = new VisitorDialog(frame);
+			VisitorModel model = new VisitorModel();
+			VisitorController controller = new VisitorController(model, dialog);
 			controller.init();
 		} else {
 			throw new NoSuchElementException();

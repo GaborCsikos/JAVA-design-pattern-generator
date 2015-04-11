@@ -75,7 +75,7 @@ public class FacadeController extends GeneralController {
 
 		private boolean mandatoryFieldsAreEmptyForFacade() {
 			if (dialog.getAllElements().isEmpty()) {
-				dialog.openMessageDialog("Fields can't be empty");
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;

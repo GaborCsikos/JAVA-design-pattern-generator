@@ -63,15 +63,12 @@ public class CompositeController extends GeneralController {
 			}
 		}
 
-		// TODO check empty logic, and encapsulate
 		private boolean mandatoryFieldsAreEmptyForComposite() {
 			if (dialog.getInterfaceMethodName().isEmpty()
-					&& dialog.getInterfaceName().isEmpty()
-					&& dialog.getOverrridenMethod().isEmpty()
-					&& dialog.getListName().isEmpty()) {
-				dialog.openMessageDialog("Fields can't be empty"); // TODO add
-																	// encapsulate
-																	// message
+					|| dialog.getInterfaceName().isEmpty()
+					|| dialog.getOverrridenMethod().isEmpty()
+					|| dialog.getListName().isEmpty()) {
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;

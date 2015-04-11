@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.behavioral.observer;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -74,8 +76,8 @@ public class ObserverController extends GeneralController {
 		}
 
 		private boolean mandatoryFieldsAreEmptyForObserver() {
-			if (dialog.getObserverName().isEmpty()) {
-				dialog.openMessageDialog("Fields can't be empty");
+			if (isEmpty(dialog.getObserverName())) {
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;

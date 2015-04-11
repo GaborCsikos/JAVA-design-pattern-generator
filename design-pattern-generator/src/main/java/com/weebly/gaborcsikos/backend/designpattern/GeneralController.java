@@ -63,7 +63,10 @@ public abstract class GeneralController {
 		}
 		return false;
 	}
-	
+
+	public void openFieldsAreEmptyDialog() {
+		dialog.openMessageDialog("Fields can't be empty");
+	}
 	public boolean fileOpenApproved(){
 		int returnVal = dialog.getFileChooser().showOpenDialog(dialog);
 		return returnVal == JFileChooser.APPROVE_OPTION;

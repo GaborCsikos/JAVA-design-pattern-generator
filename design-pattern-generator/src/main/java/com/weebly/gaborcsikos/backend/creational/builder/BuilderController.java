@@ -74,7 +74,7 @@ public class BuilderController extends GeneralController {
 
 		private boolean mandatoryFieldsAreEmptyForBuilder() {
 			if (dialog.getAllElements().isEmpty()) {
-				dialog.openMessageDialog("Fields can't be empty");
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;

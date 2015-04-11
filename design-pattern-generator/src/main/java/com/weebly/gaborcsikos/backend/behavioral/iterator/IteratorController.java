@@ -4,6 +4,7 @@
 package com.weebly.gaborcsikos.backend.behavioral.iterator;
 
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,8 +69,8 @@ public class IteratorController extends GeneralController {
 		}
 
 		private boolean mandatoryFieldsAreEmptyForIterator() {
-			if (dialog.getClassToIterate().isEmpty()) {
-				dialog.openMessageDialog("Class to iterate field is required");
+			if (isEmpty(dialog.getClassToIterate())) {
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;

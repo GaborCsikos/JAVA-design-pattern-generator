@@ -93,7 +93,7 @@ public class FactoryController extends GeneralController {
 			} else {
 				if (dialog.getAllElements().isEmpty()
 						|| dialog.getObjectTypeName().isEmpty()) {
-					dialog.openMessageDialog("Fields can't be empty");
+					openFieldsAreEmptyDialog();
 					return true;
 				}
 			}

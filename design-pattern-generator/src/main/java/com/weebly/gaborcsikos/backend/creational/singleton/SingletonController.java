@@ -124,7 +124,7 @@ public class SingletonController extends GeneralController {
 
 		private boolean mandatoryFieldsAreEmptyForSingleton() {
 			if (StringUtils.isEmpty(dialog.getInstanceName())) {
-				dialog.openMessageDialog("instance name can't be empty");
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;

@@ -4,6 +4,7 @@
 package com.weebly.gaborcsikos.backend.behavioral.chainofresponsibility;
 
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.CHAIN_OF_RESPONSIBILITY;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,9 +64,9 @@ public class ChainOfResponsibilityController extends GeneralController {
 		}
 
 		private boolean mandatoryFieldsAreEmptyForCOR() {
-			if (dialog.getActionName().isEmpty()
-					&& dialog.getNextName().isEmpty()) {
-				dialog.openMessageDialog("Fields can't be empty");
+			if (isEmpty(dialog.getActionName())
+					|| isEmpty(dialog.getNextName())) {
+				openFieldsAreEmptyDialog();
 				return true;
 			}
 			return false;
