@@ -8,8 +8,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
+ * Model for Chain of Responsible Design pattern
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ChainOfResponsibilityModel extends DesignPatternModel {
 	private String nextName;

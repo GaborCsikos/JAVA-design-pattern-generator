@@ -10,7 +10,7 @@ import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LIN
 
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
-import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
+import com.weebly.gaborcsikos.backend.utility.GeneralUtility;
 
 /**
  * @author Gabor Csikos
@@ -29,7 +29,7 @@ public class PrototypeImplementsClonable extends PrototypeTemplate {
 		StringBuilder sb = new StringBuilder();
 		super.setImplementsOrExtendsPart(" implements Cloneable");
 		sb.append(super.getBasicStucture());
-		sb.append(INDENT).append(IndentHelperUtility.OVERRIDE).append(NEW_LINE);
+		sb.append(INDENT).append(GeneralUtility.OVERRIDE).append(NEW_LINE);
 		sb.append(INDENT)
 				.append("protected Object clone() throws CloneNotSupportedException {")
 				.append(NEW_LINE);

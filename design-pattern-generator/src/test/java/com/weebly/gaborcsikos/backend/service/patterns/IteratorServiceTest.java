@@ -6,11 +6,11 @@ package com.weebly.gaborcsikos.backend.service.patterns;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.CLASS_NAME;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.ITERATOR_CLASS;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.PACKAGE_NAME;
+import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.OVERRIDE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
-import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.OVERRIDE;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;

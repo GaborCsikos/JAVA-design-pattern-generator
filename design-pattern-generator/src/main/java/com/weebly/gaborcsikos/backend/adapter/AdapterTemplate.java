@@ -3,9 +3,9 @@
  */
 package com.weebly.gaborcsikos.backend.adapter;
 
+import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.OVERRIDE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
-import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.OVERRIDE;
 
 import java.util.ArrayList;
 import java.util.List;

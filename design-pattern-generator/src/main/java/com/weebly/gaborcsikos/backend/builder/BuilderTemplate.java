@@ -3,6 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.builder;
 
+import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.getUppercaseMethodName;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
@@ -71,7 +72,8 @@ public class BuilderTemplate extends BasicTemplate {
 		for (FieldWithType field : fields) {
 			sb.append(INDENT).append("public ").append(super.getClassName())
 					.append(" set")
-					.append(getUppercaseMethodName(field.getName()))
+					.append(getUppercaseMethodName(field
+							.getName()))
 					.append("(final ").append(field.getType()).append(" ")
 					.append(field.getName()).append(") {").append(NEW_LINE);
 			sb.append(DOUBLE_INDENT).append("this.").append(field.getName())
@@ -83,12 +85,6 @@ public class BuilderTemplate extends BasicTemplate {
 		}
 
 		return sb.toString();
-	}
-
-	// TODO add to utility
-	private String getUppercaseMethodName(final String name) {
-		return Character.toString(name.charAt(0)).toUpperCase()
-				+ name.substring(1);
 	}
 
 	private String getBuildOption() {

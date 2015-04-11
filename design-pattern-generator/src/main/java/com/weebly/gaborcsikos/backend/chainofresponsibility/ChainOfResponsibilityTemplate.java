@@ -4,6 +4,7 @@
 package com.weebly.gaborcsikos.backend.chainofresponsibility;
 
 import static com.weebly.gaborcsikos.backend.api.ClassType.ABSTRACT_CLASS;
+import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.getUppercaseMethodName;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
@@ -87,9 +88,4 @@ public class ChainOfResponsibilityTemplate extends BasicTemplate {
 		this.actionName = actionName;
 	}
 
-	// TODO add to utility
-	private String getUppercaseMethodName(final String name) {
-		return Character.toString(name.charAt(0)).toUpperCase()
-				+ name.substring(1);
-	}
 }

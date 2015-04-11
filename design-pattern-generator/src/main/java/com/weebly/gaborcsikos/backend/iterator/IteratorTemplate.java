@@ -3,11 +3,11 @@
  */
 package com.weebly.gaborcsikos.backend.iterator;
 
+import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.OVERRIDE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
-import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.OVERRIDE;
 
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;

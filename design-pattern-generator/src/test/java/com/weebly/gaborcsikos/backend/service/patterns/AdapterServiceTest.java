@@ -9,9 +9,9 @@ import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.METHOD_N
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.METHOD_NAME_TWO;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.PACKAGE_NAME;
 import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.STRING_TYPE;
+import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.OVERRIDE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
-import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.OVERRIDE;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;

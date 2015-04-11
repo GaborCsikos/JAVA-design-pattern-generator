@@ -39,7 +39,6 @@ public class ChainOfResponsibilityController extends GeneralController {
 		addActionListeners();
 		initFields();
 		model.setName(CHAIN_OF_RESPONSIBILITY.getName());
-
 	}
 
 	private void addActionListeners() {
