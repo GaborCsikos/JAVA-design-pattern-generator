@@ -12,6 +12,7 @@ import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.OBSERVER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROXY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.SINGLETON;
 import static com.weebly.gaborcsikos.backend.api.PatternTypeEnum.BEHAVIORAL;
 import static com.weebly.gaborcsikos.backend.api.PatternTypeEnum.CREATIONAL;
@@ -57,6 +58,7 @@ public class SimplePatternFactory {
 		patternList.add(FACADE.getName());
 		patternList.add(ADAPTER.getName());
 		patternList.add(COMPOSITE.getName());
+		patternList.add(PROXY.getName());
 		return patternList;
 	}
 

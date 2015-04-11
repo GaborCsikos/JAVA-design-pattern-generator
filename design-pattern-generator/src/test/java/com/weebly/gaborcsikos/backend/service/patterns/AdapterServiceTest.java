@@ -17,11 +17,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.weebly.gaborcsikos.backend.adapter.AdapterModel;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
+import com.weebly.gaborcsikos.backend.structural.adapter.AdapterModel;
 import com.weebly.gaborcsikos.backend.testutil.TestFields;
 import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
 import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;

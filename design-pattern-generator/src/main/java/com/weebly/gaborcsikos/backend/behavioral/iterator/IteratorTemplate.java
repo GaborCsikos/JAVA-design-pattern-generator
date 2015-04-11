@@ -1,85 +1,52 @@
 /**
  * 
  */
-package com.weebly.gaborcsikos.backend.service.patterns;
+package com.weebly.gaborcsikos.backend.behavioral.iterator;
 
-import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.CLASS_NAME;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.ITERATOR_CLASS;
-import static com.weebly.gaborcsikos.backend.testutil.TestHelperUtility.PACKAGE_NAME;
 import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.OVERRIDE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_NEW_LINE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
-import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
-import com.weebly.gaborcsikos.backend.behavioral.iterator.IteratorModel;
-import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
-import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
+import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 
 /**
- * Unit test of iterator pattern
- * 
+ * Template for Iterator
  * @author Gabor Csikos
- * 
+ *
  */
-public class IteratorServiceTest {
+public class IteratorTemplate extends BasicTemplate {
 
-	private PatternGeneratorService service;
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-		service = new PatternGeneratorServiceImpl();
+	private final boolean removeSupported;
+	private final String classToIterate;
+	
+	public IteratorTemplate(final String packageName, final String className,final String classToIterate,final boolean removeSupported){
+		super(packageName, className);
+		this.classToIterate = classToIterate;
+		this.removeSupported = removeSupported;
 	}
-
-	@Test
-	public void testIteratorWithUnsupportedRemove()
-			throws CanNotCreateClassException, FieldVariableIsEmptyException {
-		IteratorModel model = new IteratorModel(PACKAGE_NAME, CLASS_NAME,
-				ITERATOR_CLASS, false);
-		String expected = makeIterator(false);
-		String result = service.generatePattern(model);
-		TestHelperUtility.printInfo(result);
-		assertEquals("Iterator pattern with unsupported remove is different",
-				expected, result);
-	}
-
-	private String makeIterator(final boolean removeUnsupported) {
+	
+	@Override
+	public String buildClass() throws CanNotCreateClassException,
+			FieldVariableIsEmptyException {
 		StringBuilder sb = new StringBuilder();
-		String implementsPart = " implements Iterator" + "<" + ITERATOR_CLASS
+		String implementsPart = " implements Iterator" + "<" + classToIterate
 				+ ">";
-		TestHelperUtility.IMPELENTSPART = implementsPart;
-		sb.append(TestHelperUtility.getBasicStucture());
+		super.setImplementsOrExtendsPart(implementsPart);
+		sb.append(super.getBasicStucture());
 		sb.append(getFields());
 		sb.append(getConstructor());
 		sb.append(getHasNext());
 		sb.append(getNext());
-		sb.append(getRemove(removeUnsupported));
-		sb.append(TestHelperUtility.getEndStructure());
+		sb.append(getRemove());
+		sb.append(super.getEndStructure());
 		return sb.toString();
 	}
 
-	@Test
-	public void testIteratorWithSupportedRemove()
-			throws CanNotCreateClassException, FieldVariableIsEmptyException {
-		IteratorModel model = new IteratorModel(PACKAGE_NAME, CLASS_NAME,
-				ITERATOR_CLASS, true);
-		String expected = makeIterator(true);
-		String result = service.generatePattern(model);
-		TestHelperUtility.printInfo(result);
-		assertEquals("Iterator pattern with supported remove is different",
-				expected, result);
-	}
-
-	private String getRemove(final boolean removeSupported) {
+	private String getRemove() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(INDENT).append(OVERRIDE).append(NEW_LINE);
 		sb.append(INDENT).append("public void remove() {").append(NEW_LINE);
@@ -98,9 +65,10 @@ public class IteratorServiceTest {
 	private String getNext() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(INDENT).append(OVERRIDE).append(NEW_LINE);
-		sb.append(INDENT).append("public ").append(ITERATOR_CLASS)
+		sb.append(INDENT).append("public ").append(classToIterate)
 				.append(" next() {").append(NEW_LINE);
-		sb.append(DOUBLE_INDENT).append("return null;").append(NEW_LINE);
+		sb.append(DOUBLE_INDENT).append("return null;")
+				.append(NEW_LINE);
 		sb.append(INDENT).append("}").append(DOUBLE_NEW_LINE);
 		return sb.toString();
 	}
@@ -117,7 +85,7 @@ public class IteratorServiceTest {
 
 	private String getConstructor() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(INDENT).append("public ").append(CLASS_NAME)
+		sb.append(INDENT).append("public ").append(super.getClassName())
 				.append("() {").append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("this.index = 0;").append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("//TODO add size").append(NEW_LINE);

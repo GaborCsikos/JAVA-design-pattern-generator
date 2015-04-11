@@ -18,7 +18,7 @@ import org.junit.Test;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
-import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
+import com.weebly.gaborcsikos.backend.creational.prototype.PrototypeModel;
 import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
 import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
 

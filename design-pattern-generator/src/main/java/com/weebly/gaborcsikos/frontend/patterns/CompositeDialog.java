@@ -87,7 +87,6 @@ public class CompositeDialog extends ClassGenerateDialog {
 		interfaceMethodName = new JTextField("method", 10);
 		infoPanel.add(interfaceMethodName);
 		compositePanel.add(infoPanel);
-
 	}
 
 	private void initInterFaceDetails() {
@@ -104,7 +103,6 @@ public class CompositeDialog extends ClassGenerateDialog {
 		listName = new JTextField("elements", 10);
 		infoPanel.add(listName);
 		compositePanel.add(infoPanel);
-
 	}
 
 }

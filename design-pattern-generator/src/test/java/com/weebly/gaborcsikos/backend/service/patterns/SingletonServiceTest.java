@@ -23,8 +23,8 @@ import com.weebly.gaborcsikos.backend.api.ClassType;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
+import com.weebly.gaborcsikos.backend.creational.singleton.SingletonModel;
 import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
-import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
 import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
 import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 

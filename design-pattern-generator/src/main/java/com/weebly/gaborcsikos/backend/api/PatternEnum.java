@@ -12,7 +12,7 @@ public enum PatternEnum {
 	SINGLETON("Singleton"), PROTOTYPE("Prototype"), FACADE("Facade"), ADAPTER(
 			"Adapter"), ITERATOR("Iterator"), OBSERVER("Observer"), BUILDER(
 			"Builder"), FACTORY("Factory"), CHAIN_OF_RESPONSIBILITY(
-			"Chain Of Responsibility"), COMPOSITE("Composite");
+			"Chain Of Responsibility"), COMPOSITE("Composite"), PROXY("Proxy");
 	
 	private String name;
 

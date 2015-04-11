@@ -19,7 +19,7 @@ import com.weebly.gaborcsikos.backend.api.ClassType;
 import com.weebly.gaborcsikos.backend.api.PatternGeneratorService;
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
-import com.weebly.gaborcsikos.backend.observer.ObserverModel;
+import com.weebly.gaborcsikos.backend.behavioral.observer.ObserverModel;
 import com.weebly.gaborcsikos.backend.service.PatternGeneratorServiceImpl;
 import com.weebly.gaborcsikos.backend.testutil.TestHelperUtility;
 

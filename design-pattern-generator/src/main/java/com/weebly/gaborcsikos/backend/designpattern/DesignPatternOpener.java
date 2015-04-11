@@ -6,6 +6,7 @@ package com.weebly.gaborcsikos.backend.designpattern;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ADAPTER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.BUILDER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.CHAIN_OF_RESPONSIBILITY;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.COMPOSITE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
@@ -17,27 +18,29 @@ import java.util.NoSuchElementException;
 
 import javax.swing.JFrame;
 
-import com.weebly.gaborcsikos.backend.adapter.AdapterController;
-import com.weebly.gaborcsikos.backend.adapter.AdapterModel;
 import com.weebly.gaborcsikos.backend.api.PatternEnum;
-import com.weebly.gaborcsikos.backend.builder.BuilderController;
-import com.weebly.gaborcsikos.backend.builder.BuilderModel;
-import com.weebly.gaborcsikos.backend.chainofresponsibility.ChainOfResponsibilityController;
-import com.weebly.gaborcsikos.backend.chainofresponsibility.ChainOfResponsibilityModel;
-import com.weebly.gaborcsikos.backend.composite.CompositeController;
-import com.weebly.gaborcsikos.backend.composite.CompositeModel;
-import com.weebly.gaborcsikos.backend.facade.FacadeController;
-import com.weebly.gaborcsikos.backend.facade.FacadeModel;
-import com.weebly.gaborcsikos.backend.factory.FactoryController;
-import com.weebly.gaborcsikos.backend.factory.FactoryModel;
-import com.weebly.gaborcsikos.backend.iterator.IteratorController;
-import com.weebly.gaborcsikos.backend.iterator.IteratorModel;
-import com.weebly.gaborcsikos.backend.observer.ObserverController;
-import com.weebly.gaborcsikos.backend.observer.ObserverModel;
-import com.weebly.gaborcsikos.backend.prototype.PrototypeController;
-import com.weebly.gaborcsikos.backend.prototype.PrototypeModel;
-import com.weebly.gaborcsikos.backend.singleton.SingletonController;
-import com.weebly.gaborcsikos.backend.singleton.SingletonModel;
+import com.weebly.gaborcsikos.backend.behavioral.chainofresponsibility.ChainOfResponsibilityController;
+import com.weebly.gaborcsikos.backend.behavioral.chainofresponsibility.ChainOfResponsibilityModel;
+import com.weebly.gaborcsikos.backend.behavioral.iterator.IteratorController;
+import com.weebly.gaborcsikos.backend.behavioral.iterator.IteratorModel;
+import com.weebly.gaborcsikos.backend.behavioral.observer.ObserverController;
+import com.weebly.gaborcsikos.backend.behavioral.observer.ObserverModel;
+import com.weebly.gaborcsikos.backend.creational.builder.BuilderController;
+import com.weebly.gaborcsikos.backend.creational.builder.BuilderModel;
+import com.weebly.gaborcsikos.backend.creational.factory.FactoryController;
+import com.weebly.gaborcsikos.backend.creational.factory.FactoryModel;
+import com.weebly.gaborcsikos.backend.creational.prototype.PrototypeController;
+import com.weebly.gaborcsikos.backend.creational.prototype.PrototypeModel;
+import com.weebly.gaborcsikos.backend.creational.singleton.SingletonController;
+import com.weebly.gaborcsikos.backend.creational.singleton.SingletonModel;
+import com.weebly.gaborcsikos.backend.structural.adapter.AdapterController;
+import com.weebly.gaborcsikos.backend.structural.adapter.AdapterModel;
+import com.weebly.gaborcsikos.backend.structural.composite.CompositeController;
+import com.weebly.gaborcsikos.backend.structural.composite.CompositeModel;
+import com.weebly.gaborcsikos.backend.structural.facade.FacadeController;
+import com.weebly.gaborcsikos.backend.structural.facade.FacadeModel;
+import com.weebly.gaborcsikos.backend.structural.proxy.ProxyController;
+import com.weebly.gaborcsikos.backend.structural.proxy.ProxyModel;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
 import com.weebly.gaborcsikos.frontend.patterns.BuilderDialog;
 import com.weebly.gaborcsikos.frontend.patterns.ChainOfResponsibilityDialog;
@@ -47,6 +50,7 @@ import com.weebly.gaborcsikos.frontend.patterns.FactoryDialog;
 import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
 import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
+import com.weebly.gaborcsikos.frontend.patterns.ProxyDialog;
 import com.weebly.gaborcsikos.frontend.patterns.SingletonDialog;
 
 /**
@@ -112,11 +116,16 @@ public class DesignPatternOpener {
 			ChainOfResponsibilityController controller = new ChainOfResponsibilityController(
 					model, dialog);
 			controller.init();
-		} else if (PatternEnum.COMPOSITE.getName().equals(patternStr)) {
+		} else if (COMPOSITE.getName().equals(patternStr)) {
 			CompositeDialog dialog = new CompositeDialog(frame);
 			CompositeModel model = new CompositeModel();
 			CompositeController controller = new CompositeController(model,
 					dialog);
+			controller.init();
+		} else if (PatternEnum.PROXY.getName().equals(patternStr)) {
+			ProxyDialog dialog = new ProxyDialog(frame);
+			ProxyModel model = new ProxyModel();
+			ProxyController controller = new ProxyController(model, dialog);
 			controller.init();
 		} else {
 			throw new NoSuchElementException();
