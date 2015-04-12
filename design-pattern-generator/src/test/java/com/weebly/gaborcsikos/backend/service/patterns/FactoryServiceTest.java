@@ -37,16 +37,10 @@ public class FactoryServiceTest {
 		FactoryModel model = new FactoryModel(PACKAGE_NAME, FACTORY_NAME,
 				CLASS_NAME, TestHelperUtility.OBSERVER, true, testFields());
 		TestHelperUtility.IMPELENTSPART = "";
-		String expected = createFactory(true);
 		String result = service.generatePattern(model);
 		TestHelperUtility.printInfo(result);
 		// assertEquals("Builder is  different", expected, result);
 		// TODO TEST
-	}
-
-	private String createFactory(final boolean b) {
-		StringBuilder sb = new StringBuilder();
-		return sb.toString();
 	}
 
 	@Test
@@ -55,7 +49,6 @@ public class FactoryServiceTest {
 		FactoryModel model = new FactoryModel(PACKAGE_NAME, FACTORY_NAME,
 				CLASS_NAME, TestHelperUtility.OBSERVER, false, testFields());
 		TestHelperUtility.IMPELENTSPART = "";
-		String expected = createFactory(true);
 		String result = service.generatePattern(model);
 		TestHelperUtility.printInfo(result);
 		// assertEquals("Builder is  different", expected, result);

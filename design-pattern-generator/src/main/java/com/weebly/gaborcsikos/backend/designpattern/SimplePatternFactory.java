@@ -10,6 +10,7 @@ import static com.weebly.gaborcsikos.backend.api.PatternEnum.COMPOSITE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.MEMENTO;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.OBSERVER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROXY;
@@ -52,6 +53,7 @@ public class SimplePatternFactory {
 		patternList.add(OBSERVER.getName());
 		patternList.add(CHAIN_OF_RESPONSIBILITY.getName());
 		patternList.add(VISITOR.getName());
+		patternList.add(MEMENTO.getName());
 		return patternList;
 	}
 

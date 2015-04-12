@@ -3,6 +3,8 @@
  */
 package com.weebly.gaborcsikos.backend.creational.factory;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -86,18 +88,17 @@ public class FactoryController extends GeneralController {
 
 		private boolean mandatoryFieldsAreEmptyForFactory() {
 			if (dialog.isSimplaFactory()) {
-				if (dialog.getClassToReturn().isEmpty()
-						|| dialog.getObjectTypeName().isEmpty()) {
+				if (isEmpty(dialog.getClassToReturn())
+						|| isEmpty(dialog.getObjectTypeName())) {
 					dialog.openMessageDialog("Add field for factory method");
 				}
 			} else {
 				if (dialog.getAllElements().isEmpty()
-						|| dialog.getObjectTypeName().isEmpty()) {
+						|| isEmpty(dialog.getObjectTypeName())) {
 					openFieldsAreEmptyDialog();
 					return true;
 				}
 			}
-
 			return false;
 		}
 	}

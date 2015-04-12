@@ -10,6 +10,7 @@ import static com.weebly.gaborcsikos.backend.api.PatternEnum.COMPOSITE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACADE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.FACTORY;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.ITERATOR;
+import static com.weebly.gaborcsikos.backend.api.PatternEnum.MEMENTO;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.OBSERVER;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROTOTYPE;
 import static com.weebly.gaborcsikos.backend.api.PatternEnum.PROXY;
@@ -24,6 +25,8 @@ import com.weebly.gaborcsikos.backend.behavioral.chainofresponsibility.ChainOfRe
 import com.weebly.gaborcsikos.backend.behavioral.chainofresponsibility.ChainOfResponsibilityModel;
 import com.weebly.gaborcsikos.backend.behavioral.iterator.IteratorController;
 import com.weebly.gaborcsikos.backend.behavioral.iterator.IteratorModel;
+import com.weebly.gaborcsikos.backend.behavioral.memento.MementoController;
+import com.weebly.gaborcsikos.backend.behavioral.memento.MementoModel;
 import com.weebly.gaborcsikos.backend.behavioral.observer.ObserverController;
 import com.weebly.gaborcsikos.backend.behavioral.observer.ObserverModel;
 import com.weebly.gaborcsikos.backend.behavioral.visitor.VisitorController;
@@ -51,6 +54,7 @@ import com.weebly.gaborcsikos.frontend.patterns.CompositeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.FactoryDialog;
 import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
+import com.weebly.gaborcsikos.frontend.patterns.MementoDialog;
 import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 import com.weebly.gaborcsikos.frontend.patterns.ProxyDialog;
@@ -135,6 +139,11 @@ public class DesignPatternOpener {
 			VisitorDialog dialog = new VisitorDialog(frame);
 			VisitorModel model = new VisitorModel();
 			VisitorController controller = new VisitorController(model, dialog);
+			controller.init();
+		} else if (MEMENTO.getName().equals(patternStr)) {
+			MementoDialog dialog = new MementoDialog(frame);
+			MementoModel model = new MementoModel();
+			MementoController controller = new MementoController(model, dialog);
 			controller.init();
 		} else {
 			throw new NoSuchElementException();

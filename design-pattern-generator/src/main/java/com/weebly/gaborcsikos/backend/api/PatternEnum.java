@@ -13,7 +13,7 @@ public enum PatternEnum {
 			"Adapter"), ITERATOR("Iterator"), OBSERVER("Observer"), BUILDER(
 			"Builder"), FACTORY("Factory"), CHAIN_OF_RESPONSIBILITY(
 			"Chain Of Responsibility"), COMPOSITE("Composite"), PROXY("Proxy"), VISITOR(
-			"Visitor");
+			"Visitor"), MEMENTO("Memento");
 	
 	private String name;
 

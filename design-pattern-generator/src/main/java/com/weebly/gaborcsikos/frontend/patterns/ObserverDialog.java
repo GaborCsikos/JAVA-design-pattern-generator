@@ -60,22 +60,21 @@ public class ObserverDialog extends ClassGenerateDialog {
 		observerPanel.setVisible(true);
 		super.panel.add(observerPanel, BorderLayout.CENTER);
 		super.add(panel);
-
 	}
 
 	private void initSubjectAndObserver() {
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setAlignment(FlowLayout.LEADING);
 		flowLayout.setAlignOnBaseline(true);
-		JPanel facadeInfoPanel = new JPanel(flowLayout);
+		JPanel infoPanel = new JPanel(flowLayout);
 		isArrayList = new JCheckBox("Use ArrayList");
 		isArrayList.setSelected(true);
-		facadeInfoPanel.add(isArrayList);
+		infoPanel.add(isArrayList);
 		observerLabel = new JLabel("Observer name:");
 		observerName = new JTextField("Observer", 10);
-		facadeInfoPanel.add(observerLabel);
-		facadeInfoPanel.add(observerName);
-		observerPanel.add(facadeInfoPanel);
+		infoPanel.add(observerLabel);
+		infoPanel.add(observerName);
+		observerPanel.add(infoPanel);
 	}
 
 }

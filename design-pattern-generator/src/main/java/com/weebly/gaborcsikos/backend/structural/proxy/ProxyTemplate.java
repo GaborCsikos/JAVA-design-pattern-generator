@@ -3,6 +3,7 @@
  */
 package com.weebly.gaborcsikos.backend.structural.proxy;
 
+import static com.weebly.gaborcsikos.backend.utility.FieldMakerUtility.getFormattedField;
 import static com.weebly.gaborcsikos.backend.utility.GeneralUtility.OVERRIDE;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.DOUBLE_INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
@@ -11,6 +12,7 @@ import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.TRIPLE_
 
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
+import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 
 /**
  * @author Gabor Csikos
@@ -36,7 +38,8 @@ public class ProxyTemplate extends BasicTemplate {
 		String extendsPart = " extends " + extendendClass;
 		super.setImplementsOrExtendsPart(extendsPart);
 		sb.append(super.getBasicStucture());
-		sb.append(makeField());
+		sb.append(getFormattedField(new FieldWithType(
+				extendendClass, extendendIsntance)));
 		sb.append(NEW_LINE);
 		sb.append(makeConstructor());
 		sb.append(NEW_LINE);
@@ -46,14 +49,6 @@ public class ProxyTemplate extends BasicTemplate {
 	}
 
 	// TODO add unit tests
-	private String makeField() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(INDENT).append("private ").append(extendendClass).append(" ")
-				.append(extendendIsntance).append(";")
-.append(NEW_LINE);
-		return sb.toString();
-	}
-
 	private String makeConstructor() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(INDENT).append("public ").append(super.getClassName())

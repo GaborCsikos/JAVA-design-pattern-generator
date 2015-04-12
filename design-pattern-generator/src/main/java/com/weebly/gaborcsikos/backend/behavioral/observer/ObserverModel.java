@@ -19,6 +19,9 @@ public class ObserverModel extends DesignPatternModel {
 	private ObserverTemplate template;
 	private boolean needToCreateInterface = false;
 
+	/**
+	 * Default constructor
+	 */
 	public ObserverModel() {
 
 	}
