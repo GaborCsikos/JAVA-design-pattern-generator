@@ -10,6 +10,7 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
 /**
+ * Singleton implementation
  * 
  * @author Gabor Csikos
  * 

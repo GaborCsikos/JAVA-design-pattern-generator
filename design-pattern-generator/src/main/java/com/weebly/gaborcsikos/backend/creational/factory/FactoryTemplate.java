@@ -8,30 +8,21 @@ import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 
 /**
+ * Template for Factory
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public abstract class FactoryTemplate extends BasicTemplate {
 
 	protected final String objectType;
 	protected final String objectToReturn;
 
-
 	public FactoryTemplate(final String packageName, final String className,
-			final String objectType,
- final String objectToReturn) {
+			final String objectType, final String objectToReturn) {
 		super(packageName, className);
 		this.objectType = objectType;
 		this.objectToReturn = objectToReturn;
-	}
-
-
-	public String getObjectType() {
-		return objectType;
-	}
-
-	public String getObjectToReturn() {
-		return objectToReturn;
 	}
 
 	protected String getCommonPart() {
@@ -41,7 +32,12 @@ public abstract class FactoryTemplate extends BasicTemplate {
 		return sb.toString();
 	}
 
+	public String getObjectType() {
+		return objectType;
+	}
 
-
+	public String getObjectToReturn() {
+		return objectToReturn;
+	}
 
 }

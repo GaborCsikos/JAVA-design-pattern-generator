@@ -44,7 +44,21 @@ public class ChainOfResponsibilityTemplate extends BasicTemplate {
 		return sb.toString();
 	}
 
-	// TODO add unit tests
+	public String getNextName() {
+		return nextName;
+	}
+
+	public void setNextName(final String nextName) {
+		this.nextName = nextName;
+	}
+
+	public String getActionName() {
+		return actionName;
+	}
+
+	public void setActionName(final String actionName) {
+		this.actionName = actionName;
+	}
 	private String nextMethod() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(INDENT).append("public void set")
@@ -70,22 +84,6 @@ public class ChainOfResponsibilityTemplate extends BasicTemplate {
 		sb.append(INDENT).append("protected ").append(super.getClassName())
 				.append(" ").append(nextName).append(";").append(NEW_LINE);
 		return sb.toString();
-	}
-
-	public String getNextName() {
-		return nextName;
-	}
-
-	public void setNextName(final String nextName) {
-		this.nextName = nextName;
-	}
-
-	public String getActionName() {
-		return actionName;
-	}
-
-	public void setActionName(final String actionName) {
-		this.actionName = actionName;
 	}
 
 }

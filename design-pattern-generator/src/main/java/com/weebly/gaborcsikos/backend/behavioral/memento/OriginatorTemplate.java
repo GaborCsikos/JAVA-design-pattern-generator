@@ -10,6 +10,7 @@ import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.utility.GeneralUtility;
 
 /**
+ * originator template for memento
  * 
  * @author Gabor Csikos
  * 

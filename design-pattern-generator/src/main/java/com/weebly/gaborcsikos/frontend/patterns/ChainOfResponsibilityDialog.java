@@ -12,8 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Dialog for COR
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ChainOfResponsibilityDialog extends ClassGenerateDialog {
 	private JLabel nextNameText;
@@ -30,6 +32,10 @@ public class ChainOfResponsibilityDialog extends ClassGenerateDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	protected void initDefaultGeneratableOptions() {
+		initCOR();
+	}
 	public String getNextName() {
 		return nextName.getText();
 	}
@@ -37,11 +43,6 @@ public class ChainOfResponsibilityDialog extends ClassGenerateDialog {
 	public String getActionName() {
 		return actionName.getText();
 	}
-	@Override
-	protected void initDefaultGeneratableOptions() {
-		initCOR();
-	}
-
 	private void initCOR() {
 		corPanel = new JPanel();
 		FlowLayout flowLayout = new FlowLayout();

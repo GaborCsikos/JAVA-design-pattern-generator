@@ -15,8 +15,10 @@ import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
+ * Implementation of {@link PatternGeneratorService}
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class PatternGeneratorServiceImpl implements PatternGeneratorService {
 

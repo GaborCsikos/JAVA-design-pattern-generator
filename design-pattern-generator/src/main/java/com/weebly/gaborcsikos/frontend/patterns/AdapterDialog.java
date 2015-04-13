@@ -46,8 +46,22 @@ public class AdapterDialog extends ClassGenerateDialog {
 		super(frame);
 	}
 
-	// NO Need for ActionListeners on text
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.weebly.gaborcsikos.frontend.patterns.ClassGenerateDialog#
+	 * initDefaultGeneratableOptions()
+	 */
+	@Override
+	protected void initDefaultGeneratableOptions() {
+		initAdapter();
+	}
 	public String getTargetClassName(){
 		return targetClassName.getText();
 	}
@@ -71,19 +85,6 @@ public class AdapterDialog extends ClassGenerateDialog {
 	public String getTargetMethod() {
 		return targetMethod.getText();
 	}
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	/* (non-Javadoc)
-	 * @see com.weebly.gaborcsikos.frontend.patterns.ClassGenerateDialog#initDefaultGeneratableOptions()
-	 */
-	@Override
-	protected void initDefaultGeneratableOptions() {
-		initAdapter();
-	}
-
 	private void initAdapter() {
 		adapterPanel = new JPanel();
 		adapterPanel.setLayout(new BoxLayout(adapterPanel, BoxLayout.Y_AXIS));

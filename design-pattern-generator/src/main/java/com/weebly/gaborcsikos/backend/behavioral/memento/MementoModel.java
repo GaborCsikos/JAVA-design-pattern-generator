@@ -12,8 +12,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
+ * Model for Memento
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class MementoModel extends DesignPatternModel {
 

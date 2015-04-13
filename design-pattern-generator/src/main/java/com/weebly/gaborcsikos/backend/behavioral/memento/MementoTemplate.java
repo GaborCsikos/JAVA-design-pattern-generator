@@ -3,6 +3,7 @@ package com.weebly.gaborcsikos.backend.behavioral.memento;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 
 /**
+ * Basic Memento template
  * 
  * @author Gabor Csikos
  * 

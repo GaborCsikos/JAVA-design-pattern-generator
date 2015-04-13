@@ -13,8 +13,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.BuilderDialog;
 
 /**
+ * Controller for Builder
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class BuilderController extends GeneralController {
 
@@ -46,12 +48,6 @@ public class BuilderController extends GeneralController {
 		model.setContainsBuildMethod(false);
 		model.setName(BUILDER.getName());
 
-	}
-
-	private void addActionListeners() {
-		dialog.addDeleteButtonListener(new DeleteFieldListener());
-		dialog.addAddFieldListener(new AddNewFieldListener());
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 
 	class GeneratePatternListener implements ActionListener {
@@ -106,4 +102,11 @@ public class BuilderController extends GeneralController {
 			}
 		}
 	}
+
+	private void addActionListeners() {
+		dialog.addDeleteButtonListener(new DeleteFieldListener());
+		dialog.addAddFieldListener(new AddNewFieldListener());
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
+	}
+
 }

@@ -13,8 +13,10 @@ import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 
 /**
+ * Abstract singleton template
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public abstract class SingletonTemplate extends BasicTemplate {
 

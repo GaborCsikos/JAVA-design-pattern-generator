@@ -33,6 +33,17 @@ public class ChainOfResponsibilityModel extends DesignPatternModel {
 		this.actionName = actionName;
 	}
 
+	@Override
+	public String getGeneratedPattern() throws CanNotCreateClassException,
+			FieldVariableIsEmptyException {
+		StringBuilder result = new StringBuilder();
+		template = new ChainOfResponsibilityTemplate(super.getBasicTemplate()
+				.getPackageName(), super.getBasicTemplate().getClassName(),
+				nextName, actionName);
+		result.append(template.buildClass());
+		return result.toString();
+	}
+
 	public void setNextName(final String nextName) {
 		this.nextName = nextName;
 	}
@@ -45,15 +56,5 @@ public class ChainOfResponsibilityModel extends DesignPatternModel {
 
 	public String getNextName() {
 		return nextName;
-	}
-	@Override
-	public String getGeneratedPattern() throws CanNotCreateClassException,
-			FieldVariableIsEmptyException {
-		StringBuilder result = new StringBuilder();
-		template = new ChainOfResponsibilityTemplate(super.getBasicTemplate()
-				.getPackageName(), super.getBasicTemplate().getClassName(),
-				nextName, actionName);
-		result.append(template.buildClass());
-		return result.toString();
 	}
 }

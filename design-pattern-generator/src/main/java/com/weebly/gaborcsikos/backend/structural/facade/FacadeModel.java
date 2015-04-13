@@ -49,12 +49,6 @@ public class FacadeModel extends DesignPatternModel {
 		super(packaName, className);
 	}
 
-	public void initFacade(final boolean withInterface) {
-		super.setName(FACADE.getName());
-		this.withInterface = withInterface;
-	}
-
-
 	@Override
 	public String getGeneratedPattern() throws CanNotCreateClassException,
 			FieldVariableIsEmptyException {
@@ -80,6 +74,24 @@ public class FacadeModel extends DesignPatternModel {
 		return result.toString();
 	}
 
+	public void addAllFields(final List<FieldWithType> fieldsToAdd) {
+		fields.clear();
+		fields.addAll(fieldsToAdd);
+	}
+
+	public void deleteItem(final int index) {
+		fields.remove(index);
+	}
+
+	public void addField(final FieldWithType field) {
+		fields.add(field);
+	}
+
+	public void initFacade(final boolean withInterface) {
+		super.setName(FACADE.getName());
+		this.withInterface = withInterface;
+	}
+
 	private void createInterFace() {
 		template = new FacadeInterface(super.getBasicTemplate()
 				.getPackageName(), super.getBasicTemplate().getClassName());
@@ -97,18 +109,4 @@ public class FacadeModel extends DesignPatternModel {
 				fields);
 
 	}
-
-	public void addAllFields(final List<FieldWithType> fieldsToAdd) {
-		fields.clear();
-		fields.addAll(fieldsToAdd);
-	}
-
-	public void deleteItem(final int index) {
-		fields.remove(index);
-	}
-
-	public void addField(final FieldWithType field) {
-		fields.add(field);
-	}
-
 }

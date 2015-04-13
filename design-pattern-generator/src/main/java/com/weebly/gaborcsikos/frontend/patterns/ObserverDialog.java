@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Dialog for Observer
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ObserverDialog extends ClassGenerateDialog {
 
@@ -29,13 +31,7 @@ public class ObserverDialog extends ClassGenerateDialog {
 		super.setClassName("Subject");
 	}
 
-	public String getObserverName() {
-		return observerName.getText();
-	}
 
-	public boolean isArrayList() {
-		return isArrayList.isSelected();
-	}
 
 	/**
 	 * 
@@ -50,6 +46,13 @@ public class ObserverDialog extends ClassGenerateDialog {
 		initObserverView();
 	}
 
+	public String getObserverName() {
+		return observerName.getText();
+	}
+
+	public boolean isArrayList() {
+		return isArrayList.isSelected();
+	}
 	private void initObserverView() {
 		observerPanel = new JPanel();
 		FlowLayout flowLayout = new FlowLayout();

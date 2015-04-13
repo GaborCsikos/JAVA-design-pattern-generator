@@ -19,8 +19,10 @@ import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.utility.FieldMakerUtility;
 
 /**
+ * Template for Builder
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class BuilderTemplate extends BasicTemplate {
 	
@@ -36,19 +38,6 @@ public class BuilderTemplate extends BasicTemplate {
 
 	protected String getFields() {
 		return FieldMakerUtility.getFormattedFields(fields);
-	}
-
-	public void addField(final String type, final String name) {
-		FieldWithType field = new FieldWithType(type, name);
-		fields.add(field);
-	}
-
-	public void addFields(final List<FieldWithType> fieldsToAdd) {
-		fields.addAll(fieldsToAdd);
-	}
-
-	public boolean fieldsEmpty() {
-		return fields.isEmpty();
 	}
 
 	@Override
@@ -67,6 +56,18 @@ public class BuilderTemplate extends BasicTemplate {
 		return sb.toString();
 	}
 
+	public void addField(final String type, final String name) {
+		FieldWithType field = new FieldWithType(type, name);
+		fields.add(field);
+	}
+
+	public void addFields(final List<FieldWithType> fieldsToAdd) {
+		fields.addAll(fieldsToAdd);
+	}
+
+	public boolean fieldsEmpty() {
+		return fields.isEmpty();
+	}
 	private String getBuilderMethods() {
 		StringBuilder sb = new StringBuilder();
 		for (FieldWithType field : fields) {

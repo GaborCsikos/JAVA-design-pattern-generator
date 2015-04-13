@@ -12,8 +12,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.CompositeDialog;
 
 /**
+ * Controller for composite
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class CompositeController extends GeneralController {
 	private final CompositeModel model;
@@ -39,10 +41,6 @@ public class CompositeController extends GeneralController {
 		addActionListeners();
 		initFields();
 		model.setName(COMPOSITE.getName());
-	}
-
-	private void addActionListeners() {
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 
 	class GeneratePatternListener implements ActionListener {
@@ -73,5 +71,9 @@ public class CompositeController extends GeneralController {
 			}
 			return false;
 		}
+	}
+
+	private void addActionListeners() {
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 }

@@ -11,8 +11,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 
 /**
+ * Template for Visitor
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class VisitorTemplate extends BasicTemplate {
 
@@ -26,7 +28,6 @@ public class VisitorTemplate extends BasicTemplate {
 		this.classNameToVisit = classNameToVisit;
 	}
 
-	// TODO add unit tests
 	@Override
 	public String buildClass() throws CanNotCreateClassException {
 		StringBuilder sb = new StringBuilder();

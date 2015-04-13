@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Dialog for Iterator
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class IteratorDialog extends ClassGenerateDialog {
 	
@@ -30,15 +32,6 @@ public class IteratorDialog extends ClassGenerateDialog {
 	public IteratorDialog(final JFrame frame) {
 		super(frame);
 	}
-
-	public boolean isRemoveSupported() {
-		return removeSupported.isSelected();
-	}
-
-	public String getClassToIterate() {
-		return classToIterate.getText();
-	}
-
 	/**
 	 * 
 	 */
@@ -50,6 +43,14 @@ public class IteratorDialog extends ClassGenerateDialog {
 	@Override
 	protected void initDefaultGeneratableOptions() {
 		initIterator();
+	}
+
+	public boolean isRemoveSupported() {
+		return removeSupported.isSelected();
+	}
+
+	public String getClassToIterate() {
+		return classToIterate.getText();
 	}
 
 	private void initIterator() {

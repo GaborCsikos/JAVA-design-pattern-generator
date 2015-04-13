@@ -4,8 +4,10 @@
 package com.weebly.gaborcsikos.backend.api;
 
 /**
+ * Type of classes and names
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public enum ClassType {
 	CLASS("class"), ENUM("enum"), INTERFACE("interface"), ABSTRACT_CLASS(

@@ -13,8 +13,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.ObserverDialog;
 
 /**
+ * Constroller for Observer
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ObserverController extends GeneralController {
 
@@ -49,11 +51,6 @@ public class ObserverController extends GeneralController {
 		model.setName(PatternEnum.OBSERVER.getName());
 	}
 
-	private void addActionListeners() {
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
-
-	}
-
 	class GeneratePatternListener implements ActionListener {
 
 		@Override
@@ -82,5 +79,10 @@ public class ObserverController extends GeneralController {
 			}
 			return false;
 		}
+	}
+
+	private void addActionListeners() {
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
+
 	}
 }

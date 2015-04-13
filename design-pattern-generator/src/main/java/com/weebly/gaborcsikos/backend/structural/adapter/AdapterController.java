@@ -12,9 +12,12 @@ import com.weebly.gaborcsikos.backend.api.PatternEnum;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.AdapterDialog;
+
 /**
+ * Controller of adapter pattern
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class AdapterController extends GeneralController {
 
@@ -49,10 +52,6 @@ public class AdapterController extends GeneralController {
 		model.setName(PatternEnum.ADAPTER.getName());
 	}
 
-	private void addActionListeners() {
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
-	}
-
 	class GeneratePatternListener implements ActionListener {
 
 		@Override
@@ -82,5 +81,9 @@ public class AdapterController extends GeneralController {
 			}
 			return false;
 		}
+	}
+
+	private void addActionListeners() {
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 }

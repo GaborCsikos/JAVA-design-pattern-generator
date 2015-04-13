@@ -11,8 +11,10 @@ import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 
 /**
+ * implementation of Facade template
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class FacadeWithInterface extends FacadeTemplate {
 

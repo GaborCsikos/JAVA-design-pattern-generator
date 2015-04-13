@@ -8,8 +8,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
+ * Model for Iterator
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class IteratorModel extends DesignPatternModel {
 
@@ -17,6 +19,9 @@ public class IteratorModel extends DesignPatternModel {
 	private boolean removeSupported;
 	private String classToIterate;
 
+	/**
+	 * Default constructor
+	 */
 	public IteratorModel() {
 
 	}

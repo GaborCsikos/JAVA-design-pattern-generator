@@ -13,7 +13,7 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.PrototypeDialog;
 
 /**
- * Contorller for prototype
+ * Controller for prototype
  * 
  * @author Gabor Csikos
  * 

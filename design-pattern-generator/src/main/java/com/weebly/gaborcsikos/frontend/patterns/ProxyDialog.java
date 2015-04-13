@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Dialog for Proxy
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ProxyDialog extends ClassGenerateDialog {
 	private JLabel extendendClassLabel;
@@ -27,17 +29,6 @@ public class ProxyDialog extends ClassGenerateDialog {
 
 	private JPanel proxyPanel;
 
-	public String getExtendendClass() {
-		return extendendClass.getText();
-	}
-
-	public String getExtendendInstance() {
-		return extendendInstance.getText();
-	}
-
-	public String getOverridenMethod() {
-		return overridenMethod.getText();
-	}
 	public ProxyDialog(final JFrame frame) {
 		super(frame);
 	}
@@ -55,6 +46,17 @@ public class ProxyDialog extends ClassGenerateDialog {
 		initProxy();
 	}
 
+	public String getExtendendClass() {
+		return extendendClass.getText();
+	}
+
+	public String getExtendendInstance() {
+		return extendendInstance.getText();
+	}
+
+	public String getOverridenMethod() {
+		return overridenMethod.getText();
+	}
 	private void initProxy() {
 		proxyPanel = new JPanel();
 		proxyPanel.setLayout(new BoxLayout(proxyPanel, BoxLayout.Y_AXIS));

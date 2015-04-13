@@ -68,7 +68,6 @@ import com.weebly.gaborcsikos.frontend.patterns.VisitorDialog;
  * 
  */
 public class DesignPatternOpener {
-	// TODO Add selection by type
 	public void open(final String patternStr, final JFrame frame) {
 		if (SINGLETON.getName().equals(patternStr)) {
 			SingletonDialog dialog = new SingletonDialog(frame);

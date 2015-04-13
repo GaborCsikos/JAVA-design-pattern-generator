@@ -17,15 +17,17 @@ import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 import com.weebly.gaborcsikos.backend.utility.FieldMakerUtility;
 
 /**
+ * Implementation of factory template
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class FactoryTemplateImpl extends FactoryTemplate {
 
 	private List<FieldWithType> fields = new ArrayList<FieldWithType>();
 	
-	public FactoryTemplateImpl(final String packageName, final String className,
- final String getMehtodType,
+	public FactoryTemplateImpl(final String packageName,
+			final String className, final String getMehtodType,
 			final String classToReturn, final List<FieldWithType> fields) {
 		super(packageName, className, getMehtodType, classToReturn);
 		this.fields = fields;

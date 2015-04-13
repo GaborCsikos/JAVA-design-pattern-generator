@@ -21,8 +21,10 @@ import javax.swing.JTextField;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 
 /**
+ * Dialog for Builder
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class BuilderDialog extends ClassGenerateDialog {
 
@@ -48,59 +50,6 @@ public class BuilderDialog extends ClassGenerateDialog {
 	protected void initDefaultGeneratableOptions() {
 		initBuilder();
 	}
-
-	private void initBuilder() {
-		builderPanel = new JPanel();
-		builderPanel.setLayout(new BoxLayout(builderPanel, BoxLayout.Y_AXIS));
-		initBuilderField();
-		initFields();
-		builderPanel.setVisible(true);
-		super.panel.add(builderPanel, BorderLayout.CENTER);
-		super.add(panel);
-
-	}
-
-	private void initBuilderField() {
-		FlowLayout flowLayout = new FlowLayout();
-		flowLayout.setAlignment(FlowLayout.LEADING);
-		flowLayout.setAlignOnBaseline(true);
-		JPanel facadeInfoPanel = new JPanel(flowLayout);
-		addBuildMethod = new JCheckBox("Add a build method");
-		addBuildMethod.setSelected(false);
-		facadeInfoPanel.add(addBuildMethod);
-		builderPanel.add(facadeInfoPanel);
-
-	}
-
-	private void initFields() {
-		FlowLayout flowLayout = new FlowLayout();
-		flowLayout.setAlignment(FlowLayout.LEADING);
-		flowLayout.setAlignOnBaseline(true);
-		JPanel fieldPanel = new JPanel(flowLayout);
-
-		fieldLabel = new JLabel("Fields:");
-		fieldPanel.add(fieldLabel);
-		fields = new JComboBox<String>();
-		fieldPanel.add(fields);
-		deleteButton = new JButton("Delete");
-		fieldPanel.add(deleteButton);
-
-		// ADD
-		typeLabel = new JLabel("Type:");
-		fieldPanel.add(typeLabel);
-		typeField = new JTextField("String", 10);
-		fieldPanel.add(typeField);
-		nameLabel = new JLabel("Name:");
-		fieldPanel.add(nameLabel);
-		nameField = new JTextField("exampleField", 10);
-		fieldPanel.add(nameField);
-		addNewButton = new JButton("Add");
-		fieldPanel.add(addNewButton);
-
-		builderPanel.add(fieldPanel);
-
-	}
-
 	public BuilderDialog(final JFrame frame) {
 		super(frame);
 	}
@@ -155,4 +104,55 @@ public class BuilderDialog extends ClassGenerateDialog {
 		fields.addItem(item);
 	}
 	// end
+	private void initBuilder() {
+		builderPanel = new JPanel();
+		builderPanel.setLayout(new BoxLayout(builderPanel, BoxLayout.Y_AXIS));
+		initBuilderField();
+		initFields();
+		builderPanel.setVisible(true);
+		super.panel.add(builderPanel, BorderLayout.CENTER);
+		super.add(panel);
+
+	}
+
+	private void initBuilderField() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel facadeInfoPanel = new JPanel(flowLayout);
+		addBuildMethod = new JCheckBox("Add a build method");
+		addBuildMethod.setSelected(false);
+		facadeInfoPanel.add(addBuildMethod);
+		builderPanel.add(facadeInfoPanel);
+	}
+
+	private void initFields() {
+		FlowLayout flowLayout = new FlowLayout();
+		flowLayout.setAlignment(FlowLayout.LEADING);
+		flowLayout.setAlignOnBaseline(true);
+		JPanel fieldPanel = new JPanel(flowLayout);
+
+		fieldLabel = new JLabel("Fields:");
+		fieldPanel.add(fieldLabel);
+		fields = new JComboBox<String>();
+		fieldPanel.add(fields);
+		deleteButton = new JButton("Delete");
+		fieldPanel.add(deleteButton);
+
+		// ADD
+		typeLabel = new JLabel("Type:");
+		fieldPanel.add(typeLabel);
+		typeField = new JTextField("String", 10);
+		fieldPanel.add(typeField);
+		nameLabel = new JLabel("Name:");
+		fieldPanel.add(nameLabel);
+		nameField = new JTextField("exampleField", 10);
+		fieldPanel.add(nameField);
+		addNewButton = new JButton("Add");
+		fieldPanel.add(addNewButton);
+
+		builderPanel.add(fieldPanel);
+
+	}
+
 }

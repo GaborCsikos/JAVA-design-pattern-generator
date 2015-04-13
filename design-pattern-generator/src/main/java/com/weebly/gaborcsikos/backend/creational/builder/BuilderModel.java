@@ -13,21 +13,14 @@ import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 
 /**
+ * model for Builder
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class BuilderModel extends DesignPatternModel {
 
 	private boolean containsBuildMethod = false;
-
-	public boolean isContainsBuildMethod() {
-		return containsBuildMethod;
-	}
-
-	public void setContainsBuildMethod(final boolean containsBuildMethod) {
-		this.containsBuildMethod = containsBuildMethod;
-	}
-
 	private final List<FieldWithType> fields = new ArrayList<FieldWithType>();
 	private BuilderTemplate template;
 
@@ -77,5 +70,13 @@ public class BuilderModel extends DesignPatternModel {
 
 	public void addField(final FieldWithType field) {
 		fields.add(field);
+	}
+
+	public boolean isContainsBuildMethod() {
+		return containsBuildMethod;
+	}
+
+	public void setContainsBuildMethod(final boolean containsBuildMethod) {
+		this.containsBuildMethod = containsBuildMethod;
 	}
 }

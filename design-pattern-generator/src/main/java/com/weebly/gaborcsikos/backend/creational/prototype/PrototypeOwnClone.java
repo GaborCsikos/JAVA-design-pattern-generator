@@ -16,8 +16,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
 /**
+ * Prototype implementation
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class PrototypeOwnClone extends PrototypeTemplate {
 

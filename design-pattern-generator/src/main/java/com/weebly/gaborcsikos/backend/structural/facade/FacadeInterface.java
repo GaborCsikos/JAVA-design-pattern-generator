@@ -8,8 +8,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
 /**
+ * Facade implementation template
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class FacadeInterface extends FacadeTemplate {
 

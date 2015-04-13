@@ -10,8 +10,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
+ * Model for Observer
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ObserverModel extends DesignPatternModel {
 	private String observerName;
@@ -33,11 +35,6 @@ public class ObserverModel extends DesignPatternModel {
 		this.observerName = observerName;
 	}
 
-	public void initObserver(final boolean arrayList, final String observerName) {
-		super.setName(OBSERVER.getName());
-		this.arrayList = arrayList;
-		this.observerName = observerName;
-	}
 	/* (non-Javadoc)
 	 * @see com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel#getGeneratedPattern()
 	 */
@@ -57,18 +54,11 @@ public class ObserverModel extends DesignPatternModel {
 		return result.toString();
 	}
 
-	private void createSubject() {
-		template =new SubjectTemplate(super.getBasicTemplate()
-				.getPackageName(), super.getBasicTemplate().getClassName(),
-				observerName, arrayList);
+	public void initObserver(final boolean arrayList, final String observerName) {
+		super.setName(OBSERVER.getName());
+		this.arrayList = arrayList;
+		this.observerName = observerName;
 	}
-
-	private void createObserver() {
-		template = new ObserverInterfaceTemplate(super.getBasicTemplate()
-				.getPackageName(), observerName);
-
-	}
-
 	public String getObserverName() {
 		return observerName;
 	}
@@ -82,4 +72,15 @@ public class ObserverModel extends DesignPatternModel {
 		this.arrayList = arrayList;
 	}
 
+	private void createSubject() {
+		template = new SubjectTemplate(super.getBasicTemplate()
+				.getPackageName(), super.getBasicTemplate().getClassName(),
+				observerName, arrayList);
+	}
+
+	private void createObserver() {
+		template = new ObserverInterfaceTemplate(super.getBasicTemplate()
+				.getPackageName(), observerName);
+
+	}
 }

@@ -13,8 +13,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.IteratorDialog;
 
 /**
+ * Controller for Iterator
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class IteratorController extends GeneralController {
 	private final IteratorModel model;
@@ -46,10 +48,6 @@ public class IteratorController extends GeneralController {
 		setData();
 	}
 
-	private void addActionListeners() {
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
-	}
-
 	class GeneratePatternListener implements ActionListener {
 
 		@Override
@@ -77,4 +75,7 @@ public class IteratorController extends GeneralController {
 		}
 	}
 
+	private void addActionListeners() {
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
+	}
 }

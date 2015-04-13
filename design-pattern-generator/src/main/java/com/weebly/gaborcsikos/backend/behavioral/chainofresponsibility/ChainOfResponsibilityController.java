@@ -13,8 +13,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.ChainOfResponsibilityDialog;
 
 /**
+ * Controller for COR pattern
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ChainOfResponsibilityController extends GeneralController {
 
@@ -40,10 +42,6 @@ public class ChainOfResponsibilityController extends GeneralController {
 		addActionListeners();
 		initFields();
 		model.setName(CHAIN_OF_RESPONSIBILITY.getName());
-	}
-
-	private void addActionListeners() {
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 
 	class GeneratePatternListener implements ActionListener {
@@ -72,4 +70,9 @@ public class ChainOfResponsibilityController extends GeneralController {
 			return false;
 		}
 	}
+
+	private void addActionListeners() {
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
+	}
+
 }

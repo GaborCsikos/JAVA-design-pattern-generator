@@ -6,8 +6,10 @@ package com.weebly.gaborcsikos.backend.behavioral.observer;
 import com.weebly.gaborcsikos.backend.designpattern.BasicTemplate;
 
 /**
+ * Template for Observer
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public abstract class ObserverTemplate extends BasicTemplate {
 

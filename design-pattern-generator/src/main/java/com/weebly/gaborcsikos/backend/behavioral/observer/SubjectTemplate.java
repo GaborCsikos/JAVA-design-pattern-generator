@@ -9,6 +9,12 @@ import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.TRIPLE_
 import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
+/**
+ * Template for subject
+ * 
+ * @author Gabor Csikos
+ * 
+ */
 public class SubjectTemplate extends ObserverTemplate {
 
 	private String observerName;
@@ -18,22 +24,6 @@ public class SubjectTemplate extends ObserverTemplate {
 			final String observerName, final boolean arrayList) {
 		super(packageName, className);
 		this.observerName = observerName;
-		this.arrayList = arrayList;
-	}
-
-	public String getObserverName() {
-		return observerName;
-	}
-
-	public void setObserverName(final String observerName) {
-		this.observerName = observerName;
-	}
-
-	public boolean isArrayList() {
-		return arrayList;
-	}
-
-	public void setArrayList(final boolean arrayList) {
 		this.arrayList = arrayList;
 	}
 
@@ -49,7 +39,21 @@ public class SubjectTemplate extends ObserverTemplate {
 		sb.append(super.getEndStructure());
 		return sb.toString();
 	}
+	public String getObserverName() {
+		return observerName;
+	}
 
+	public void setObserverName(final String observerName) {
+		this.observerName = observerName;
+	}
+
+	public boolean isArrayList() {
+		return arrayList;
+	}
+
+	public void setArrayList(final boolean arrayList) {
+		this.arrayList = arrayList;
+	}
 	private String getListField() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(INDENT).append("List<").append(observerName)

@@ -65,6 +65,8 @@ public abstract class ClassGenerateDialog extends JDialog {
 		this.setVisible(true);
 	}
 
+	protected abstract void initDefaultGeneratableOptions();
+
 	public void addGeneratePatternListener(final ActionListener listener) {
 		generateButton.addActionListener(listener);
 	}
@@ -90,7 +92,6 @@ public abstract class ClassGenerateDialog extends JDialog {
 		JOptionPane.showMessageDialog(this, string);
 	}
 
-	protected abstract void initDefaultGeneratableOptions();
 
 	private void createJFileChooser() {
 		fileChooser = new JFileChooser();

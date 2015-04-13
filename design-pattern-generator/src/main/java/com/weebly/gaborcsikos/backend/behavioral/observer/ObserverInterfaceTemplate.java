@@ -8,6 +8,7 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
 /**
+ * Observer interface template
  * 
  * @author Gabor Csikos
  * 

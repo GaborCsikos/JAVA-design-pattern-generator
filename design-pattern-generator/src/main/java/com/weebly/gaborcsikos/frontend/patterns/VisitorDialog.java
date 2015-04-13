@@ -12,8 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Dialog for Visitor
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class VisitorDialog extends ClassGenerateDialog {
 	private JLabel classTypeToVisitLabel;
@@ -26,13 +28,6 @@ public class VisitorDialog extends ClassGenerateDialog {
 		super(frame);
 	}
 
-	public String getClassTypeToVisit() {
-		return classTypeToVisit.getText();
-	}
-
-	public String getClassNameToVisit() {
-		return classNameToVisit.getText();
-	}
 	/**
 	 * 
 	 */
@@ -46,6 +41,13 @@ public class VisitorDialog extends ClassGenerateDialog {
 		initVisitor();
 	}
 
+	public String getClassTypeToVisit() {
+		return classTypeToVisit.getText();
+	}
+
+	public String getClassNameToVisit() {
+		return classNameToVisit.getText();
+	}
 	private void initVisitor() {
 		visitorPanel = new JPanel();
 		FlowLayout flowLayout = new FlowLayout();

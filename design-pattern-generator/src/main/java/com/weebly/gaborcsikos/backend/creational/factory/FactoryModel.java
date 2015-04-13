@@ -12,8 +12,10 @@ import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 
 /**
+ * Model for Factory
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class FactoryModel extends DesignPatternModel {
 	private String objectType;
@@ -37,6 +39,29 @@ public class FactoryModel extends DesignPatternModel {
 		this.objectType = objectType;
 		this.objectToReturn = objectToReturn;
 		this.simpleFactoryUsed = simpleFactoryUsed;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel#
+	 * getGeneratedPattern()
+	 */
+	@Override
+	public String getGeneratedPattern() throws CanNotCreateClassException,
+			FieldVariableIsEmptyException {
+		StringBuilder result = new StringBuilder();
+
+		if (simpleFactoryUsed) {
+			createSimpleFactory();
+		} else {
+			if (fields.isEmpty()) {
+				throw new FieldVariableIsEmptyException();
+			}
+			createFactory();
+		}
+		result.append(template.buildClass());
+		return result.toString();
 	}
 
 	public String getObjectType() {
@@ -70,37 +95,6 @@ public class FactoryModel extends DesignPatternModel {
 	public void setFields(final List<FieldWithType> fields) {
 		this.fields = fields;
 	}
-	/* (non-Javadoc)
-	 * @see com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel#getGeneratedPattern()
-	 */
-	@Override
-	public String getGeneratedPattern() throws CanNotCreateClassException,
-			FieldVariableIsEmptyException {
-		StringBuilder result = new StringBuilder();
-
-		if (simpleFactoryUsed) {
-			createSimpleFactory();
-		} else {
-			if (fields.isEmpty()) {
-				throw new FieldVariableIsEmptyException();
-			}
-			createFactory();
-		}
-		result.append(template.buildClass());
-		return result.toString();
-	}
-
-	private void createFactory() {
-		template = new FactoryTemplateImpl(super.getBasicTemplate()
-				.getPackageName(), super.getBasicTemplate().getClassName(),
-				objectType, objectToReturn, fields);
-	}
-
-	private void createSimpleFactory() {
-		template = new SimpleFactoryTemplate(super.getBasicTemplate()
-				.getPackageName(), super.getBasicTemplate().getClassName(),
-				objectType, objectToReturn);
-	}
 
 	public void addAllFields(final List<FieldWithType> fieldsToAdd) {
 		fields.clear();
@@ -113,5 +107,17 @@ public class FactoryModel extends DesignPatternModel {
 
 	public void addField(final FieldWithType field) {
 		fields.add(field);
+	}
+
+	private void createFactory() {
+		template = new FactoryTemplateImpl(super.getBasicTemplate()
+				.getPackageName(), super.getBasicTemplate().getClassName(),
+				objectType, objectToReturn, fields);
+	}
+
+	private void createSimpleFactory() {
+		template = new SimpleFactoryTemplate(super.getBasicTemplate()
+				.getPackageName(), super.getBasicTemplate().getClassName(),
+				objectType, objectToReturn);
 	}
 }

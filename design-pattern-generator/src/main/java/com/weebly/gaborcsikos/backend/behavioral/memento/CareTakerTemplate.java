@@ -8,6 +8,7 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.utility.GeneralUtility;
 
 /**
+ * Template for Caretaker in Memento
  * 
  * @author Gabor Csikos
  * 

@@ -13,8 +13,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.ProxyDialog;
 
 /**
+ * Controller for Proxy
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ProxyController extends GeneralController {
 	private final ProxyModel model;

@@ -13,8 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Dialog for Composite
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class CompositeDialog extends ClassGenerateDialog {
 
@@ -34,21 +36,6 @@ public class CompositeDialog extends ClassGenerateDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public String getInterfaceName() {
-		return interfaceName.getText();
-	}
-
-	public String getInterfaceMethodName() {
-		return interfaceMethodName.getText();
-	}
-
-	public String getOverrridenMethod() {
-		return overrridenMethod.getText();
-	}
-
-	public String getListName() {
-		return listName.getText();
-	}
 	public CompositeDialog(final JFrame frame) {
 		super(frame);
 	}
@@ -73,6 +60,21 @@ public class CompositeDialog extends ClassGenerateDialog {
 
 	}
 
+	public String getInterfaceName() {
+		return interfaceName.getText();
+	}
+
+	public String getInterfaceMethodName() {
+		return interfaceMethodName.getText();
+	}
+
+	public String getOverrridenMethod() {
+		return overrridenMethod.getText();
+	}
+
+	public String getListName() {
+		return listName.getText();
+	}
 	private void initListAndMethod() {
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setAlignment(FlowLayout.LEADING);

@@ -12,8 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
+ * Dialog for Memento
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class MementoDialog extends ClassGenerateDialog {
 
@@ -30,13 +32,6 @@ public class MementoDialog extends ClassGenerateDialog {
 		super.setClassName("Memento");
 	}
 
-	public String getStateName() {
-		return stateName.getText();
-	}
-
-	public String getStateType() {
-		return stateType.getText();
-	}
 	/**
 	 * 
 	 */
@@ -62,6 +57,13 @@ public class MementoDialog extends ClassGenerateDialog {
 		super.add(panel);
 	}
 
+	public String getStateName() {
+		return stateName.getText();
+	}
+
+	public String getStateType() {
+		return stateType.getText();
+	}
 	private void initTypeAndName() {
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setAlignment(FlowLayout.LEADING);

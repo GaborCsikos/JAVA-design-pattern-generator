@@ -16,8 +16,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.MementoDialog;
 
 /**
+ * Controller for Memento
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class MementoController extends GeneralController {
 
@@ -49,10 +51,6 @@ public class MementoController extends GeneralController {
 		initFields();
 		model.setState(PRINT_MEMENTO);
 		model.setName(MEMENTO.getName());
-	}
-
-	private void addActionListeners() {
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 
 	class GeneratePatternListener implements ActionListener {
@@ -88,4 +86,9 @@ public class MementoController extends GeneralController {
 			return false;
 		}
 	}
+
+	private void addActionListeners() {
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
+	}
+
 }

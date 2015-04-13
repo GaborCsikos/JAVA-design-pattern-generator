@@ -21,8 +21,10 @@ import javax.swing.JTextField;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 
 /**
+ * Dialog for factory
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class FactoryDialog extends ClassGenerateDialog {
 
@@ -48,7 +50,6 @@ public class FactoryDialog extends ClassGenerateDialog {
 		super(frame);
 	}
 
-	// TODO More testing is needed
 	// TODO fields should't be editable at simple method
 	/**
 	 * 
@@ -90,6 +91,47 @@ public class FactoryDialog extends ClassGenerateDialog {
 	public void addAddFieldListener(final ActionListener l) {
 		addNewButton.addActionListener(l);
 	}
+
+	// Field
+	public void addElement(final String element) {
+		fields.addItem(element);
+	}
+
+	public void deleteElement(final int index) {
+		fields.removeItemAt(index);
+	}
+
+	public List<FieldWithType> getAllElements() {
+		List<FieldWithType> result = new ArrayList<FieldWithType>();
+		for (int i = 0; i < fields.getModel().getSize(); i++) {
+			String toCut = fields.getModel().getElementAt(i);
+			String[] strArray = toCut.split("-->");
+			if (strArray.length == 2) {
+				FieldWithType field = new FieldWithType(strArray[0],
+						strArray[1]);
+				result.add(field);
+			}
+		}
+		return result;
+	}
+
+	public int getSelectedIndex() {
+		return fields.getSelectedIndex();
+	}
+
+	public String getFieldType() {
+		return typeField.getText();
+	}
+
+	public String getFieldName() {
+		return nameField.getText();
+	}
+
+	public void addFieldToList(final String item) {
+		fields.addItem(item);
+	}
+
+	// end
 	private void initFactory() {
 		factorypanel = new JPanel();
 		factorypanel.setLayout(new BoxLayout(factorypanel, BoxLayout.Y_AXIS));
@@ -157,46 +199,6 @@ public class FactoryDialog extends ClassGenerateDialog {
 		fieldPanel.add(addNewButton);
 
 		factorypanel.add(fieldPanel);
-
 	}
 
-	// Field
-	public void addElement(final String element) {
-		fields.addItem(element);
-	}
-
-	public void deleteElement(final int index) {
-		fields.removeItemAt(index);
-	}
-
-	public List<FieldWithType> getAllElements() {
-		List<FieldWithType> result = new ArrayList<FieldWithType>();
-		for (int i = 0; i < fields.getModel().getSize(); i++) {
-			String toCut = fields.getModel().getElementAt(i);
-			String[] strArray = toCut.split("-->");
-			if (strArray.length == 2) {
-				FieldWithType field = new FieldWithType(strArray[0],
-						strArray[1]);
-				result.add(field);
-			}
-		}
-		return result;
-	}
-
-	public int getSelectedIndex() {
-		return fields.getSelectedIndex();
-	}
-
-	public String getFieldType() {
-		return typeField.getText();
-	}
-
-	public String getFieldName() {
-		return nameField.getText();
-	}
-
-	public void addFieldToList(final String item) {
-		fields.addItem(item);
-	}
-	// end
 }

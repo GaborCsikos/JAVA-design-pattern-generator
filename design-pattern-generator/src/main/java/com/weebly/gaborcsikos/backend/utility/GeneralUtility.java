@@ -8,6 +8,7 @@ import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.INDENT;
 import static com.weebly.gaborcsikos.backend.utility.IndentHelperUtility.NEW_LINE;
 
 /**
+ * General utility
  * 
  * @author Gabor Csikos
  * 

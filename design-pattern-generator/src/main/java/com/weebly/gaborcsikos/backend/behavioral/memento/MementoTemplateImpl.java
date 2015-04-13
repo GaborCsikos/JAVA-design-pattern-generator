@@ -12,8 +12,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 
 /**
+ * Memento template implementation
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class MementoTemplateImpl extends MementoTemplate {
 
@@ -57,6 +59,4 @@ public class MementoTemplateImpl extends MementoTemplate {
 		sb.append(INDENT).append("}").append(NEW_LINE);
 		return sb.toString();
 	}
-
-	// TODO add unit tests
 }

@@ -4,8 +4,10 @@
 package com.weebly.gaborcsikos.backend.api;
 
 /**
+ * Enum for pattern types
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public enum PatternTypeEnum {
 

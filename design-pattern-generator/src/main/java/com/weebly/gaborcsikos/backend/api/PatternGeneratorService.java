@@ -31,10 +31,29 @@ public interface PatternGeneratorService {
 	String generateClass(BasicTemplate template)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException;
 
+	/**
+	 * 
+	 * @param pattern
+	 *            to generate
+	 * @return generated pattern as String
+	 * @throws CanNotCreateClassException
+	 *             if class name or package name is Empty or null
+	 * @throws FieldVariableIsEmptyException
+	 */
 	String generatePattern(DesignPatternModel pattern)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException;
 
-
+	/**
+	 * 
+	 * @param file
+	 *            to create
+	 * @param pattern
+	 *            to generate
+	 * @throws CanNotCreateClassException
+	 * @throws FieldVariableIsEmptyException
+	 *             if class name or package name is Empty or null
+	 * @throws IOException
+	 */
 	void generatePatternToFile(File file, DesignPatternModel pattern)
 			throws CanNotCreateClassException, FieldVariableIsEmptyException,
 			IOException;

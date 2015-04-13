@@ -8,8 +8,10 @@ import java.util.List;
 import com.weebly.gaborcsikos.backend.designpattern.FieldWithType;
 
 /**
+ * Field maker utility
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public final class FieldMakerUtility {
 

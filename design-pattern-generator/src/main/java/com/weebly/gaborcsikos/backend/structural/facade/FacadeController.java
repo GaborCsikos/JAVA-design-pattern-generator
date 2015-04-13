@@ -12,8 +12,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.FacadeDialog;
 
 /**
+ * Controller for Facade
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class FacadeController extends GeneralController {
 

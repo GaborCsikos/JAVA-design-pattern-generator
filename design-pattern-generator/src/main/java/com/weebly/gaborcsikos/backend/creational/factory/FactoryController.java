@@ -14,8 +14,10 @@ import com.weebly.gaborcsikos.backend.designpattern.GeneralController;
 import com.weebly.gaborcsikos.frontend.patterns.FactoryDialog;
 
 /**
+ * Controller for Factory
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class FactoryController extends GeneralController {
 
@@ -50,13 +52,6 @@ public class FactoryController extends GeneralController {
 		initFields();
 		model.setName(PatternEnum.FACTORY.getName());
 
-	}
-
-	private void addActionListeners() {
-		dialog.addDeleteButtonListener(new DeleteFieldListener());
-		dialog.addAddFieldListener(new AddNewFieldListener());
-		dialog.addSimpleFactoryActionListerner(new IsSimpleFactorySelected());
-		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 
 	class IsSimpleFactorySelected implements ActionListener {
@@ -127,5 +122,12 @@ public class FactoryController extends GeneralController {
 				dialog.deleteElement(index);
 			}
 		}
+	}
+
+	private void addActionListeners() {
+		dialog.addDeleteButtonListener(new DeleteFieldListener());
+		dialog.addAddFieldListener(new AddNewFieldListener());
+		dialog.addSimpleFactoryActionListerner(new IsSimpleFactorySelected());
+		dialog.addGeneratePatternListener(new GeneratePatternListener());
 	}
 }

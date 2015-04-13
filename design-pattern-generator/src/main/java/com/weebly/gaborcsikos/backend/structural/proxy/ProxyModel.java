@@ -8,8 +8,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
 import com.weebly.gaborcsikos.backend.designpattern.DesignPatternModel;
 
 /**
+ * model for Proxy
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class ProxyModel extends DesignPatternModel {
 

@@ -11,8 +11,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
 import com.weebly.gaborcsikos.backend.utility.IndentHelperUtility;
 
 /**
+ * Singleton implementation
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class EnumSingleton extends SingletonTemplate {
 

@@ -11,11 +11,12 @@ import com.weebly.gaborcsikos.backend.api.exceptions.CanNotCreateClassException;
 import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyException;
 
 /**
+ * Simple factory template
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class SimpleFactoryTemplate extends FactoryTemplate {
-
 
 	public SimpleFactoryTemplate(final String packageName,
 			final String className, final String getMehtodType,
@@ -39,7 +40,7 @@ public class SimpleFactoryTemplate extends FactoryTemplate {
 		sb.append("() {").append(NEW_LINE);
 		sb.append(DOUBLE_INDENT).append("return new ").append(objectToReturn)
 				.append("();").append(NEW_LINE);
-		sb.append(INDENT).append("}").append(NEW_LINE); // TODO make utility
+		sb.append(INDENT).append("}").append(NEW_LINE);
 		return sb.toString();
 	}
 }

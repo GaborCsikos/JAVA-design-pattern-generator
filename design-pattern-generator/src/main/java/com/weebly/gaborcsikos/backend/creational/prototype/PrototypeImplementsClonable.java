@@ -13,8 +13,10 @@ import com.weebly.gaborcsikos.backend.api.exceptions.FieldVariableIsEmptyExcepti
 import com.weebly.gaborcsikos.backend.utility.GeneralUtility;
 
 /**
+ * Prototype implementation
+ * 
  * @author Gabor Csikos
- *
+ * 
  */
 public class PrototypeImplementsClonable extends PrototypeTemplate {
 
