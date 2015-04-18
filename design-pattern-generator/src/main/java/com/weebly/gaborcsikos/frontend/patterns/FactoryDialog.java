@@ -50,7 +50,6 @@ public class FactoryDialog extends ClassGenerateDialog {
 		super(frame);
 	}
 
-	// TODO fields should't be editable at simple method
 	/**
 	 * 
 	 */

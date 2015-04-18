@@ -36,8 +36,7 @@ public abstract class ClassGenerateDialog extends JDialog {
 
 	protected static final String CHOOSE_FOLDER_INFO = "Choose output folder";
 
-	// TODO Delete
-	public static final String testPath = "/home/csikirustu/test";
+	public static final String testPath = "";
 
 	protected JPanel panel;
 	protected JButton generateButton;

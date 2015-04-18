@@ -67,7 +67,7 @@ public class VisitorDialog extends ClassGenerateDialog {
 		JPanel infoPanel = new JPanel(flowLayout);
 		classTypeToVisitLabel = new JLabel("Class to visit type:");
 		classTypeToVisit = new JTextField("Object", 10);
-		classNameToVisitLabel = new JLabel("Class to cisit Name:");
+		classNameToVisitLabel = new JLabel("Class to visit Name:");
 		classNameToVisit = new JTextField("toVisit", 10);
 		infoPanel.add(classTypeToVisitLabel);
 		infoPanel.add(classTypeToVisit);

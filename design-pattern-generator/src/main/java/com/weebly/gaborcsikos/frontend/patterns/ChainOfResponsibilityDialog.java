@@ -60,7 +60,7 @@ public class ChainOfResponsibilityDialog extends ClassGenerateDialog {
 		flowLayout.setAlignment(FlowLayout.LEADING);
 		flowLayout.setAlignOnBaseline(true);
 		JPanel infoPanel = new JPanel(flowLayout);
-		nextNameText = new JLabel("Name of next resopnsible item:");
+		nextNameText = new JLabel("Name of next responsible item:");
 		nextName = new JTextField("nextItem", 10);
 		actionNameText = new JLabel("Action method name:");
 		actionName = new JTextField("handleItem", 10);
