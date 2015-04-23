@@ -95,7 +95,7 @@ public class SingletonServiceTest {
 	private String createStaticSingleton() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(getBasicStucture());
-		sb.append(INDENT).append("private static final").append(CLASS_NAME)
+		sb.append(INDENT).append("private static final ").append(CLASS_NAME)
 				.append(" ").append(INSTANCE.toUpperCase()).append(" = new ")
 				.append(CLASS_NAME).append("();").append(DOUBLE_NEW_LINE);
 		sb.append(createConstructor(true));
