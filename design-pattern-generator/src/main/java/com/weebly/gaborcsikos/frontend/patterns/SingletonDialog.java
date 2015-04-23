@@ -48,6 +48,7 @@ public class SingletonDialog extends ClassGenerateDialog {
 
 	public SingletonDialog(final JFrame frame) {
 		super(frame);
+		super.setSize(600, 220);
 	}
 
 

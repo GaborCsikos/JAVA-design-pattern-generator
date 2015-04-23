@@ -33,7 +33,8 @@ public class SingletonStatic extends SingletonTemplate {
 		checkInstanceName();
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getBasicStucture());
-		sb.append(INDENT).append("private static final").append(getClassName())
+		sb.append(INDENT).append("private static final ")
+				.append(getClassName())
 				.append(" ").append(instanceName.toUpperCase())
 				.append(" = new ").append(getClassName()).append("();")
 				.append(DOUBLE_NEW_LINE);

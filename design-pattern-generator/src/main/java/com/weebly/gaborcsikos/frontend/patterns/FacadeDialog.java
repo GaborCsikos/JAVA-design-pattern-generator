@@ -49,6 +49,7 @@ public class FacadeDialog extends ClassGenerateDialog {
 
 	public FacadeDialog(final JFrame frame) {
 		super(frame);
+		super.setSize(800, 200);
 	}
 
 	/* (non-Javadoc)

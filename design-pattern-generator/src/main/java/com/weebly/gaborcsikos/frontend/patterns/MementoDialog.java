@@ -30,6 +30,7 @@ public class MementoDialog extends ClassGenerateDialog {
 	public MementoDialog(final JFrame frame) {
 		super(frame);
 		super.setClassName("Memento");
+		super.setSize(600, 150);
 	}
 
 	/**

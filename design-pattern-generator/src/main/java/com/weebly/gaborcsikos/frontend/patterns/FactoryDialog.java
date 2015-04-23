@@ -48,6 +48,7 @@ public class FactoryDialog extends ClassGenerateDialog {
 	private JTextField nameField;
 	public FactoryDialog(final JFrame frame) {
 		super(frame);
+		super.setSize(950, 220);
 	}
 
 	/**
