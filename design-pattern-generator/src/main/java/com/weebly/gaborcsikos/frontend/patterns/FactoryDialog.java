@@ -187,7 +187,7 @@ public class FactoryDialog extends ClassGenerateDialog {
 		fieldPanel.add(deleteButton);
 
 		// ADD
-		typeLabel = new JLabel("Object tor retturn:");
+		typeLabel = new JLabel("Object tor return:");
 		fieldPanel.add(typeLabel);
 		typeField = new JTextField("ObjectImpl", 10);
 		fieldPanel.add(typeField);
